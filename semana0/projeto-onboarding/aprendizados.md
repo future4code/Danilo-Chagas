@@ -1,0 +1,3 @@
+#Aprendizados da semana
+Essa primeira semana de curso da **Labenu** tivemos dois dias de onboarding com alinhamento diversos e como se comunicar e interagir da melhor forma. Após isso demos o primeiro passo: instalando e configurando as aplicações como VS Code, Git, Node.Js;
+Primeira aula e exercício com Terminal - onde demos uma de xeroque romes XD - e no dia subsequente aula e exercício de Git. Nessa sexta tivemos mais algumas palestras super bacanas, como o Tech Talk com ex-alunos e agora colaboradores da Labenu (muito inspirador) e a tarde uma conversa sobre empregabilidade e como vão nos guiar para conseguir nossa inserção profissional nessa área! Show!
