@@ -1,9 +1,15 @@
-/* 
+/*  Revisão 1 | Correção
 Respostas | Exercícios de interpretação de código
 
 1.  10 05
+    Correção:
+    Primeiro console: 10
+    Segundo console: 10 05
 
 2.  10 10 10
+    Correção:
+    Irá acontecer um erro, pois a variável c não foi definida/declarada (let c)
+    Se fosse declarada o resultado seria 10 10 10
 
 3.  Cacula quanto se recebe por hora, apos usuário dar os inputs em p e t
     Sugestão
@@ -47,8 +53,20 @@ Respostas | Exercícios de interpretação de código
     console.log ("Você está usando botas hoje? - ", botas)
     console.log ("Você está usando luvas hoje? - ", luvas)
     
+    //outra forma conforme gabarito
+    // const pergunta1 = "Você está usando roupas de frio hoje?";
+    // const pergunta2 = "Você está usando botas hoje?";
+    // const pergunta3 = "Você está usando luvas hoje?";
+   
+    // const resposta1 = prompt(pergunta1);
+    // const resposta2 = prompt(pergunta2);
+    // const resposta3 = prompt(pergunta3);
+    
+    // console.log(pergunta1, "-", resposta1)
+    // console.log(pergunta2, "-", resposta2)
+    // console.log(pergunta3, "-", resposta3)
 
-/*3. Dadas duas variáveis a e b com valores diferentes, troque o conteúdo delas sem atribuir
+ /*3. Dadas duas variáveis a e b com valores diferentes, troque o conteúdo delas sem atribuir
 diretamente os valores!
 // valores iniciais:
 let a = 10
@@ -67,6 +85,19 @@ b = b/c
 
 console.log (a, b)
 
+    //outra forma conforme gabarito
+    // let a = 10
+    // let b = 25
+    // let c
+
+    // c = a // c = 10
+    // a = b // a = 25
+    // b = c // b = 10
+
+    // console.log("a", a)
+    // console.log("b", b)
+
+
 
 /*DESAFIO
 Faça um programa que receba dois números do usuário e faça as seguintes operações,
@@ -82,3 +113,10 @@ numero2 = Number(numero2)
 
 console.log ("O primeiro número (", numero1, ") somado ao segundo número (", numero2, ") resulta em: ", numero1+numero2)
 console.log ("O primeiro número (", numero1, ") multiplicado pelo segundo número (", numero2, ") resulta em: ", numero1*numero2)
+
+    //outra forma conforme gabarito
+    // const num1 = prompt("Insira o primeiro número");
+    // const num2 = prompt("Insira o segundo número");
+    
+    // console.log("Soma:", Number(num1) + Number(num2))
+    // console.log("Multiplicação:", Number(num1) * Number(num2))
