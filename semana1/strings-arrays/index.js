@@ -133,4 +133,28 @@ Qual será o valor impresso no console se a entrada do usuário for: "Subi num �
 
 // 1.  Receba uma frase e retorne um array onde cada elemento é uma das palavras da frase, ignorando os espaços
 
+        // let frase = prompt ("Insira uma frase")
+
+        // const array = frase.split (" ") //comando não usado em aula
+
+        // console.log(array)
+
 // 2.  Dado o array ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"], faça um programa que acha o índice da palavra Abacaxi e imprime tanto o índice quanto o tamanho do array
+
+let array = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
+
+const indiceAbacaxi = array.indexOf("Abacaxi") //metodo nao usado em aula
+const indiceArray = [
+        Number(array.indexOf("Banana")),
+        Number(array.indexOf("Morango")),
+        Number(array.indexOf("Abacaxi")),
+        Number(array.indexOf("Laranja")),
+        Number(array.indexOf("Ameixa"))
+        ]
+
+const tamanhoArray = array.length
+
+console.log (`Índice Abacaxi: ${indiceAbacaxi}
+Índice do Array: ${indiceArray}
+Tamanho do Array: ${tamanhoArray} itens
+`)
