@@ -82,7 +82,7 @@ const laranja = {nome: "Laranja", disponibilidade: true}
 
 //3.c
 function insereItem (input) {
-    carrinho.push(input)
+    carrinho ={...input}
     return carrinho
 }
 
@@ -95,31 +95,44 @@ console.log(carrinho)
 
 //DESAFIOS
 //1.
-// function inputDados () {
-//  const inputNome = prompt ("Qual seu nome")
-//  const inputIdade = prompt ("Qual sua idade?")
-//  const inputProfissao = prompt ("Qual sua profissão")
+function inputDados () {
+ const inputNome = prompt ("Qual seu nome")
+ const inputIdade = prompt ("Qual sua idade?")
+ const inputProfissao = prompt ("Qual sua profissão")
 
-//  const objeto = {
-//      nome: inputNome,
-//      idade: Number(inputIdade),
-//      profissao: inputProfissao
-//     }
+ const objeto = {
+     nome: inputNome,
+     idade: Number(inputIdade),
+     profissao: inputProfissao
+    }
 
-//  return console.log (objeto,typeof objeto)
-// }
+ return console.log (objeto,typeof objeto)
+}
 
-// inputDados()
+inputDados()
 
 
 //2.
-function filmes (input1, input2) {
-    let listaFilme = [input1, input2]
-   
-    return console.log(listaFilme[0].nome)
+function filmes (input) {
+    let listaFilme = {...input}
+return console.log(`${listaFilme[0].nome} foi lançado antes de ${listaFilme[1].nome}? ${Number(listaFilme[0].ano)<Number(listaFilme[1].ano)}
+${listaFilme[0].nome} foi lançado no mesmo ano de ${listaFilme[1].nome}? ${Number(listaFilme[0].ano)===Number(listaFilme[1].ano)}
+`)
 }
 
 const filme1 = {ano:1999, nome: "Matrix"}
 const filme2 = {ano:2010, nome: "Inception"}
 
-filmes (filme1, filme2)
+filmes ([filme1, filme2])
+
+
+//3.
+function inverteValor (input) {
+    const inverteDisp = {...input}
+    inverteDisp.disponibilidade = !inverteDisp.disponibilidade
+
+return console.log (inverteDisp)
+
+}
+
+inverteValor(banana)
