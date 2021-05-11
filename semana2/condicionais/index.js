@@ -82,7 +82,7 @@ const inputPreco = Number(prompt("Quanto custa o ingresso?").trim())
 if ( inputGenero==="fantasia" && inputPreco<15) {
     //console.log("Bom filme!") retirado para atender Desafio 1
     console.log(`Bom filme!
-${insereLanche ()}`)
+${insereLanche ()}`) //inserido para atender Desafio 1
 } else {
     console.log("Escolha outro :(")
 }
@@ -114,4 +114,97 @@ function insereLanche () {
     }
 }
 
+
 //2)
+
+const inputNome = prompt("Qual o seu nome?").trim()
+
+const inputTipo = prompt(`Insira o tipo de jogo.
+Insira DO para jogo doméstico;
+Insira IN para jogo internacional.`).toLowerCase().trim()
+
+const inputEtapa = prompt(`Insira a etapa.
+Insira SF para semi-final;
+Insira DT para decisão de terceiro lugar;
+Insira FI para final.`).toLowerCase().trim()
+
+const inputCategoria = Number(prompt(`Insira a categoria
+Insira 1 para Categoria 1
+Insira 2 para Categoria 2
+Insira 3 para Categoria 3
+Insira 4 para Categoria 4`))
+
+const inputQtIngressos = Number(prompt("Insira a quantidade de ingressos desejada"))
+
+
+const tabelaGeral = {
+    tipoJogo: ["Internacional", "Doméstico"],
+    etapaJogo: ["Semifinais", "Decisão do 3º Lugar", "Final"],
+    categorias: [1, 2, 3, 4],
+    valoresSF: [1320, 880, 550, 220],
+    valoresDT: [660, 440, 330, 170],
+    valoresFI: [1980, 1320, 880, 330]
+}
+
+function calculaValorUnitario(etapaJogo, indiceCategoria) {
+    if (etapaJogo === "sf") {
+        return (tabelaGeral.valoresSF[indiceCategoria - 1] / multiplicador()).toFixed()
+    } else if (etapaJogo === "dt") {
+        return (tabelaGeral.valoresDT[indiceCategoria - 1] / multiplicador()).toFixed()
+    } else {
+        return (tabelaGeral.valoresFI[indiceCategoria - 1] / multiplicador()).toFixed()
+    }
+}
+
+function multiplicador() {
+    if (inputTipo === "do") {
+        return 1
+    } else {
+        return 4.10
+    }
+}
+
+const indexTipoJogo = () => {
+    if (inputTipo === "in") {
+        return 0
+    } else {
+        return 1
+    }
+}
+
+const indexEtapaJogo = () => {
+    if (inputEtapa === "sf") {
+        return 0
+    } else if (inputEtapa === "dt") {
+        return 1
+    } else {
+        return 2
+    }
+}
+
+const textoIngresso = () => {
+    if (inputQtIngressos > 1) {
+        return 'ingressos'
+    } else {
+        return 'ingresso'
+    }
+}
+
+const textoMoeda = () => {
+    if (inputTipo === "in") {
+        return 'U$'
+    } else {
+        return 'R$'
+    }
+}
+
+console.log(`---Dados da compra---
+Nome do Cliente: ${inputNome}
+Tipo do jogo: ${tabelaGeral.tipoJogo[indexTipoJogo()]}
+Etapa do jogo: ${tabelaGeral.etapaJogo[indexEtapaJogo()]}
+Categoria: ${inputCategoria}
+Quantidade de Ingressos: ${inputQtIngressos} ${textoIngresso()}
+---Valores---
+Valor do ingresso: ${textoMoeda() + calculaValorUnitario(inputEtapa, inputCategoria)}
+Valor total: ${textoMoeda() + calculaValorUnitario(inputEtapa, inputCategoria) * inputQtIngressos}
+`)
