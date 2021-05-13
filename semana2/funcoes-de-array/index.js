@@ -117,3 +117,44 @@ console.log(arrayCompreYpe)
 
 
 //1)
+const pokemons = [
+    { nome: "Bulbasaur", tipo: "grama" },
+    { nome: "Bellsprout", tipo: "grama" },
+    { nome: "Charmander", tipo: "fogo" },
+    { nome: "Vulpix", tipo: "fogo" },
+    { nome: "Squirtle", tipo: "água" },
+    { nome: "Psyduck", tipo: "água" },
+ ]
+
+
+ //1.a)
+const arrayNomesPkmn = pokemons.map((item) => {
+    return item.nome
+}).sort()
+
+console.log(arrayNomesPkmn)
+
+
+//1.b)
+//Método 1 | encontrei em https://igluonline.com/como-remover-elementos-duplicados-de-uma-array-no-javascript-es6/
+
+const arrayTipo1 = pokemons.map((item) => {
+    return item.tipo
+}).filter((item, index, array) => {
+    return index === array.indexOf(item)
+})
+
+console.log(arrayTipo1)
+
+//Método 2| encontrei essa aplicação em https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+const arrayTipo2 = pokemons.map((item) => {
+    return item.tipo
+}).reduce((novoArray, item) => {
+    if (novoArray.length === 0 || novoArray[novoArray.length - 1] !== item) {
+        novoArray.push(item);
+    }
+    return novoArray;
+}, [])
+
+console.log(arrayTipo2)
+
