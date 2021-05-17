@@ -226,6 +226,14 @@ function criaRetangulo(lado1, lado2) {
 
 function anonimizaPessoa(pessoa) {
    // implemente sua lógica aqui
+
+   const anonimiza = {
+      nome: "ANÔNIMO",
+	   idade: pessoa.idade,
+	   email: pessoa.email,
+	   endereco: pessoa.endereco
+   }
+   return anonimiza
 }
 
 // Exercício 16
