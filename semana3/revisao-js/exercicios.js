@@ -2,12 +2,27 @@
 
 function inverteArray(array) {
   // implemente sua lógica aqui
+   //const array = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+   let novoArray = []
+   let i = array.length-1
+   while (novoArray.length < array.length) {
+      novoArray.push(array[i])
+      i--      
+   } return novoArray
 }
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
+   let novoArray = []
+   let i = 0
+   for (cadaItem of array) {
+      if(array[i]%2 === 0) {
+         novoArray.push(array[i]**2)
+      }
+      i++      
+   } return novoArray
 }
 
 //Exercício 3
