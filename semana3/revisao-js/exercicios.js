@@ -145,6 +145,17 @@ function comparaDoisNumeros(num1, num2) {
 
 function segundoMaiorEMenor(array) {
    // implemente sua lógica aqui
+   
+   // let novoArray
+   // novoArray = array.sort((a,b)=>{return a-b})
+   // novoArray = [novoArray[novoArray.length-2],novoArray[1]]
+
+   let novoArray = [...array]
+   novoArray.splice(novoArray.indexOf(Math.max(...array)), 1)
+   novoArray.splice(novoArray.indexOf(Math.min(...array)), 1)
+   novoArray = [novoArray[novoArray.indexOf(Math.max(...novoArray))], novoArray[novoArray.indexOf(Math.min(...novoArray))]]
+
+   return novoArray
 }
 
 //Exercício 11
