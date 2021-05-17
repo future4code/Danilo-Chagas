@@ -207,6 +207,19 @@ function imprimeChamada() {
 
 function criaRetangulo(lado1, lado2) {
    // implemente sua lógica aqui
+
+   const calcLargura = lado1
+   const calcAltura = lado2
+   const calcPerimetro = 2*(lado1+lado2)
+   const calcArea = lado1*lado2
+
+   const objeto = {
+      largura: calcLargura,
+      altura: calcAltura,
+      perimetro: calcPerimetro,
+      area: calcArea
+   }
+   return objeto
 }
 
 // Exercício 15
