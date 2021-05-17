@@ -164,31 +164,43 @@ function ordenaArray(array) {
    // implemente sua lógica aqui
    // let novoArray
    // novoArray = array.sort((a,b)=>{return a-b})  //ou
- 
+
    let arrayRecebido = [...array]
    let novoArray = []
    let i = 0
-   while (i <= array.length-1) {
+   while (i <= array.length - 1) {
       novoArray.push(Math.min(...arrayRecebido))
-      arrayRecebido.splice(arrayRecebido.indexOf(novoArray[i]),1)
+      arrayRecebido.splice(arrayRecebido.indexOf(novoArray[i]), 1)
       i++
    }
-   
+
    return novoArray
 }
-
-console.log(ordenaArray([-40, -1, 2, 5, 5, 10, 13, 20, 49, 70]))
 
 // Exercício 12
 
 function filmeFavorito() {
    // implemente sua lógica aqui
+   const objeto = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci'],
+   }
+   return objeto
 }
 
 // Exercício 13
 
 function imprimeChamada() {
    // implemente sua lógica aqui
+   const objeto = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci'],
+   }
+   return `Venha assistir ao filme ${objeto.nome}, de ${objeto.ano}, dirigido por ${objeto.diretor} e estrelado por ${objeto.atores[0]}, ${objeto.atores[1]}, ${objeto.atores[2]}, ${objeto.atores[3]}.`
 }
 
 // Exercício 14
