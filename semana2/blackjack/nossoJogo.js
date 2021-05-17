@@ -9,7 +9,7 @@
  * 
  * 
  * 
- */
+ *//*
 console.log("Bem vindo ao jogo de Blackjack!")
 
 const cartaUser1 = comprarCarta()
@@ -48,3 +48,4 @@ if (confirm("Quer iniciar uma nova rodada?")) {
 }
 
 
+*/
