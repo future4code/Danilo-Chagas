@@ -64,13 +64,38 @@ function retornaQuantidadeElementos (array) {
 
 function retornaExpressoesBooleanas() {
    // implemente sua lógica aqui
+   const booleano1 = true
+   const booleano2 = false
+   const booleano3 = !booleano2 
+   const booleano4 = !booleano3 
+
+   const item1 =  booleano1 && booleano2 && !booleano4
+   const item2 = (booleano1 && booleano2) || !booleano3
+   const item3 = (booleano2 || booleano3) && (booleano4 || booleano1)
+   const item4 = !(booleano2 && booleano3) || !(booleano1 && booleano3)
+   const item5 = !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
+
+   let array = []
+   array.push(item1,item2,item3,item4,item5)
+
+   return array
 }
 
 //Exercício 7
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   let i = 0
+   let array = []
+   while (array.length<n) {
+      if (i%2 === 0) {
+         array.push(i)
+      }
+      i++
+   }
+   return array
 }
+console.log(retornaNNumerosPares(5))
 
 // Exercício 8
 
