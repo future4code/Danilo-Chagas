@@ -95,12 +95,27 @@ function retornaNNumerosPares(n) {
    }
    return array
 }
-console.log(retornaNNumerosPares(5))
 
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
+   const ladosTriang = [a, b, c]
+   let array = [a]
+   let tipo
+   for (numero of ladosTriang) {
+      if (numero > ladosTriang[0]) {
+         array.push(numero)
+      }
+   } 
+   if (array.length === 3) {
+      tipo = 'Escaleno'
+   } else if (array.length === 2) {
+      tipo = 'Isósceles'
+   } else {
+      tipo = 'Equilátero'
+   }
+   return tipo
 }
 
 // Exercício 9
