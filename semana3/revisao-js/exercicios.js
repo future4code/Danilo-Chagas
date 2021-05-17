@@ -249,10 +249,10 @@ const arrayDePessoas = [
 
 function maioresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
-   novoArray = arrayDePessoas.filter((item)=>{
-      return item.idade>=20
+   novoArray = arrayDePessoas.filter((item) => {
+      return item.idade >= 20
    })
-   
+
    return novoArray
 }
 
@@ -260,10 +260,10 @@ function maioresDe18(arrayDePessoas) {
 
 function menoresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
-   novoArray = arrayDePessoas.filter((item)=>{
-      return item.idade<20
+   novoArray = arrayDePessoas.filter((item) => {
+      return item.idade < 20
    })
-   
+
    return novoArray
 }
 
@@ -271,18 +271,37 @@ function menoresDe18(arrayDePessoas) {
 
 function multiplicaArrayPor2(array) {
    // implemente sua lógica aqui
+   let novoArray = []
+   for (cadaItem of array) {
+      novoArray.push(cadaItem * 2)
+   }
+   return novoArray
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
+   let novoArray = []
+   for (cadaItem of array) {
+      novoArray.push((cadaItem * 2).toString())
+   }
+   return novoArray
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
    // implemente sua lógica aqui
+   let novoArray = []
+   for (cadaItem of array) {
+      if (cadaItem%2===0) {
+       novoArray.push(`${cadaItem} é par`)
+      } else {
+       novoArray.push(`${cadaItem} é ímpar`)
+      }
+   }
+   return novoArray
 }
 
 // Exercício 18
@@ -300,13 +319,20 @@ const pessoas = [
 
 function retornaPessoasAutorizadas() {
    // implemente sua lógica aqui
+   let novoArray = pessoas.filter((item)=>{
+      return  14<item.idade && item.idade<60 && item.altura>=1.5
+   })
+      return novoArray
 }
-
 
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
    // implemente sua lógica aqui
+   let novoArray = pessoas.filter((item)=>{
+      return  item.idade>60 || item.idade<14 || item.altura<1.5
+   })
+      return novoArray
 }
 
 //Exercício 19
