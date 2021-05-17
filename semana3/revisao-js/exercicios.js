@@ -148,7 +148,7 @@ function segundoMaiorEMenor(array) {
    
    // let novoArray
    // novoArray = array.sort((a,b)=>{return a-b})
-   // novoArray = [novoArray[novoArray.length-2],novoArray[1]]
+   // novoArray = [novoArray[novoArray.length-2],novoArray[1]] //ou
 
    let novoArray = [...array]
    novoArray.splice(novoArray.indexOf(Math.max(...array)), 1)
@@ -162,7 +162,22 @@ function segundoMaiorEMenor(array) {
 
 function ordenaArray(array) {
    // implemente sua lógica aqui
+   // let novoArray
+   // novoArray = array.sort((a,b)=>{return a-b})  //ou
+ 
+   let arrayRecebido = [...array]
+   let novoArray = []
+   let i = 0
+   while (i <= array.length-1) {
+      novoArray.push(Math.min(...arrayRecebido))
+      arrayRecebido.splice(arrayRecebido.indexOf(novoArray[i]),1)
+      i++
+   }
+   
+   return novoArray
 }
+
+console.log(ordenaArray([-40, -1, 2, 5, 5, 10, 13, 20, 49, 70]))
 
 // Exercício 12
 
