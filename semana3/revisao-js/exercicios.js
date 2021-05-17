@@ -249,12 +249,22 @@ const arrayDePessoas = [
 
 function maioresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+   novoArray = arrayDePessoas.filter((item)=>{
+      return item.idade>=20
+   })
+   
+   return novoArray
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+   novoArray = arrayDePessoas.filter((item)=>{
+      return item.idade<20
+   })
+   
+   return novoArray
 }
 
 // Exercício 17, letra A
