@@ -396,4 +396,15 @@ const contas = [
 
 function atualizaSaldo() {
   // implemente sua lógica aqui
+  let somaCompras = 0 
+  for (let i = 0; i < contas.length; i++) { 
+      for(let x = 0; x<contas[i].compras.length; x++){
+         somaCompras = somaCompras+contas[i].compras[x]
+         //return somaCompras
+      }
+      contas[i].saldoTotal = contas[i].saldoTotal-somaCompras
+      somaCompras = 0
+      //return contas[i].saldoTotal
+   }
+   return contas
 }
