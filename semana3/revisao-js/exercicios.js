@@ -347,21 +347,41 @@ const consultasNome = [
  //Exercício 19, letra A
  
  function ordenaPorNome() {
-  
+   let novoArray = consultasNome.sort((a,b)=>{
+      return a.nome.localeCompare(b.nome)
+   })
+   return novoArray
  }
  
- // Exercício 19, letra B
- 
- const consultasData = [
+// Exercício 19, letra B
+
+const consultasData = [
    { nome: "João", dataDaConsulta: "01/10/2021" },
    { nome: "Pedro", dataDaConsulta: "02/07/2021" },
    { nome: "Paula", dataDaConsulta: "03/11/2021" },
-   { nome: "Márcia",  dataDaConsulta: "04/05/2021" }
- ]
- 
- function ordenaPorData() {
- 
- }
+   { nome: "Márcia", dataDaConsulta: "04/05/2021" }
+]
+
+function ordenaPorData() {
+   let novoArray = []
+   
+   for (let i = 0; i < consultasData.length; i++) {
+      let data = consultasData[i].dataDaConsulta.split("/").reverse().join('')
+      let item = {...consultasData[i],dataOrdem: data}
+      novoArray.push(item)      
+   }
+   
+   let arrayOrdenado = novoArray.sort((a,b)=>{
+      return a.dataOrdem - b.dataOrdem
+   })
+   
+   let arrayOrdenado2 =[]
+   for (let i = 0; i < arrayOrdenado.length; i++) {
+      let item = {nome: arrayOrdenado[i].nome, dataDaConsulta: arrayOrdenado[i].dataDaConsulta }
+      arrayOrdenado2.push(item)
+   }
+    return arrayOrdenado2
+}
 
 //Exercício 20
 
