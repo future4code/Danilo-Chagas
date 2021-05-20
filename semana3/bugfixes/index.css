@@ -102,12 +102,12 @@ div:last-child {
 
 table {
     width: 60%;
-    text-align: center;
+    text-align: center; /*5o issue*/
 }
 
-/* table>td{
-    text-align: center;
-} */
+table img{ /*6o issue*/
+    width: 42px;
+}
 
 td button {
     background-color: #fadf63;
