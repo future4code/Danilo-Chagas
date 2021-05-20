@@ -134,6 +134,15 @@ td button:active{
     height: 100px;
 }
 
+/*9o issue*/
+.container-do-search>div>input{
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px;
+    border-bottom: black;
+}
+
 
 #back-button {
     background-color: white;
