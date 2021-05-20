@@ -119,6 +119,16 @@ td button {
     color: black;
 }
 
+/*8 issue*/
+td button:hover{
+    background-color: #635a3d
+}
+
+/*8 issue*/
+td button:active{
+    color: white;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
