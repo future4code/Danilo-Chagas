@@ -33,9 +33,11 @@ div>p:first-child {
     display: inline;
 }
 
-div img {
+/*7o issue
+ div img {
     background: black;
 }
+*/
 
 .botao-amarelo {
     background-color: #ffaf43;
