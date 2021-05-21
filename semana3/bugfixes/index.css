@@ -13,7 +13,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 /* 10o issue */
-h1,h2,h3,h4,h5,h6,p {
+h1,h2,h3,h4,h5,h6,p,ol {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -33,9 +33,10 @@ button:focus {
     color: white;
 }
 
-img {
+/*13o issue
+ img {
     width: 100px;
-}
+} */
 
 div>p:first-child {
     display: inline;
@@ -69,6 +70,15 @@ div>p:first-child {
     height: 15px;
 }
 
+/*13 issue*/
+.icone:hover{
+    opacity: 50%;
+}
+
+/*13 issue*/
+.icone:active{
+    opacity: 100%;
+}
 
 /** 
   *
@@ -79,8 +89,8 @@ div>p:first-child {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding: 100px 0px; /*3o issue*/
-    height: auto; /*3o issue*/
+    padding: 50px 0px 0 0; /*3o issue*/
+    height: 300px; /*3o issue*/
 }
 
 #container-de-descricao>ol {
@@ -89,13 +99,14 @@ div>p:first-child {
 
 #container-para-comprar {
     background-color: #e7eb90;
-}
+ }
 
 #container-para-comprar>p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
     display: block; /*2o issue*/
+
 }
 
 
@@ -148,7 +159,7 @@ td button:active{
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid black; /*9o issue rev1*/
 }
 
 #back-button {
@@ -159,6 +170,7 @@ td button:active{
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-top: 100px; /*11 issue rev1*/
 }
 
 #back-button:hover {
