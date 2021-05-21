@@ -1,0 +1,107 @@
+/* Esquema de Cor */
+.cor1 { color: #444056; }
+.cor2 { color: #A59E96; }
+.cor3 { color: #585857; }
+.cor4 { color: #F1F1F3; }
+.cor5 { color: #414141; }
+
+#body{
+    width: 100%;
+}
+
+.header{
+    background-color:#444056;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0%;
+}
+
+#logotipo{
+    display: inline-block;
+    color:#F1F1F3;
+    padding-left: 10px;
+    position: relative;
+    left: 0px;
+    font-size: 100%;
+}
+
+#logotipo-tagline{
+    color:#F1F1F3;
+    padding-left: 10px;
+    float: left;
+    left: 0px;
+    font-size: 100%;
+}
+
+#menu-box{
+    display: inline;
+    float: right;
+    right: 0px;
+    margin-top: 1%;
+    margin-right: 10px;
+    color: #F1F1F3;
+}
+
+.menu-link{
+    color: #F1F1F3;
+    font-size: 100%;
+}
+
+.header-pagina{
+   display: inline-block;
+   margin-top: 5%;
+   width: 100%;
+   background-color: #A59E96;
+}
+
+ .footer{
+     background-color:#444056;
+     position: fixed;
+     bottom: 0px;
+     left: 0px;
+     width: 100%;
+
+ }
+
+ .footer-centralizado{
+    text-align: center;
+    display: block;
+
+ }
+
+ .footer-texto{
+     color:#F1F1F3
+ }
+
+ #footer-redes-sociais{
+     width: 16px;
+ }
+
+/* tabelas */
+#tabela-estoque table,
+#tabela-funcionarios table {
+     font-size: 1vw;
+     border-collapse: collapse;
+     ;
+ }
+
+ #tabela-estoque td,
+ #tabela-funcionarios td {
+    border-bottom: 1px solid #585857;
+    text-align: left;
+    font-size: 1vw;
+  }
+
+  #tabela-estoque th,
+  #tabela-funcionarios th {
+      background-color: #585857;
+      color: #F1F1F3;
+      padding: 12px;
+      text-align: left;
+  }
+
+  #tabela-estoque img{
+    width: 30%;
+    min-width: 16px;
+  }
