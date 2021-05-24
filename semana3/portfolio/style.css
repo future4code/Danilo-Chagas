@@ -53,7 +53,8 @@ div section:last-child{
 
 div section p{
     font-size:1.5vw;
-    text-align: justify;
+    text-align: left;
+    word-wrap:break-word;
     hyphens: auto;
     line-height: 1.5em;
     text-indent: 1vw;
@@ -63,8 +64,9 @@ div section p{
 div section ul{
     list-style-type:"-";
     font-size:1.5vw;
-    text-align: justify;
-    hyphens: auto;
+    text-align: left;
+    word-break: keep-all;
+    /* hyphens: auto; */
     line-height: 1.5em;
     padding-left: 3vw;
     padding-right: 1vw;
@@ -251,7 +253,6 @@ nav{
 #habilidades-tabela{
     display: block;
     font-size: 1.5vw;
-    text-align: ;
 }
 
 #habilidades-tabela table{
