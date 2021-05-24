@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    background-color: mediumvioletred;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    width: 50vw;
+}
+
+nav{
+    background-color: #f2d0e0;
+}
+
+section{
+    display: flex;
+}
+
+footer{
+    display: flex;
+    background-color: mediumvioletred;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* header */
+#logotipo{
+    margin-left: 2vw;
+}
+
+#logotipo img{
+    width: 20px;
+    margin-right: 1vw;
+}
+
+header button{
+    display: inline-block;
+    width: 5vw;
+    margin: 1vw;
+}
+
+/* nav */
+
+.menu-button{
+    display: grid;
+    grid-template-columns: 4vw 1fr 3vw;
+    margin-top: 1vh;
+}
+
+nav img{
+    width: 20px;
+    margin: 0 2vw;
+}
+.menu-button p:nth-of-type(1){
+    text-align: left;
+    margin-left: 0.5vw;
+}
+
+/* section */
+.card-produto{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 260px;
+    height: 350px;
+    margin: 1.5vw;
+    text-align: center;
+    background-color: white;
+    border-radius: 2%;
+    border-right: 1px solid rgba(128, 128, 128, 0.507);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.507);
+
+}
+
+.card-produto img{
+    width: 260px;
+}
+
+.card-produto h4{
+    margin: 2px 0 10px 0;
+}
+
+.card-produto p{
+    font-size: small;
+}
