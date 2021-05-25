@@ -137,7 +137,7 @@ nav img{
 
 #bloco-de-ajuste{
     width: 15vw;
-    height: 400px;
+    height: 70vh; /*rev3 ajuste de altura para scrollar em telas/monitores maiores*/
     align-self: flex-end;
     display: block;
     /* altura maior para posição final do scroll mostrar conteúdo por inteiro */
