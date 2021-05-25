@@ -1,0 +1,397 @@
+/* Cores */
+/* Color Theme Swatches in Hex */
+.cor-danilo-cinza{color:#76736D}
+.cor-danilo-bege{color:#B37453}
+.cor-danilo-offwhite{color:#DAD8D8}
+
+
+
+/* parametros gerais */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+ 
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+/* div:nth-of-type(1n+1){
+border-top: 1px solid darkgray;
+margin-bottom: 2vw;
+} */
+
+div section{
+    display: inline-block;
+    width: 25vw;
+    height: fit-content;
+    vertical-align: top;
+    text-align: center;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+
+div section:first-child{
+    border-left: 1px solid black;
+    border-radius: 5%;
+    border-right: 0px;
+}
+
+div section:nth-of-type(1n){
+    border-left: 1px solid black;
+}
+
+
+div section:last-child{
+    border-right: 1px solid black;
+    border-radius: 0% 5% 5% 0%;
+    border-left: 1px solid black;
+}
+
+
+div section p{
+    font-size:1.5vw;
+    text-align: left;
+    word-wrap:break-word;
+    hyphens: auto;
+    line-height: 1.5em;
+    text-indent: 1vw;
+    padding: 0 1vw 0 1vw;
+}
+
+div section ul{
+    list-style-type:"-";
+    font-size:1.5vw;
+    text-align: left;
+    word-break: keep-all;
+    /* hyphens: auto; */
+    line-height: 1.5em;
+    padding-left: 3vw;
+    padding-right: 1vw;
+}
+
+/* inicio */
+.container-saudacao{
+    height: auto;
+    text-align: center;
+    font-family:'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 4vw;
+    padding: 5vh 5vW;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(120deg,#76736D,#B37453,#76736D);
+}
+
+#intro-proposito {
+    height: fit-content;
+    font-size: 3.5vw;
+    text-align: center;
+    padding: 5vh 5vW;
+    font-family:'Open Sans', sans-serif;
+    font-weight: 100;
+
+}
+
+#intro-proposito span:nth-of-type(1){
+    position: absolute;
+    margin-top: -2.0vw;
+    margin-left: -3vw;
+    font-size: 7vw;
+    opacity: 20%;
+
+}
+#intro-proposito span:nth-of-type(2){
+    position: absolute;
+    margin-top: -2.2vw;
+    margin-left: -1.0vw;
+    font-size: 7vw;
+    opacity: 20%;
+}
+
+nav{
+    position: sticky;
+    min-height: fit-content;
+    top: 0;
+}
+
+.menu{
+    min-height: fit-content;
+    list-style-type: none;
+    overflow: hidden;
+    display: block;
+    background-color: #76736D;
+}
+
+.menu-button{
+    float: right;
+    padding: 0.8vw;
+    text-decoration:none;
+    color: #DAD8D8;
+    background-color: #76736D;
+}
+
+.menu-button:visited{
+    color: #DAD8D8;
+}
+.menu-button:hover{
+    color: #B37453;
+    background-color: #DAD8D8;
+}
+
+.menu-button:active{
+    color: #B37453;
+    background-color: #DAD8D8;
+    font-size: 0.95em;
+    padding: 0.8vw;
+}
+
+/* conteúdo */
+
+.container-main{
+    display: block;
+    height: fit-content;
+    padding: 0 5% 0 5%;
+    font-size: 2.5vw;/*2.5vh; */
+    line-height: 1.5em;
+    text-align:justify;
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+
+.container-main h1,h2{
+    padding-top: 5%;
+    display: block;
+}
+
+.container-main h1>span, h2>span{
+    position: absolute;
+    left: 5vw;
+    margin-top: -1.5%;
+    opacity: 8%;
+    font-family: 'Open Sans', sans-serif;
+    font-variant: small-caps;
+    font-size: 7vw;
+    letter-spacing: -3px;
+}
+
+/*sobre*/
+#quem-sou-imagem{
+    border-radius: 50%;
+    width: 30vw;
+    float: right;
+    display: inline;
+    shape-outside: ellipse();
+    left: 10vw;
+    margin-left: 5vw;
+}
+.container-main #quem-sou p{
+    float:left;
+}
+
+/* formação*/
+#formacao ol {
+    padding-left: 2vw;
+    line-height: 2em;
+}
+
+/*experiência profissional*/
+#experiencia-empresas{
+    border-top: 0px;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+/* projetos */
+#projetos-destaque{
+    border-top: 0px;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.projetos-imagem{
+    display:table-cell;
+    vertical-align: middle;
+    height: 8vw;
+    width: 18vw;
+    border-top: 0;
+}
+
+#projetos-destaque img{
+    display: block;
+    width: 5vw;
+    margin: auto auto auto auto;
+}
+
+#projetos-destaque section a{
+    display:block;
+    font-size: 2vw;
+    text-decoration: none;
+    opacity: 60%;
+
+}
+
+#projetos-destaque section a:hover{
+    opacity: 100%;
+}
+
+#projetos-destaque section a:active{
+    opacity: 75%;
+}
+
+#projetos-destaque section a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+/* habilidades */
+#habilidades-tabela{
+    display: block;
+    font-size: 1.5vw;
+}
+
+#habilidades-tabela table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#habilidades-tabela th:first-child{
+     width: 15vw;
+     text-align: end;
+     padding-right: 1vw;
+}
+
+#habilidades-tabela tr td{
+    text-align: end;
+    padding-right: 1vw;
+}
+
+.barra-skill{
+    width: 50vw;
+    height: fit-content;
+    border-radius: 2%;
+    background-color: #DAD8D8;
+}
+.skill-nivel{
+    height: 1vw;
+    background-color: green;
+}
+#l100{width: 100%;}
+#l90{width: 90%;}
+#l80{width: 80%;}
+#l70{width: 70%;}
+#l60{width: 60%;}
+#l50{width: 50%;}
+#l40{width: 40%;}
+#l30{width: 30%;}
+#l20{width: 20%;}
+#l10{width: 10%;}
+#l05{width: 5%;}
+
+#habilidades-descricao{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+    line-height: 1.5em;
+    width: 65vw;
+}
+
+/* contato */
+#contato{
+    padding-bottom: 5vw;
+}
+
+#contato h6{
+    text-align: center;
+}
+
+#contato-form{
+    display: block;
+    text-align: center;
+    padding-bottom: 2vw;
+    
+}
+
+#contato-form label{
+    display: inline-block;
+    font-size: 1.5vw;
+    width: 8vw;
+}
+#contato-form button{
+    display: inline-block;
+    font-size: 1.5vw;
+    width: 10vw;
+}
+
+#redes-sociais{
+    display: block;
+    position: relative;
+  text-align: center;
+}
+
+#redes-sociais img{
+    display: inline-block;
+    width: 10vw;
+
+}
+
+#redes-sociais a{
+    text-decoration: none;
+}
+
+#redes-sociais a:visited{
+    color: black;
+}
+#redes-sociais a{
+font-size: 2vw;
+}
+
+/*footer*/
+
+#footer{
+    position: block;
+    bottom: 5px;
+    height: 3vw;
+    background-color: #76736D;
+}
+
+/* 
+referencias
+tags semanticas:
+https://www.w3schools.com/html/html5_semantic_elements.asp
+
+gradiente texto:
+https://www.w3schools.com/css/css3_gradients.asp
+https://stackoverflow.com/questions/37831837/gradient-text-color
+
+aspas sobrepostas: 
+https://www.w3schools.com/w3css/w3css_quotes.asp
+
+stick menu:
+https://www.w3schools.com/css/css_positioning.asp
+
+texto contornando forma imagem:active
+https://stackoverflow.com/questions/19179424/how-to-wrap-text-around-an-image-using-html-css/19179519
+
+fontes:
+https://fonts.google.com/
+
+propriedade de texto:
+https://www.w3schools.com/cssref/tryit.asp?filename=trycss_text-indent
+https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_hyphens
+
+estilização de listas ul
+https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+
+aplicação seriada de estilo
+https://developer.mozilla.org/pt-BR/docs/Web/CSS/:nth-child
+
+alinhamento vertical
+https://www.w3.org/Style/Examples/007/center.en.html
+
+*/
