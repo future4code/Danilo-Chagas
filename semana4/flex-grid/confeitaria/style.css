@@ -5,46 +5,69 @@
 
 body{
     display: grid;
-    grid-template-rows: 50px 1fr 50px;
+    grid-template-rows: auto 1fr auto;
     height: 100vh;
+    width: 100vw;
+    position: fixed;
+    /* position fixed para somente section scrollar/ rolar barra */
 }
 
 header{
+    height: 3vw;
+    width: 100%;
     display: flex;
     background-color: mediumvioletred;
     justify-content: space-between;
     align-items: center;
+    top: 0;
 }
 
 main{
     display: grid;
-    grid-template-columns: 250px 1fr;
-    width: 50vw;
+    grid-template-columns: auto 1fr;
+    align-items: stretch;
 }
 
 nav{
+    width: 20vw;
     background-color: #f2d0e0;
 }
 
 section{
+    background-color: khaki;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: scroll;
+    height: 100vh;
+    /* height 100vh para comportar itens e overflow-y para scroll */
 }
 
 footer{
-    display: flex;
+    height: 3vw;
+    width: 100%;
+    display:grid;
     background-color: mediumvioletred;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    font-size: 1.2vw;
+
 }
 
 
-/* header */
+/*  h e a d e r  */
 #logotipo{
     margin-left: 2vw;
 }
 
+#logotipo h4{
+    font-size: 1.2vw;
+}
+
 #logotipo img{
-    width: 20px;
+    width: 1.5vw;
     margin-right: 1vw;
 }
 
@@ -52,9 +75,11 @@ header button{
     display: inline-block;
     width: 5vw;
     margin: 1vw;
+    font-size: 0.8vw;
+    text-align: center;
 }
 
-/* nav */
+/* n a v */
 
 .menu-button{
     display: grid;
@@ -63,37 +88,57 @@ header button{
 }
 
 nav img{
-    width: 20px;
+    width: 1.5vw;
     margin: 0 2vw;
 }
 .menu-button p:nth-of-type(1){
     text-align: left;
     margin-left: 0.5vw;
+    font-size: 1vw;
 }
 
-/* section */
+.menu-button p:nth-of-type(2){
+    font-size: 1.2vw;
+}
+
+/* s e c t i o n   -   c a r d  */
+
 .card-produto{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 260px;
-    height: 350px;
-    margin: 1.5vw;
+    grid-template-rows: auto auto auto;
+    width: 15vw;
+    height: max-content;
+    /* margin: 1.5vw; */
     text-align: center;
+    justify-items:center;
+    align-content:flex-start;
     background-color: white;
     border-radius: 2%;
     border-right: 1px solid rgba(128, 128, 128, 0.507);
     border-bottom: 1px solid rgba(128, 128, 128, 0.507);
+    margin: 5px;
 
 }
 
 .card-produto img{
-    width: 260px;
+    width: 100%;
 }
 
 .card-produto h4{
-    margin: 2px 0 10px 0;
+    margin: 1vh 0 0 0;
+    padding-bottom: 1vw;
+    font-size: 3vh;
 }
 
 .card-produto p{
-    font-size: small;
+    font-size: 1vw;
+    padding-bottom: 1vw;
+}
+
+#bloco-de-ajuste{
+    width: 15vw;
+    height: 400px;
+    align-self: flex-end;
+    display: block;
+    /* altura maior para posição final do scroll mostrar conteúdo por inteiro */
 }
