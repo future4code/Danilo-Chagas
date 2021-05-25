@@ -34,7 +34,7 @@ nav{
 }
 
 section{
-    background-color: khaki;
+    /* background-color: khaki; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
