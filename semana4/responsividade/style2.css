@@ -1,0 +1,70 @@
+#container-video-e-descricao{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-between;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+}
+
+#container-video-e-descricao h1{
+    margin: 1vw 0;
+    padding: 0 1vw;
+}
+
+#container-video-e-descricao p{
+    margin: 0 0 1vw 0;
+    padding: 0 1vw;
+}
+
+#botao-voltar{
+    display: inline;
+    text-decoration: none;
+    color: #45525b;
+    margin: 0 0 0.5vw 0.5vw;
+
+}
+
+#botao-voltar:hover{
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+#botao-voltar:active{
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#botao-voltar:visited{
+    display: inline;
+    text-decoration: none;
+    color: #45525b;
+    margin: 0 0 0.5vw 0.5vw;
+}
+
+ /********************************/
+ /*  r e s p o n s i v i d a d e */
+/********************************/
+
+@media screen and (max-device-width: 980px), screen and(max-device-height: 415px) {
+    /* a ideia aqui seria pegar tambem um celular na posição horizontal 
+    e usando uma condicinal OU   ", screen and"   */
+   
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    video{
+        width: calc(100% / 1.33); /*vi em algum lugar no developer mozilla essa forma de dimensionar*/
+        align-self: center;
+    }
+
+    #container-video-e-descricao{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+}
