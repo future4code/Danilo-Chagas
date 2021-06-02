@@ -47,9 +47,22 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0
   }
-
+ 
   onClickCurtida = () => {
     console.log('Curtiu!')
+
+    let implementa              // Implementação 3.3
+                                //
+    if (this.state.curtido) {   //
+      implementa = -1           //
+    } else {                    //
+      implementa = 1            //
+    }
+
+    this.setState({
+      curtido: !this.state.curtido, //Implementação 3.2
+      numeroCurtidas: this.state.numeroCurtidas + implementa //Implementação 3.3
+    })
   }
 
   onClickComentario = () => {
