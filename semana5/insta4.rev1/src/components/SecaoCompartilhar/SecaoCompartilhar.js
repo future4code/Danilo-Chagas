@@ -1,5 +1,3 @@
-//Desafio 2 e 3
-
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import iconTwitter from '../../img/twitter.svg'
@@ -44,7 +42,6 @@ export class SecaoCompartilhar extends React.Component {
     }
 
     onChangeComentario = (event) => {
-        // console.log(event.target.value)
         this.setState({
             valueComentario: event.target.value
         })

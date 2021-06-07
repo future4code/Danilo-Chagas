@@ -8,12 +8,12 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 
-import { IconeSemContador } from '../IconeSemContador/IconeSemContador' //Desafio 1
-import iconeMarcacaoBranco from '../../img/flag.svg'         //Desafio 1
-import iconeMarcacaoPreto from '../../img/flag_black.svg'    //Desafio 1
+import { IconeSemContador } from '../IconeSemContador/IconeSemContador'
+import iconeMarcacaoBranco from '../../img/flag.svg'
+import iconeMarcacaoPreto from '../../img/flag_black.svg'
 
 import iconeCompartilharPreto from '../../img/share.svg'
-import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar' //Desafio 2 e 3
+import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar'
 
 
 const PostContainer = styled.div`
@@ -40,6 +40,7 @@ const PostFooter = styled.div`
 
 const EspacoIconeMarcacao = styled.div`
   flex-grow: 1;
+  float:right;
 `
 
 
@@ -60,7 +61,7 @@ class Post extends React.Component {
     numeroCurtidas: 0,
     comentando: false,
     numeroComentarios: 0,
-    marcacao: false,             // Desafio 1
+    marcacao: false,
     compartilhando: false,
   }
 
@@ -77,26 +78,26 @@ class Post extends React.Component {
   }
 
 
-  onClickMarcacao = () => {           //Desafio 1
-    this.setState({                   //
-      marcacao: !this.state.marcacao  //
+  onClickMarcacao = () => {
+    this.setState({
+      marcacao: !this.state.marcacao
     })
   }
 
   onClickCurtida = () => {
     console.log('Curtiu!')
 
-    let implementa              // Implementação 3.3
-    //
-    if (this.state.curtido) {   //
-      implementa = -1           //
-    } else {                    //
-      implementa = 1            //
+    let implementa
+
+    if (this.state.curtido) {
+      implementa = -1
+    } else {
+      implementa = 1
     }
 
     this.setState({
-      curtido: !this.state.curtido, //Implementação 3.2
-      numeroCurtidas: this.state.numeroCurtidas + implementa //Implementação 3.3
+      curtido: !this.state.curtido,
+      numeroCurtidas: this.state.numeroCurtidas + implementa
     })
   }
 
@@ -114,12 +115,12 @@ class Post extends React.Component {
   }
 
   render() {
-    let iconeMarcacao                       //Desafio 1
+    let iconeMarcacao
 
-    if (this.state.marcacao) {              //
-      iconeMarcacao = iconeMarcacaoPreto    //
-    } else {                                //
-      iconeMarcacao = iconeMarcacaoBranco   //
+    if (this.state.marcacao) {
+      iconeMarcacao = iconeMarcacaoPreto
+    } else {
+      iconeMarcacao = iconeMarcacaoBranco
     }
 
     let iconeCurtida
@@ -136,7 +137,7 @@ class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario} />
     }
 
-    let componenteCompartilhar //Desafio 2 e 3
+    let componenteCompartilhar
     if (this.state.compartilhando) {
       componenteCompartilhar = <SecaoCompartilhar aoEnviar={this.aoCompartilhar} />
     }
@@ -163,18 +164,18 @@ class Post extends React.Component {
           valorContador={this.state.numeroComentarios}
         />
 
-        <IconeSemContador                    //Desafio 2 e 3
-          icone={iconeCompartilharPreto}          //
-          onClickIcone={this.onClickCompartilhar} //
+        <IconeSemContador
+          icone={iconeCompartilharPreto}
+          onClickIcone={this.onClickCompartilhar}
         />
 
         <EspacoIconeMarcacao>
-        <IconeSemContador                    //Desafio 1
-          icone={iconeMarcacao}                 //
-          onClickIcone={this.onClickMarcacao}   //
+          <IconeSemContador
+            icone={iconeMarcacao}
+            onClickIcone={this.onClickMarcacao}
           />
         </EspacoIconeMarcacao>
-        
+
 
       </PostFooter>
       {componenteComentario}
