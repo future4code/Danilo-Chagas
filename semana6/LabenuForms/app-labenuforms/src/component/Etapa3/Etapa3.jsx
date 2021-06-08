@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
+import { PerguntaFechada } from "../PerguntaFechada/PerguntaFechada.jsx"
+import PerguntaOpcoes from "../PerguntaOpcoes/PerguntaOpcoes.jsx"
 
-const ContainerEtapa = styled.div `
+const ContainerEtapa = styled.div`
     display:flex;
     flex-direction:column;
     justify-content: center;
@@ -15,29 +17,51 @@ const BotaoPagina = styled.button`
   margin-top: 2%;
 `
 
-export const Etapa3 = (props) => {
-    return(
-        <ContainerEtapa>
-            <h1> ETAPA 3: Informações Gerais de Ensino</h1>
-            <p>Por que você não terminou um curso de graduação</p>
-            <input type={"text"}></input>
-            <p>Você fez algum curso complementar?</p>
-            <input type={"text"}></input>
-            <p>Qual o grau de escolaridade</p>
-            <select>
-                <option value="cursoTecnico"
-                >Curso Técnico</option>
-                <option value="cursoIngles"
-                >Curso de Inglês</option>
-                <option value="semCursoComplementar"
-                >Não fiz curso complementar</option>
-            </select>
+export class Etapa3 extends React.Component {
+    state = {
+        razaoTermino: "",
+        cursoComplementar: "",
+        escolaridadeComplementar: "",
+    }
 
-            <BotaoPagina
-            onClick={props.onClickProximaEtapa}
-            >Próxima Etapa
+    guardaState = (e) => {
+        this.setState({ [e.target.id]: e.target.value })
+    }
+    render() {
+        return (
+            <ContainerEtapa>
+                <h1> ETAPA 3: Informações Gerais de Ensino</h1>
+                <PerguntaFechada
+                    pergunta={"Por que você não terminou um curso de graduação"}
+                    id={"razaoTermino"}
+                    onChange={this.guardaState}
+                    value={this.state.razaoTermino}
+                />
+
+                <PerguntaFechada
+                    pergunta={"Você fez algum curso complementar?"}
+                    id={"cursoComplementar"}
+                    onChange={this.guardaState}
+                    value={this.state.cursoComplementar}
+                />
+
+                <PerguntaOpcoes
+                    pergunta={"Qual o grau de escolaridade"}
+                    id={"escolaridadeComplementar"}
+                    opcoes={["<escolher>",
+                        "Curso Técnico",
+                        "Curso de Inglês",
+                        "Não fiz curso complementar",
+                    ]}
+                    onChange={this.guardaState}
+                />
+
+                <BotaoPagina
+                    onClick={this.props.onClickProximaEtapa}
+                >Próxima Etapa
             </BotaoPagina>
 
-        </ContainerEtapa>
-    )
+            </ContainerEtapa>
+        )
+    }
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import {Etapa1} from "./component/Etapa1/Etapa1.jsx"
-import {Etapa2} from "./component/Etapa2/Etapa2.jsx"
+import Etapa1 from "./component/Etapa1/Etapa1.jsx"
+import Etapa2 from "./component/Etapa2/Etapa2.jsx"
 import {Etapa3} from "./component/Etapa3/Etapa3.jsx"
 import {Etapa4} from "./component/Etapa4/Etapa4.jsx"
 
@@ -11,13 +11,6 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
-
-const BotaoPagina = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2%;
 `
 
 class App extends React.Component {
