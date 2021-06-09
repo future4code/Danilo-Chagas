@@ -1,21 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import './styles.css'
+import Tarefa from '../src/component/Tarefa'
+
 
 const TarefaList = styled.ul`
   padding: 0;
   width: 200px;
 `
-
-const Tarefa = styled.li`
-  text-align: left;
-  text-decoration: ${({completa}) => (completa ? 'line-through' : 'none')};
-`
-
 const InputsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
-  gap: 10px;
+  margin-bottom: 2vh;
 `
 
 class App extends React.Component {
@@ -33,7 +29,9 @@ class App extends React.Component {
         }
     ],
       inputValue: '',
-      filtro: 'pendentes'
+      filtro: 'pendentes',
+      enquantoEdita: false,
+      inputValueEditado:"",
     }
 
   componentDidUpdate() {
@@ -76,11 +74,35 @@ class App extends React.Component {
         return tarefa
       }     
     }) 
+
     this.setState({tarefas: novaListaTarefas})
   }
 
   onChangeFilter = (event) => {
     this.setState({filtro: event.target.value})
+  }
+
+  excluirTarefa = (id) => {   
+    const novoArraySemItem = this.state.tarefas.filter((tarefa)=>{
+      return tarefa.id !== id
+    })
+    return this.setState({tarefas: novoArraySemItem})
+  }
+
+  editarTarefa = (id) => {
+    
+    //usar splice com substituição,ex:
+    // const array = {p:[{1:1},{2:2},{3:3}]}
+    // const altera = (input) => {return array.p.splice(array.p.indexOf(input),1,{4:4})}
+    // altera(1)
+    // console.log(array)
+
+
+    //  tarefaEditada = {
+    //   id: this.state.id,
+    //   texto: this.state.inputValue,
+    //   completa: this.state.completa
+    // }
   }
 
   render() {
@@ -102,7 +124,7 @@ class App extends React.Component {
           <input value={this.state.inputValue} onChange={this.onChangeInput}/>
           <button onClick={this.criaTarefa}>Adicionar</button>
         </InputsContainer>
-        <br/>
+ 
 
         <InputsContainer>
           <label>Filtro</label>
@@ -112,15 +134,20 @@ class App extends React.Component {
             <option value="completas">Completas</option>
           </select>
         </InputsContainer>
+        
+        
         <TarefaList>
-          {listaFiltrada.map(tarefa => {
+          {listaFiltrada.map((tarefa) => {
             return (
               <Tarefa
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
-              >
-                {tarefa.texto}
-              </Tarefa>
+                texto={tarefa.texto}               
+                deletar={() => this.excluirTarefa(tarefa.id)}
+                botaoEdicao={() => this.editarTarefa(tarefa.id)}
+                campoEdicao={this.enquantoEdita}
+
+              />                
             )
           })}
         </TarefaList>
