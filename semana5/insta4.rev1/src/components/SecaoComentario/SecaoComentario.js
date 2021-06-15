@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const CommentContainer = styled.div`
@@ -14,13 +14,13 @@ const InputComentario = styled.input`
 
 export class SecaoComentario extends Component {
 	state = {
-		valueComentario: ""							//Implementação 3.4
+		valueComentario: ""
 	}
 
-	onChangeComentario = (event) => {				//Implementação 3.4
-		console.log(event.target.value)				//	
-		this.setState({								//
-			valueComentario: event.target.value		//
+	onChangeComentario = (event) => {
+		console.log(event.target.value)
+		this.setState({
+			valueComentario: event.target.value
 		})
 	}
 
@@ -28,7 +28,7 @@ export class SecaoComentario extends Component {
 		return <CommentContainer>
 			<InputComentario
 				placeholder={'Comentário'}
-				value={this.state.valueComentario}	//Implementação 3.4
+				value={this.state.valueComentario}
 				onChange={this.onChangeComentario}
 			/>
 			<button onClick={this.props.aoEnviar}>Enviar</button>
