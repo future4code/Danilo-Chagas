@@ -1,0 +1,2577 @@
+{
+	"info": {
+		"_postman_id": "1dc88ef6-5405-4532-9f58-9a200d6e5120",
+		"name": "Labenu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get All Playlists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "<div class=\"entitystyles__EntityContainer-kfteh-0 iqkEVQ\"><div class=\"styles__TitleContainer-sc-12gd6on-1 dgYxAX\"><span data-entity-type=\"request-method\" title=\"GET\" class=\"styles__MethodWrapper-sc-12gd6on-3 dlGGhA\">GET</span><p data-entity-type=\"request-title\" class=\"styles__TitleWrapper-sc-12gd6on-2 bykRrC\">getAllPlaylists</p></div><div data-entity-type=\"request-url\" class=\"styles__EntityUrlContainer-sc-12gd6on-0 jNXUAq\">https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists</div><div class=\"entitystyles__DescriptionWrapper-kfteh-2 cBNZMv\"><div class=\"markdown-viewerstyles__MarkdownContainer-sc-13o0t2u-0 jAKrax markdown-viewer\"><h3><span>Descrição:</span></h3><span>\n</span><p><span>Esta requisição serve para ver o </span><code><span>id</span></code><span> e o </span><code><span>name</span></code><span> de todas as suas playlists.</span></p><span>\n</span><h3><span>Input:</span></h3><span>\n</span><p><strong><span>Headers</span></strong><span>\n</span><br><code><span>Authorization</span></code><span>: token de autenticação da API</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    Authorization: \"nome-sobrenome-turma\"\n</span></code></pre></div></div><h3><span>Output:</span></h3><span>\n</span><p><strong><span>Body</span></strong><span>\n</span><br><code><span>quantity</span></code><span>: quantitdade de playlists\n</span><br><code><span>list</span></code><span>: lista com as playlists\n</span><br><span> </span><code><span>id</span></code><span>: id de cada playlist\n</span><br><span> </span><code><span>name</span></code><span>: nome de cada playlist</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hJiEhL click-to-expand-container\"><div class=\"click-to-expandstyles__ClickToExpandOverlay-sc-17vma9t-1 lpdLir\"><div data-entity-id=\"click-to-expand-button\" class=\"click-to-expandstyles__ClickToExpandButton-sc-17vma9t-2 dNPfxV\">View More</div></div><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"list\": [\n            {\n                \"id\": \"string\",\n                \"name\": \"string\"\n            }\n        ]\n    }\n}\n</span></code></pre></div></div></div></div><div class=\"request-infostyles__RequestInfoContainer-sc-2jolgl-0 dquHjE\"><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">HEADERS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">Authorization</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><br><br></div></div>"
+			},
+			"response": [
+				{
+					"name": "mostrar - todas playlists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"d6-eYIoEH0fDPjB4VDd8PYqY8u/L34\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub5qwww5zj"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "8892552b528a07d76d310b5a62b1bee2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 18:35:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "214"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 3,\n        \"list\": [\n            {\n                \"id\": \"cc205a7d-e78e-40ed-b0b9-0787222c0295\",\n                \"name\": \"lo-fi\"\n            },\n            {\n                \"id\": \"add2c389-56cd-4469-9894-dce452260572\",\n                \"name\": \"rock\"\n            },\n            {\n                \"id\": \"2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126\",\n                \"name\": \"edm\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "com playlist para apagar",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"119-7ThbBaPC+Uydv2WnOV2hsF8UM0A\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubwpcw4d9r"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "44958418594eae65b695ecba72c3d6b9;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:25:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "281"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 4,\n        \"list\": [\n            {\n                \"id\": \"cc205a7d-e78e-40ed-b0b9-0787222c0295\",\n                \"name\": \"lo-fi\"\n            },\n            {\n                \"id\": \"add2c389-56cd-4469-9894-dce452260572\",\n                \"name\": \"rock\"\n            },\n            {\n                \"id\": \"2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126\",\n                \"name\": \"edm\"\n            },\n            {\n                \"id\": \"2303d46f-c218-4a08-a7ea-ec3430e6bf4f\",\n                \"name\": \"para apagar\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "com playlista apagada",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"d6-eYIoEH0fDPjB4VDd8PYqY8u/L34\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub33he4ey7"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "6539c55ac6b53f1f4cb411c7e96b2e3a"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:26:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "214"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 3,\n        \"list\": [\n            {\n                \"id\": \"cc205a7d-e78e-40ed-b0b9-0787222c0295\",\n                \"name\": \"lo-fi\"\n            },\n            {\n                \"id\": \"add2c389-56cd-4469-9894-dce452260572\",\n                \"name\": \"rock\"\n            },\n            {\n                \"id\": \"2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126\",\n                \"name\": \"edm\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Desafio 7.c - todas playlists apagadas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"23-sQAEMWSWKQfK9xaS1NLV5+1HHOM\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubrdzig3jd"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "eeb5b359320f477f61f1c9f6418cdfc9;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:48:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 0,\n        \"list\": []\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "search Playlist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": ""
+						}
+					]
+				},
+				"description": "<span data-entity-type=\"request-method\" title=\"GET\" class=\"styles__MethodWrapper-sc-12gd6on-3 dlGGhA\">GET</span><p data-entity-type=\"request-title\" class=\"styles__TitleWrapper-sc-12gd6on-2 bykRrC\">searchPlaylist</p></div><div data-entity-type=\"request-url\" class=\"styles__EntityUrlContainer-sc-12gd6on-0 jNXUAq\">https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=string</div><div class=\"entitystyles__DescriptionWrapper-kfteh-2 cBNZMv\"><div class=\"markdown-viewerstyles__MarkdownContainer-sc-13o0t2u-0 jAKrax markdown-viewer\"><h3><span>Descrição:</span></h3><span>\n</span><p><span>Essa requisição parmite pesquisar por uma playlist, usando o nome dela ou parte dele.</span></p><span>\n</span><h3><span>Input:</span></h3><span>\n</span><p><strong><span>Headers</span></strong><span>\n</span><br><code><span>Authorization</span></code><span>: token de autenticação da API</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    Authorization: \"nome-sobrenome-turma\"\n</span></code></pre></div></div><p><strong><span>Query String</span></strong><span>\n</span><br><span> </span><code><span>name</span></code><span>: nome da playlist ou parte dele (obrigatório)</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    name:\"string\" \n</span></code></pre></div></div><h3><span>Output:</span></h3><span>\n</span><p><strong><span>Body</span></strong><span>\n</span><br><span> </span><code><span>quantity</span></code><span>: quantidade de playlists encontradas\n</span><br><span> </span><code><span>list</span></code><span>: array com as playlists\n</span><br><span> </span><code><span>id</span></code><span>: id de cada playlist\n</span><br><span> </span><code><span>name</span></code><span>: nome de cada playlist</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hJiEhL click-to-expand-container\"><div class=\"click-to-expandstyles__ClickToExpandOverlay-sc-17vma9t-1 lpdLir\"><div data-entity-id=\"click-to-expand-button\" class=\"click-to-expandstyles__ClickToExpandButton-sc-17vma9t-2 dNPfxV\">View More</div></div><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>{\n    \"result\": {\n        \"quantity\": \"number\", \n        \"list\": [\n            {\n                \"id\": \"string\", \n                \"name\": \"string\" \n            }\n        ]\n    }\n}\n</span></code></pre></div></div></div></div><div class=\"request-infostyles__RequestInfoContainer-sc-2jolgl-0 dquHjE\"><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">HEADERS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">Authorization</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">PARAMS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">name</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div>string</div></div></div></div><br><br></div></div></div><div class=\"doc-layoutstyles__SecondaryWrapper-q6d9p9-2 kPdUuq\"><div class=\"entitystyles__EntityExampleContainer-kfteh-1\"><div><div data-entity-type=\"example-request\" class=\"styles__ExampleRequestContainer-sc-1gk0rxh-7 ftbNjk\"><div class=\"styles__ExampleHeader-sc-1gk0rxh-4 eZFVCL\"><div class=\"styles__ExampleTitle-sc-1gk0rxh-1 coCuLw\"> Example Request</div><div title=\"searchPlaylist\" class=\"styles__ExampleName-sc-1gk0rxh-3 dKJIOv\">searchPlaylist</div></div><div class=\"styles__ExampleCodeSnippetContainer-sc-1gk0rxh-8 ccUrdm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 gHWRAt\"><div class=\"enhanced-codestyles__HighlightCode-sc-1utidae-2 fluaKj highlight-code\"><pre class=\"language-javascript\"><code class=\"language-javascript\">curl <span class=\"token operator\">--</span>location <span class=\"token operator\">--</span>request <span class=\"token constant\">GET</span> <span class=\"token string\">'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=string'</span> \\\n<span class=\"token operator\">--</span>header <span class=\"token string\">'Authorization;'</span></code></pre></div></div></div><button class=\"copy-to-clipboardstyles__CopyToClipboardButton-pcjjqc-0 cuTAkA\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1.94514 1C1.42316 1 1 1.42316 1 1.94514V11.5165C1 12.0065 1.39717 12.4036 1.8871 12.4036C2.37704 12.4036 2.7742 12.0065 2.7742 11.5165V3.58965C2.7742 3.06766 3.19736 2.6445 3.71936 2.6445H10.8107C11.2648 2.6445 11.6329 2.27637 11.6329 1.82225C11.6329 1.36813 11.2648 1 10.8107 1H1.94514Z\" fill=\"#A9A9A9\"></path><path d=\"M4.60338 3.59636C4.08139 3.59636 3.65823 4.01952 3.65823 4.5415V14.0548C3.65823 14.5768 4.08139 15 4.60338 15H14.0549C14.5768 15 15 14.5768 15 14.0548V4.5415C15 4.01952 14.5768 3.59636 14.0549 3.59636H4.60338Z\" fill=\"#A9A9A9\"></path></svg></button></div></div></div></div></div></div></div><div id=\"2986aabd-8bff-4005-b1ca-a9cae359bf54\" class=\"doc-layoutstyles__LayoutContainer-q6d9p9-0 iJzvFj\"><div class=\"doc-layoutstyles__PrimaryWrapper-q6d9p9-1 hqSUuR\"><div class=\"entitystyles__EntityContainer-kfteh-0 iqkEVQ\"><div class=\"styles__TitleContainer-sc-12gd6on-1 dgYxAX\">"
+			},
+			"response": [
+				{
+					"name": "busca - rock",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=rock",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "rock"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"62-GyTyzkTncsXXOwI93TzpCf4Ekgg\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub9shwdmnv"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "33b74f3cde2b176e0fc562a477b4a584"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:05:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 1,\n        \"playlist\": [\n            {\n                \"id\": \"add2c389-56cd-4469-9894-dce452260572\",\n                \"name\": \"rock\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Desafio 3 - playlist que nao existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=playlist-que-nao-existe",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "playlist-que-nao-existe"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"27-HIJmHNR3H9zrUKPNKT5lSYze/qw\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub6tgmn4o5"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "5d7ab0867abca21de1522de7abb014b1;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:32:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 0,\n        \"playlist\": []\n    }\n}"
+				},
+				{
+					"name": "Desafio 5 - buscar sem Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"35-m4wtH6mpELl2SLM9LWTdGX1s7Ck\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub9uebtbvg"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "fbe6da7b6c73c8e87d07ae90f919ad96"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:35:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Playlist name or auth token are missing\"\n}"
+				},
+				{
+					"name": "Desafio 7.b  1/2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=ck",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ck"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"62-GyTyzkTncsXXOwI93TzpCf4Ekgg\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubobfen609"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f06ed9a95603b0d165de452159976a92"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:42:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 1,\n        \"playlist\": [\n            {\n                \"id\": \"add2c389-56cd-4469-9894-dce452260572\",\n                \"name\": \"rock\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get Playlist Tracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=add2c389-56cd-4469-9894-dce452260572",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "playlistId",
+							"value": "add2c389-56cd-4469-9894-dce452260572"
+						}
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "add2c389-56cd-4469-9894-dce452260572"
+						}
+					]
+				},
+				"description": "<span data-entity-type=\"request-method\" title=\"GET\" class=\"styles__MethodWrapper-sc-12gd6on-3 dlGGhA\">GET</span><p data-entity-type=\"request-title\" class=\"styles__TitleWrapper-sc-12gd6on-2 bykRrC\">getPlaylistTracks</p></div><div data-entity-type=\"request-url\" class=\"styles__EntityUrlContainer-sc-12gd6on-0 jNXUAq\">https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks</div><div class=\"entitystyles__DescriptionWrapper-kfteh-2 cBNZMv\"><div class=\"markdown-viewerstyles__MarkdownContainer-sc-13o0t2u-0 jAKrax markdown-viewer\"><h3><span>Descrição:</span></h3><span>\n</span><p><span>Esta requisição permite verificar quais músicas estão em uma determinada playlist</span></p><span>\n</span><h3><span>Input:</span></h3><span>\n</span><p><strong><span>Headers</span></strong><span>\n</span><br><code><span>Authorization</span></code><span>: token de autenticação da API</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    Authorization: \"nome-sobrenome-turma\"\n</span></code></pre></div></div><p><strong><span>Path Param</span></strong><span>\n</span><br><code><span>playlistId</span></code><span>: id da playlist (obrigatório)</span></p><span>\n</span><h3><span>Output:</span></h3><span>\n</span><p><strong><span>Body</span></strong><span>\n</span><br><span> </span><code><span>quantity</span></code><span>: quantidade de músicas da playlist\n</span><br><span> </span><code><span>tracks</span></code><span>: array com as informações das músicas\n</span><br><span> </span><code><span>id</span></code><span>: id de cada música\n</span><br><span> </span><code><span>name</span></code><span>: nome de cada música\n</span><br><span> </span><code><span>artist</span></code><span>: cantor ou band da música\n</span><br><code><span>url</span></code><span>: URL da música para ser tocada</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hJiEhL click-to-expand-container\"><div class=\"click-to-expandstyles__ClickToExpandOverlay-sc-17vma9t-1 lpdLir\"><div data-entity-id=\"click-to-expand-button\" class=\"click-to-expandstyles__ClickToExpandButton-sc-17vma9t-2 dNPfxV\">View More</div></div><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"tracks\": [ \n            {\n                \"id\": \"string\", \n                \"name\": \"string\", \n                \"artist\": \"string\",\n                \"url\": \"string\"\n            }\n        ]\n    }\n}\n</span></code></pre></div></div></div></div><div class=\"request-infostyles__RequestInfoContainer-sc-2jolgl-0 dquHjE\"><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">HEADERS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">Authorization</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">PATH VARIABLES</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">playlistId</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div>027f1eaf-3d07-46cf-aab3-7064d5935d80</div></div></div></div><br><br></div></div></div><div class=\"doc-layoutstyles__SecondaryWrapper-q6d9p9-2 kPdUuq\"><div class=\"entitystyles__EntityExampleContainer-kfteh-1\"><div><div data-entity-type=\"example-request\" class=\"styles__ExampleRequestContainer-sc-1gk0rxh-7 ftbNjk\"><div class=\"styles__ExampleHeader-sc-1gk0rxh-4 eZFVCL\"><div class=\"styles__ExampleTitle-sc-1gk0rxh-1 coCuLw\"> Example Request</div><div title=\"getPlaylistTracks\" class=\"styles__ExampleName-sc-1gk0rxh-3 dKJIOv\">getPlaylistTracks</div></div><div class=\"styles__ExampleCodeSnippetContainer-sc-1gk0rxh-8 ccUrdm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 gHWRAt\"><pre class=\"enhanced-codestyles__SimpleCodeWrapper-sc-1utidae-1 MvHmb simple-code\"><code>curl --location --request GET 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/027f1eaf-3d07-46cf-aab3-7064d5935d80/tracks' \\\n--header 'Authorization;'</code></pre></div></div><button class=\"copy-to-clipboardstyles__CopyToClipboardButton-pcjjqc-0 cuTAkA\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1.94514 1C1.42316 1 1 1.42316 1 1.94514V11.5165C1 12.0065 1.39717 12.4036 1.8871 12.4036C2.37704 12.4036 2.7742 12.0065 2.7742 11.5165V3.58965C2.7742 3.06766 3.19736 2.6445 3.71936 2.6445H10.8107C11.2648 2.6445 11.6329 2.27637 11.6329 1.82225C11.6329 1.36813 11.2648 1 10.8107 1H1.94514Z\" fill=\"#A9A9A9\"></path><path d=\"M4.60338 3.59636C4.08139 3.59636 3.65823 4.01952 3.65823 4.5415V14.0548C3.65823 14.5768 4.08139 15 4.60338 15H14.0549C14.5768 15 15 14.5768 15 14.0548V4.5415C15 4.01952 14.5768 3.59636 14.0549 3.59636H4.60338Z\" fill=\"#A9A9A9\"></path></svg></button></div></div></div></div></div></div></div><div id=\"62db6402-161a-4a4e-8d1b-c7117704b2fa\" class=\"doc-layoutstyles__LayoutContainer-q6d9p9-0 iJzvFj\"><div class=\"doc-layoutstyles__PrimaryWrapper-q6d9p9-1 hqSUuR\"><div class=\"entitystyles__EntityContainer-kfteh-0 iqkEVQ\"><div class=\"styles__TitleContainer-sc-12gd6on-1 dgYxAX\">"
+			},
+			"response": [
+				{
+					"name": "tracks - lo-fi",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=cc205a7d-e78e-40ed-b0b9-0787222c0295",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "cc205a7d-e78e-40ed-b0b9-0787222c0295"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "cc205a7d-e78e-40ed-b0b9-0787222c0295"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"139-xruEQg6flGmnMjRnkKaYFC6fcSI\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubx5osjt4e"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "bf1a3b62498a27091f4dad7cf420f077;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 18:31:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "313"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 2,\n        \"tracks\": [\n            {\n                \"id\": \"6b7f9011-5737-4607-86a5-0d3830b3cbbb\",\n                \"name\": \"When It Rains\",\n                \"artist\": \"Saib\",\n                \"url\": \"https://www.deezer.com/br/track/510973872\"\n            },\n            {\n                \"id\": \"4627c712-a1b3-4995-8f14-0c33098cd130\",\n                \"name\": \"Harumi\",\n                \"artist\": \"Ricardo Schneider\",\n                \"url\": \"https://www.deezer.com/br/track/1286933582\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "tracks - edm (initial add)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"226-0FHvgPedzLgcw79P1dn4EqU4jno\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubccs2tuy0"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "51b936e0378044a5201ba307820ad401"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 18:49:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "550"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 3,\n        \"tracks\": [\n            {\n                \"id\": \"9d3cb719-2a81-447a-a49d-a4b641d8093c\",\n                \"name\": \"Dreams (feat. Lanie Gardner)\",\n                \"artist\": \"David Guetta, MORTEN, Lanie Gardne\",\n                \"url\": \"https://www.deezer.com/br/track/1161092892\"\n            },\n            {\n                \"id\": \"66a2ce1b-48e5-47e5-8473-f7920c7c9b4e\",\n                \"name\": \"Dreams (feat. Lanie Gardner)\",\n                \"artist\": \"David Guetta, MORTEN, Lanie Gardne\",\n                \"url\": \"https://www.deezer.com/br/track/1161092892\"\n            },\n            {\n                \"id\": \"a7322b03-2443-46ba-9b9d-c41d56c43310\",\n                \"name\": \"Azkaban\",\n                \"artist\": \"Dubdogz, Beowülf, Woo2Tech\",\n                \"url\": \"https://www.deezer.com/br/track/647340572\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "tracks - edm 2 (to delete)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"294-HCUXnGkMOKSYChWxauXHrG5O7Vo\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubmp10vcr5"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "8deb969956044091d67a7ece34d2109f"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:10:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "660"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 4,\n        \"tracks\": [\n            {\n                \"id\": \"9d3cb719-2a81-447a-a49d-a4b641d8093c\",\n                \"name\": \"Dreams (feat. Lanie Gardner)\",\n                \"artist\": \"David Guetta, MORTEN, Lanie Gardne\",\n                \"url\": \"https://www.deezer.com/br/track/1161092892\"\n            },\n            {\n                \"id\": \"66a2ce1b-48e5-47e5-8473-f7920c7c9b4e\",\n                \"name\": \"Dreams (feat. Lanie Gardner)\",\n                \"artist\": \"David Guetta, MORTEN, Lanie Gardne\",\n                \"url\": \"https://www.deezer.com/br/track/1161092892\"\n            },\n            {\n                \"id\": \"a7322b03-2443-46ba-9b9d-c41d56c43310\",\n                \"name\": \"Azkaban\",\n                \"artist\": \"Dubdogz, Beowülf, Woo2Tech\",\n                \"url\": \"https://www.deezer.com/br/track/647340572\"\n            },\n            {\n                \"id\": \"0ce383bf-3eb0-438a-92a6-47ad75d820a5\",\n                \"name\": \"musica chata\",\n                \"artist\": \"tanto faz\",\n                \"url\": \"um link qlqr\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "tracks - edm 3 (renew)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"171-X1+V596+fA1IeMu8/iKDXlNi6Q8\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubh2deh19y"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "f4d83204e9c5fca449ef4d3c19f47c8f;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:17:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "369"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 2,\n        \"tracks\": [\n            {\n                \"id\": \"9d3cb719-2a81-447a-a49d-a4b641d8093c\",\n                \"name\": \"Dreams (feat. Lanie Gardner)\",\n                \"artist\": \"David Guetta, MORTEN, Lanie Gardne\",\n                \"url\": \"https://www.deezer.com/br/track/1161092892\"\n            },\n            {\n                \"id\": \"a7322b03-2443-46ba-9b9d-c41d56c43310\",\n                \"name\": \"Azkaban\",\n                \"artist\": \"Dubdogz, Beowülf, Woo2Tech\",\n                \"url\": \"https://www.deezer.com/br/track/647340572\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "tracks - edm 4 (add)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"294-4u3xgmaXnVwImIQ+Geg2AcByyc4\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub4uc88uj5"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "885142cc04c5f90a04c693dc46a2b864"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:21:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "660"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 4,\n        \"tracks\": [\n            {\n                \"id\": \"9d3cb719-2a81-447a-a49d-a4b641d8093c\",\n                \"name\": \"Dreams (feat. Lanie Gardner)\",\n                \"artist\": \"David Guetta, MORTEN, Lanie Gardne\",\n                \"url\": \"https://www.deezer.com/br/track/1161092892\"\n            },\n            {\n                \"id\": \"a7322b03-2443-46ba-9b9d-c41d56c43310\",\n                \"name\": \"Azkaban\",\n                \"artist\": \"Dubdogz, Beowülf, Woo2Tech\",\n                \"url\": \"https://www.deezer.com/br/track/647340572\"\n            },\n            {\n                \"id\": \"3aa3de78-4e10-4102-8af4-c76bf68a202a\",\n                \"name\": \"Deep Jungle Walk\",\n                \"artist\": \"Astrix\",\n                \"url\": \"https://www.deezer.com/br/track/644753342\"\n            },\n            {\n                \"id\": \"7e022c67-7096-485b-9cfa-087b8d74a1c1\",\n                \"name\": \"Kill Me Slow\",\n                \"artist\": \"David Guetta, MORTEN\",\n                \"url\": \"https://www.deezer.com/br/track/1021141692\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "tracks - rock",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=add2c389-56cd-4469-9894-dce452260572",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"14a-RZxoHLaXeGMhx9FtwgNz1H4foSw\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubwf8vnipk"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "dc2e6c77558ec557a468a34cee0d861e;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:02:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"quantity\": 2,\n        \"tracks\": [\n            {\n                \"id\": \"2952b124-df4e-4cb6-8a66-45e3de998740\",\n                \"name\": \"Back In Black\",\n                \"artist\": \"AC/DC\",\n                \"url\": \"https://www.deezer.com/br/track/92720046\"\n            },\n            {\n                \"id\": \"cef9aeb0-2b00-4129-afb1-6e0ba2c18b03\",\n                \"name\": \"Strike First\",\n                \"artist\": \"Leo Birenberg & Zach Robinson\",\n                \"url\": \"https://www.deezer.com/br/track/495155102\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Desafio 7.c - qlqr id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "lsakjdsa"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"20-YMcHeuIBi2wl2rkBUoK+tY7TFjM\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ublkhapd4t"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "56c40274acb8e733dca33210efbc8029"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:44:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Playlist not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create Playlist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "<span data-entity-type=\"request-method\" title=\"POST\" class=\"styles__MethodWrapper-sc-12gd6on-3 hfilzG\">POST</span><p data-entity-type=\"request-title\" class=\"styles__TitleWrapper-sc-12gd6on-2 bykRrC\">createPlaylist</p></div><div data-entity-type=\"request-url\" class=\"styles__EntityUrlContainer-sc-12gd6on-0 jNXUAq\">https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists</div><div class=\"entitystyles__DescriptionWrapper-kfteh-2 cBNZMv\"><div class=\"markdown-viewerstyles__MarkdownContainer-sc-13o0t2u-0 jAKrax markdown-viewer\"><h3><span>Descrição:</span></h3><span>\n</span><p><span>Essa requisição cria uma nova playlist. </span></p><span>\n</span><h3><span>Input:</span></h3><span>\n</span><p><strong><span>Headers</span></strong><span>\n</span><br><code><span>Authorization</span></code><span>: token de autenticação da API</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    Authorization: \"nome-sobrenome-turma\"\n</span></code></pre></div></div><p><strong><span>Body</span></strong><span>\n</span><br><code><span>name</span></code><span>: nome da playlist (obrigatório)</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>{\n    \"name\": \"string\" \n}\n</span></code></pre></div></div></div></div><div class=\"request-infostyles__RequestInfoContainer-sc-2jolgl-0 dquHjE\"><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">HEADERS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">Authorization</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><div data-entity-type=\"request-body\" class=\"request-info-bodystyles__RequestBodyContainer-sc-159utm6-0 jCHxlk\"><div class=\"request-info-bodystyles__RequestBodyWrapper-sc-159utm6-1 gdThiZ\"><div class=\"styles__CodeContainer-x8693k-0 kKJlGO documentation-code-default\"><div class=\"styles__BodyTitleContainer-x8693k-3 hJlUkl\"><span class=\"styles__BodyTitle-x8693k-1 evgtoB\">BODY</span><span class=\"styles__BodyTitleInfo-x8693k-2 djBwlY\">raw</span></div><div class=\"styles__CodeWrapper-x8693k-4 dSXGBm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 zvWwx\"><div class=\"enhanced-codestyles__HighlightCode-sc-1utidae-2 fWwvGx highlight-code\"><pre class=\"language-javascript\"><code class=\"language-javascript\"><span class=\"token punctuation\">{</span>\n\t<span class=\"token string\">\"name\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span>\n<span class=\"token punctuation\">}</span></code></pre></div></div></div></div></div></div></div></div><br><br></div></div></div><div class=\"doc-layoutstyles__SecondaryWrapper-q6d9p9-2 kPdUuq\"><div class=\"entitystyles__EntityExampleContainer-kfteh-1\"><div><div data-entity-type=\"example-request\" class=\"styles__ExampleRequestContainer-sc-1gk0rxh-7 ftbNjk\"><div class=\"styles__ExampleHeader-sc-1gk0rxh-4 eZFVCL\"><div class=\"styles__ExampleTitle-sc-1gk0rxh-1 coCuLw\"> Example Request</div><div title=\"createPlaylist\" class=\"styles__ExampleName-sc-1gk0rxh-3 dKJIOv\">createPlaylist</div></div><div class=\"styles__ExampleCodeSnippetContainer-sc-1gk0rxh-8 ccUrdm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 gHWRAt\"><div class=\"enhanced-codestyles__HighlightCode-sc-1utidae-2 fluaKj highlight-code\"><pre class=\"language-javascript\"><code class=\"language-javascript\">curl <span class=\"token operator\">--</span>location <span class=\"token operator\">-</span>g <span class=\"token operator\">--</span>request <span class=\"token constant\">POST</span> <span class=\"token string\">'{{baseUrl}}/playlists/createPlaylist'</span> \\\n<span class=\"token operator\">--</span>header <span class=\"token string\">'Content-Type: application/json'</span> \\\n<span class=\"token operator\">--</span>header <span class=\"token string\">'auth: authentication-token'</span> \\\n<span class=\"token operator\">--</span>data<span class=\"token operator\">-</span>raw '<span class=\"token punctuation\">{</span>\n\t<span class=\"token string\">\"name\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"playlist-name\"</span>\n<span class=\"token punctuation\">}</span>'</code></pre></div></div></div><button class=\"copy-to-clipboardstyles__CopyToClipboardButton-pcjjqc-0 cuTAkA\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1.94514 1C1.42316 1 1 1.42316 1 1.94514V11.5165C1 12.0065 1.39717 12.4036 1.8871 12.4036C2.37704 12.4036 2.7742 12.0065 2.7742 11.5165V3.58965C2.7742 3.06766 3.19736 2.6445 3.71936 2.6445H10.8107C11.2648 2.6445 11.6329 2.27637 11.6329 1.82225C11.6329 1.36813 11.2648 1 10.8107 1H1.94514Z\" fill=\"#A9A9A9\"></path><path d=\"M4.60338 3.59636C4.08139 3.59636 3.65823 4.01952 3.65823 4.5415V14.0548C3.65823 14.5768 4.08139 15 4.60338 15H14.0549C14.5768 15 15 14.5768 15 14.0548V4.5415C15 4.01952 14.5768 3.59636 14.0549 3.59636H4.60338Z\" fill=\"#A9A9A9\"></path></svg></button></div></div></div></div></div></div></div><div id=\"51f91033-b2e8-4bb4-ab98-a914df938ae5\" class=\"doc-layoutstyles__LayoutContainer-q6d9p9-0 iJzvFj\"><div class=\"doc-layoutstyles__PrimaryWrapper-q6d9p9-1 hqSUuR\"><div class=\"entitystyles__EntityContainer-kfteh-0 iqkEVQ\"><div class=\"styles__TitleContainer-sc-12gd6on-1 dgYxAX\">"
+			},
+			"response": [
+				{
+					"name": "create - edm",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"edm\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubqw75n0ih"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "31ba45ac1ed06a4b4a5eb7543723169b"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 17:59:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Desafio 2 - erro playlist duplicada",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"rock\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3f-M3Ne9oR39VTvSd2T8Cn1ZqQtvro\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubmpgu93zo"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "65b12a14d927f8cd4563174ce1aaea33"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:29:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"There already is a playlist with a similiar name.\"\n}"
+				},
+				{
+					"name": "Desafio 6 - criar sem nome",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2c-EmEk4adM/5whPdcSoimx5b4750I\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubm8194nj9"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "7760d14226e66a2757df7bd0b5641d6b"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:37:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Name or auth token are missing\"\n}"
+				}
+			]
+		},
+		{
+			"name": "addTrackToPlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Kill Me Slow\",\n\t\"artist\": \"David Guetta, MORTEN\",\n\t\"url\": \"https://www.deezer.com/br/track/1021141692\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "playlistId",
+							"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+						}
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+						}
+					]
+				},
+				"description": "<span data-entity-type=\"request-method\" title=\"POST\" class=\"styles__MethodWrapper-sc-12gd6on-3 hfilzG\">POST</span><p data-entity-type=\"request-title\" class=\"styles__TitleWrapper-sc-12gd6on-2 bykRrC\">addTrackToPlaylist</p></div><div data-entity-type=\"request-url\" class=\"styles__EntityUrlContainer-sc-12gd6on-0 jNXUAq\">https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks</div><div class=\"entitystyles__DescriptionWrapper-kfteh-2 cBNZMv\"><div class=\"markdown-viewerstyles__MarkdownContainer-sc-13o0t2u-0 jAKrax markdown-viewer\"><h3><span>Descrição:</span></h3><span>\n</span><p><span>Essa requisição adiciona uma música a uma playlist existente</span></p><span>\n</span><h3><span>Input:</span></h3><span>\n</span><p><strong><span>Headers</span></strong><span>\n</span><br><code><span>Authorization</span></code><span>: token de autenticação da API</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    Authorization: \"nome-sobrenome-turma\"\n</span></code></pre></div></div><p><strong><span>Path Param</span></strong><span>\n</span><br><code><span>playlistId</span></code><span>: id da playlist (obrigatório)</span></p><span>\n</span><p><strong><span>Body</span></strong><span>\n</span><br><code><span>name</span></code><span>: nome da música (obrigatório)\n</span><br><code><span>artist</span></code><span>: cantor ou banda da música (obrigatório)\n</span><br><code><span>url</span></code><span>: URL da música para ser tocada (obrigatório)</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>{\n    \"name\": \"string\", \n    \"artist\": \"string\",\n    \"url\": \"string\"\n}\n</span></code></pre></div></div></div></div><div class=\"request-infostyles__RequestInfoContainer-sc-2jolgl-0 dquHjE\"><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">HEADERS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">Authorization</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">PATH VARIABLES</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">playlistId</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div>027f1eaf-3d07-46cf-aab3-7064d5935d80</div></div></div></div><div data-entity-type=\"request-body\" class=\"request-info-bodystyles__RequestBodyContainer-sc-159utm6-0 jCHxlk\"><div class=\"request-info-bodystyles__RequestBodyWrapper-sc-159utm6-1 gdThiZ\"><div class=\"styles__CodeContainer-x8693k-0 kKJlGO documentation-code-default\"><div class=\"styles__BodyTitleContainer-x8693k-3 hJlUkl\"><span class=\"styles__BodyTitle-x8693k-1 evgtoB\">BODY</span><span class=\"styles__BodyTitleInfo-x8693k-2 djBwlY\">raw</span></div><div class=\"styles__CodeWrapper-x8693k-4 dSXGBm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 zvWwx\"><div class=\"enhanced-codestyles__HighlightCode-sc-1utidae-2 fWwvGx highlight-code\"><pre class=\"language-javascript\"><code class=\"language-javascript\"><span class=\"token punctuation\">{</span>\n\t<span class=\"token string\">\"name\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span><span class=\"token punctuation\">,</span>\n\t<span class=\"token string\">\"artist\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span><span class=\"token punctuation\">,</span>\n\t<span class=\"token string\">\"url\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span>\n<span class=\"token punctuation\">}</span></code></pre></div></div></div></div></div></div></div></div><br><br></div></div></div><div class=\"doc-layoutstyles__SecondaryWrapper-q6d9p9-2 kPdUuq\"><div class=\"entitystyles__EntityExampleContainer-kfteh-1\"><div><div data-entity-type=\"example-request\" class=\"styles__ExampleRequestContainer-sc-1gk0rxh-7 ftbNjk\"><div class=\"styles__ExampleHeader-sc-1gk0rxh-4 eZFVCL\"><div class=\"styles__ExampleTitle-sc-1gk0rxh-1 coCuLw\"> Example Request</div><div title=\"addTrackToPlaylist\" class=\"styles__ExampleName-sc-1gk0rxh-3 dKJIOv\">addTrackToPlaylist</div></div><div class=\"styles__ExampleCodeSnippetContainer-sc-1gk0rxh-8 ccUrdm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 gHWRAt\"><div class=\"enhanced-codestyles__HighlightCode-sc-1utidae-2 fluaKj highlight-code\"><pre class=\"language-javascript\"><code class=\"language-javascript\">curl <span class=\"token operator\">--</span>location <span class=\"token operator\">--</span>request <span class=\"token constant\">POST</span> <span class=\"token string\">'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/027f1eaf-3d07-46cf-aab3-7064d5935d80/tracks'</span> \\\n<span class=\"token operator\">--</span>header <span class=\"token string\">'Authorization;'</span> \\\n<span class=\"token operator\">--</span>data<span class=\"token operator\">-</span>raw '<span class=\"token punctuation\">{</span>\n\t<span class=\"token string\">\"name\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span><span class=\"token punctuation\">,</span>\n\t<span class=\"token string\">\"artist\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span><span class=\"token punctuation\">,</span>\n\t<span class=\"token string\">\"url\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"string\"</span>\n<span class=\"token punctuation\">}</span>'</code></pre></div></div></div><button class=\"copy-to-clipboardstyles__CopyToClipboardButton-pcjjqc-0 cuTAkA\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1.94514 1C1.42316 1 1 1.42316 1 1.94514V11.5165C1 12.0065 1.39717 12.4036 1.8871 12.4036C2.37704 12.4036 2.7742 12.0065 2.7742 11.5165V3.58965C2.7742 3.06766 3.19736 2.6445 3.71936 2.6445H10.8107C11.2648 2.6445 11.6329 2.27637 11.6329 1.82225C11.6329 1.36813 11.2648 1 10.8107 1H1.94514Z\" fill=\"#A9A9A9\"></path>"
+			},
+			"response": [
+				{
+					"name": "rock - back in black",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Back In Black\",\n\t\"artist\": \"AC/DC\",\n\t\"url\": \"https://www.deezer.com/br/track/92720046\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=add2c389-56cd-4469-9894-dce452260572",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubiw0pbhlh"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "b886e13f3424a49c2c59550aadfd5c50"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 18:36:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "rock - strike first",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Strike First\",\n\t\"artist\": \"Leo Birenberg & Zach Robinson\",\n\t\"url\": \"https://www.deezer.com/br/track/495155102\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=add2c389-56cd-4469-9894-dce452260572",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubb75rrus2"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "3396db31528b7242828bb2020dbb630a;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 18:39:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "edm - azkaban",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Azkaban\",\n\t\"artist\": \"Dubdogz, Beowülf, Woo2Tech\",\n\t\"url\": \"https://www.deezer.com/br/track/647340572\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks?playlistId=2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub1fso5dax"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "85ed1d8d213ac7ae9731c9a0a0bdfdae"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 18:48:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "delete Playlist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete - Playlist \"para apagar\"",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2303d46f-c218-4a08-a7ea-ec3430e6bf4f"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubkchxgca6"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "54e8a5bf0e082a46587573291502e5e8;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:25:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Desafio 7.a - apagar com ref em  getAllPlaylists",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub64rjnpe6"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "e2f251d3d3ae2096d0b6dfa782f28662"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:40:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Desafio 7.b 2/2",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "add2c389-56cd-4469-9894-dce452260572"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub0v64m2nv"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "d4dc0440b9c8d290ec44f0d20200357e"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:43:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Desafio 7.c - apagar todas playlists",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "cc205a7d-e78e-40ed-b0b9-0787222c0295"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubijix22v4"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "8fdbe3c09a3f22ab3fff03f3c61f2985;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:48:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "remove Track From Playlist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "danilo-chagas-molina",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+						},
+						{
+							"key": "trackId",
+							"value": "id-que-nao-existe"
+						}
+					]
+				},
+				"description": "<span data-entity-type=\"request-method\" title=\"DEL\" class=\"styles__MethodWrapper-sc-12gd6on-3 gdWSnX\">DEL</span><p data-entity-type=\"request-title\" class=\"styles__TitleWrapper-sc-12gd6on-2 bykRrC\">removeTrackFromPlaylist</p></div><div data-entity-type=\"request-url\" class=\"styles__EntityUrlContainer-sc-12gd6on-0 jNXUAq\">https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId</div><div class=\"entitystyles__DescriptionWrapper-kfteh-2 cBNZMv\"><div class=\"markdown-viewerstyles__MarkdownContainer-sc-13o0t2u-0 jAKrax markdown-viewer\"><h3><span>Descrição:</span></h3><span>\n</span><p><span>Esta requisição serve para deletar alguma música de alguma playlist</span></p><span>\n</span><h3><span>Input:</span></h3><span>\n</span><p><strong><span>Headers</span></strong><span>\n</span><br><code><span>Authorization</span></code><span>: token de autenticação da API</span></p><span>\n</span><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div class=\"styled__CodeContainer-n0jj3l-0 cNdEXL\"><pre><code><span>    Authorization: \"nome-sobrenome-turma\"\n</span></code></pre></div></div><p><strong><span>Path Params</span></strong><span>\n</span><br><code><span>playlistId</span></code><span>: id da playlist (obrigatório)\n</span><br><code><span>trackId</span></code><span>: id da música (obrigatório)</span></p></div></div><div class=\"request-infostyles__RequestInfoContainer-sc-2jolgl-0 dquHjE\"><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">HEADERS</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">Authorization</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><div class=\"simple-tablestyles__SimpleTableContainer-sc-15uyerb-0 bupiTR\"><div class=\"simple-tablestyles__Title-sc-15uyerb-1 fWMaKP\">PATH VARIABLES</div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">playlistId</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div><div class=\"simple-tablestyles__RequestItemRow-sc-15uyerb-2 iysKKK\"><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 simple-tablestyles__ItemKey-sc-15uyerb-4 hnICJP joEFTm\">trackId</div><div class=\"simple-tablestyles__ItemValue-sc-15uyerb-3 hnICJP\"><div></div></div></div></div><br><br></div></div></div><div class=\"doc-layoutstyles__SecondaryWrapper-q6d9p9-2 kPdUuq\"><div class=\"entitystyles__EntityExampleContainer-kfteh-1\"><div><div data-entity-type=\"example-request\" class=\"styles__ExampleRequestContainer-sc-1gk0rxh-7 ftbNjk\"><div class=\"styles__ExampleHeader-sc-1gk0rxh-4 eZFVCL\"><div class=\"styles__ExampleTitle-sc-1gk0rxh-1 coCuLw\"> Example Request</div><div title=\"removeTrackFromPlaylist\" class=\"styles__ExampleName-sc-1gk0rxh-3 dKJIOv\">removeTrackFromPlaylist</div></div><div class=\"styles__ExampleCodeSnippetContainer-sc-1gk0rxh-8 ccUrdm\"><div class=\"copy-to-clipboardstyles__CopyToClipboardContainer-pcjjqc-1 dAVRLU\"><div class=\"click-to-expandstyles__ClickToExpandContainer-sc-17vma9t-0 hrlPVy click-to-expand-container\"><div data-entity-type=\"code-block\" class=\"enhanced-codestyles__EnhancedCodeContainer-sc-1utidae-0 gHWRAt\"><div class=\"enhanced-codestyles__HighlightCode-sc-1utidae-2 fluaKj highlight-code\"><pre class=\"language-javascript\"><code class=\"language-javascript\">curl <span class=\"token operator\">--</span>location <span class=\"token operator\">--</span>request <span class=\"token constant\">DELETE</span> <span class=\"token string\">'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists//tracks/'</span> \\\n<span class=\"token operator\">--</span>header <span class=\"token string\">'Authorization;'</span>"
+			},
+			"response": [
+				{
+					"name": "rm track edm",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks",
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								},
+								{
+									"key": "trackId",
+									"value": "0ce383bf-3eb0-438a-92a6-47ad75d820a5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ubf7unil1k"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "80d1771f704f9bca408cfbbc3cb5b2ed;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:14:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "rm track edm",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks",
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								},
+								{
+									"key": "trackId",
+									"value": "66a2ce1b-48e5-47e5-8473-f7920c7c9b4e"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Function-Execution-Id",
+							"value": "12ub6vzbxygq"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "642de2420e7ca912e76ca977c37673e3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:15:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Desafio 4 - deletar id que nao existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "danilo-chagas-molina",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists",
+								":playlistId",
+								"tracks",
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": "2aa7e5d4-3832-410b-a4bd-4ddf0fc7c126"
+								},
+								{
+									"key": "trackId",
+									"value": "id-que-nao-existe"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1d-cUhuKABT+nW5kFVSkBdE0CT/NT8\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "12uboajaberx"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "48577d4b7528b9bd99930946b7547e46;o=1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Jun 2021 19:34:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Google Frontend"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Music not found\"\n}"
+				}
+			]
+		}
+	]
+}
