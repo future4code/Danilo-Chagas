@@ -1,53 +1,56 @@
 import React from 'react'
-import axios from 'axios'
+import styled from 'styled-components'
+import Cadastro from './component/Cadastro/Cadastro'
+import Lista from './component/Lista/Lista'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+const BotaoTrocaPagina = styled.button`
+  margin-top: 2%;
+`
 
 export default class App extends React.Component {
-
   state = {
-    name: "",
-    email: "",
+    pagina: "lista"
   }
 
-  onChangeInput = (event) => {
-    this.setState({ [event.target.id]: event.target.value })
-  }
 
-  onClickSalvar = () => {
+  onClickMudaPagina = () => {
+    if (this.state.pagina === "cadastro") {
+      this.setState({ pagina: "lista" })
+    } else {
+      this.setState({ pagina: "cadastro" })
 
-
-    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-    const body = {
-      name: this.state.name,
-      email: this.state.email
     }
-    const header = { headers: { Authorization: 'danilo-chagas-molina' } }
-
-    axios.post(url, body, header)
-      .then(() => { alert("Cadastro realizado com sucesso!") })
-      .catch((erro) => {alert(`Erro ao cadastrar. Tente novamente.\nMensagem do erro: "${erro.response.data.message}"`)})
-
-    this.setState({name:"", email:""})
   }
 
   render() {
 
-    return (
-      <div>
-        <input
-          id={"name"}
-          placeholder={"Nome"}
-          value={this.state.name}
-          onChange={this.onChangeInput} />
-        <input
-          id={"email"}
-          placeholder={"Email"}
-          value={this.state.email}
-          onChange={this.onChangeInput} />
-        <button
-          onClick={this.onClickSalvar}
-        >Salvar</button>
+    const paginaAtiva = () => {
+      if (this.state.pagina === "cadastro") {
+        return (<Cadastro/>)
+      } else {
+        return (<Lista/>)
+      }
+    }
 
-      </div>
+    const textoBotao = this.state.pagina === "cadastro"  ? "Lista de Usuários" : "Tela de Cadastro"
+
+    return (
+      <Container>
+        <BotaoTrocaPagina
+          onClick={this.onClickMudaPagina}
+        >
+          {textoBotao}
+        </BotaoTrocaPagina>
+        
+        {paginaAtiva()}
+      
+      </Container>
     )
   }
 }
