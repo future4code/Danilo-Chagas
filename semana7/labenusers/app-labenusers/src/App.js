@@ -16,7 +16,7 @@ const BotaoTrocaPagina = styled.button`
 
 export default class App extends React.Component {
   state = {
-    pagina: "lista",
+    pagina: "cadastro",
     detalhesId: "",
   }
 
