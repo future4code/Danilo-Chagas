@@ -33,6 +33,36 @@ font-size: 1em;
 list-style: none;
 `
 
+const ContainerBusca = styled.div`
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 2em;
+  margin-bottom: 2vh;
+`
+const CampoBusca = styled.input`
+    width: 100%;
+`
+
+const BotaoBuscar = styled.div`
+    background-image: url("https://fonts.gstatic.com/s/i/materialicons/search/v15/24px.svg");
+    background-position:center;
+    background-repeat: no-repeat;
+    min-height: 24px;
+    min-width: 24px;
+    border: 0px;
+    float:right;
+    opacity: 50%;
+        :hover,:focus{
+            opacity: 100%;
+            cursor: pointer;
+            :active{
+                background-size: 22px;
+            }
+        }
+`
+
 const Delete = styled.div`
     background-image: url("https://fonts.gstatic.com/s/i/materialicons/delete/v13/24px.svg");
     background-position:center;
@@ -74,6 +104,7 @@ export default class Lista extends React.Component {
     state = {
         cadastro: [],
         paginaDetalhe: true,
+        nomeProcurado: "",
     }
 
     componentDidMount() {
@@ -116,11 +147,33 @@ export default class Lista extends React.Component {
         this.props.onClickDetalhe(id)
     }
 
+    onChangeInput = (event) => {
+        this.setState({ [event.target.id]: event.target.value })
+    }
+
+    onClickBuscar = () => {
+
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name="
+        const param = this.state.nomeProcurado
+        const header = { headers: { Authorization: 'danilo-chagas-molina' } }
+       
+        axios.get(url + param, header,)
+            .then((resposta) => {
+                this.setState({
+                    cadastro: resposta.data
+                })
+                this.setState ({nomeProcurado: ""})
+            })
+            .catch((erro) => { alert(`Erro: ${erro.response.data.message}`) })
+
+        
+    }
+
     render() {
 
         const listaCadastrados = this.state.cadastro.map((item) => {
-            return <ContainerItem>
-                <Item key={item.id}>{item.name}</Item>
+            return <ContainerItem key={item.id}>
+                <Item>{item.name}</Item>
                 <Delete onClick={() => this.onClickDelete(item)} />
                 <BotaoDetalhe
                 detalhes={item}
@@ -134,6 +187,19 @@ export default class Lista extends React.Component {
                 <h1>
                     Lista de Cadastro
                 </h1>
+                
+                <ContainerBusca>
+                    <CampoBusca
+                    id={"nomeProcurado"}
+                    placeholder={"Buscar por Nome"}
+                    value={this.state.nomeProcurado}
+                    onChange={this.onChangeInput}
+                    />
+                    <BotaoBuscar
+                    onClick={this.onClickBuscar}
+                    ></BotaoBuscar>
+                </ContainerBusca>
+
                 {listaCadastrados}
             </ContainerLista>
         )

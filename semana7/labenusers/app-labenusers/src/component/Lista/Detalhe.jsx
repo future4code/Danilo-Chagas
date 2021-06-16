@@ -179,9 +179,9 @@ export default class Lista extends React.Component {
                     >excluir cadastro
                     </button>
                 </ContainerBotoes>
-                <camposAlteracao>
+                <CamposAlteracao>
                     {editar}
-                </camposAlteracao>
+                </CamposAlteracao>
 
             </ContainerLista>
 
