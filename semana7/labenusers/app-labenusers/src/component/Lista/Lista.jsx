@@ -28,7 +28,7 @@ const ContainerItem = styled.div`
 
 const Item = styled.li`
 text-align: left;
-/* text-decoration: ${({completa}) => (completa ? 'line-through' : 'none')};*/ //-algo para estilizar depois 
+/* text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};*/ //-algo para estilizar depois 
 min-width: 90%;
 font-size: 1em;
 list-style: none;
@@ -54,15 +54,15 @@ const Delete = styled.div`
 `
 
 export default class Lista extends React.Component {
-    
+
     state = {
         cadastro: [
-        //     {name:"",
-        // email:""},
+            //     {name:"",
+            // email:""},
         ]
     }
-    
-    componentDidMount () {
+
+    componentDidMount() {
         this.atualizarLista()
     }
 
@@ -79,29 +79,35 @@ export default class Lista extends React.Component {
             .catch((erro) => { alert(`Erro`) })
     }
 
-    onClickDelete (id) {
-        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/"
-        const param = id
-        const header = { headers: { Authorization: 'danilo-chagas-molina' } }
+    onClickDelete = (item) => {
 
-        axios.delete(url+param, header)
-            .then(() => {
-               alert("Cadastro excluído")
-               this.atualizarLista()
-            })
-            .catch((erro) => { alert(`Erro`) })
+        const confirmarExclusao = window.confirm(`Excluir ${item.name}?`)
+
+        if (confirmarExclusao) {
+            const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/"
+            const param = item.id
+            const header = { headers: { Authorization: 'danilo-chagas-molina' } }
+
+            axios.delete(url + param, header)
+                .then(() => {
+                    alert("Cadastro excluído")
+                    this.atualizarLista()
+                })
+                .catch((erro) => { alert(`Erro`) })
+        }
+
     }
 
 
-    render(){
-    
-        const listaCadastrados = this.state.cadastro.map((item)=>{
+    render() {
+
+        const listaCadastrados = this.state.cadastro.map((item) => {
             return <ContainerItem>
                 <Item key={item.id}>{item.name}</Item>
-                <Delete onClick={()=>this.onClickDelete(item.id)}/>
-                </ContainerItem>
-            })
-        
+                <Delete onClick={() => this.onClickDelete(item)} />
+            </ContainerItem>
+        })
+
         return (
             <Container>
                 <h1>
