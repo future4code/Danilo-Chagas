@@ -15,48 +15,31 @@ const ContainerLista = styled.div`
     border-radius: 20px;
     /* background-color: blue; */
 `
+const ContainerBotoes = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 5%;
+`
 
-const ContainerItem = styled.div`
+const CamposAlteracao = styled.div`
   display:flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1vh;
   width: 100%;
-  height: 2em;
-  border-bottom: 1px solid lightgray;
-  margin-bottom: 1vh;
+  
 `
-
-const Item = styled.li`
-text-align: left;
-flex-grow:1;
-font-size: 1em;
-list-style: none;
-`
-
-const Delete = styled.div`
-    background-image: url("https://fonts.gstatic.com/s/i/materialicons/delete/v13/24px.svg");
-    background-position:center;
-    background-repeat: no-repeat;
-    min-height: 24px;
-    min-width: 24px;
-    border: 0px;
-    float:right;
-    opacity: 50%;
-        :hover,:focus{
-            opacity: 100%;
-            cursor: pointer;
-            :active{
-                background-size: 22px;
-            }
-        }
-
-`
-
 
 export default class Lista extends React.Component {
 
     state = {
         cadastro: [],
+        editando: false,
+        editName: "",
+        editEmail: "",
     }
 
     componentDidMount() {
@@ -73,7 +56,6 @@ export default class Lista extends React.Component {
                 this.setState({
                     cadastro: resposta.data
                 })
-                console.log(this.state.cadastro)
             })
             .catch((erro) => { alert(`Erro: ${erro.response.data.message}`) })
     }
@@ -97,18 +79,110 @@ export default class Lista extends React.Component {
 
     }
 
+    onClickEditar = () => {
+        if (this.state.editando) {
+
+            if (this.state.editEmail === "" && this.state.editName === "") {
+                this.setState({
+                    editando: !this.state.editando
+                })
+            } else {
+                const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/"
+                const param = this.props.detalhesItem
+                const header = { headers: { Authorization: 'danilo-chagas-molina' } }
+                const body = this.state.editName && this.state.editEmail ?
+                    { name: this.state.editName, email: this.state.editEmail }
+                    :
+                    this.state.editName ?
+                        { "name": this.state.editName } : { "email": this.state.editEmail }
+
+
+                axios.put(url + param, body, header,)
+                    .then((resposta) => {
+                        this.setState({
+                            cadastro: resposta.data
+                        })
+                        this.componentDidMount()
+                        alert(`Alteração realizada com sucesso!\nAlterações:\n${this.state.editName && this.state.editEmail ? "Nome: "+ this.state.editName+"\n"+"E-mail: "+ this.state.editEmail 
+                            :
+                            this.state.editName ?
+                            "Nome: "+ this.state.editName : "E-mail: "+ this.state.editEmail} 
+                            `)
+                        this.setState({
+                            editando: false,
+                            editEmail: "",
+                            editName: "",
+                        })
+                    })
+                    .catch((erro) => { alert(`Erro: ${erro.response.data.message}`) })
+            }
+
+
+
+        } else {
+            this.setState({
+                editando: !this.state.editando
+            })
+        }
+    }
+
+    textoDoBotaoEditarSalvar = () => {
+
+        if (this.state.editando) {
+            return "Salvar"
+        } else {
+            return "Editar"
+        }
+
+    }
+
+
+    onChangeInput = (event) => {
+        this.setState({ [event.target.id]: event.target.value })
+    }
+
     render() {
+
+        const editar = this.state.editando ?
+            <CamposAlteracao>
+                <input
+                    id={"editName"}
+                    placeholder={"Alterar Nome"}
+                    value={this.state.editName}
+                    onChange={this.onChangeInput}
+                />
+                <input
+                    id={"editEmail"}
+                    placeholder={"Alterar E-mail"}
+                    value={this.state.editEmail}
+                    onChange={this.onChangeInput}
+                />
+
+            </CamposAlteracao>
+            :
+            <div>
+                <p>nome: {this.state.cadastro.name}</p>
+                <p>e-mail: {this.state.cadastro.email}</p>
+            </div>
+
 
         return (
             <ContainerLista>
                 <h1>Detalhes do Cadastro</h1>
-                <div>
+                <ContainerBotoes>
                     <button
-                    onClick={()=>this.onClickDelete(this.state.cadastro.id)}
-                    >excluir cadastro</button>
-                    <p>nome: {this.state.cadastro.name}</p>
-                    <p>e-mail: {this.state.cadastro.email}</p>
-                </div>
+                        onClick={this.onClickEditar}>
+                        {this.textoDoBotaoEditarSalvar()}
+                    </button>
+                    <button
+                        onClick={() => this.onClickDelete(this.state.cadastro.id)}
+                    >excluir cadastro
+                    </button>
+                </ContainerBotoes>
+                <camposAlteracao>
+                    {editar}
+                </camposAlteracao>
+
             </ContainerLista>
 
         )
