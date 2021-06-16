@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Cadastro from './component/Cadastro/Cadastro'
 import Lista from './component/Lista/Lista'
+import Detalhe from './component/Lista/Detalhe'
 
 const Container = styled.div`
   display: flex;
@@ -15,17 +16,26 @@ const BotaoTrocaPagina = styled.button`
 
 export default class App extends React.Component {
   state = {
-    pagina: "lista"
+    pagina: "lista",
+    detalhesId: "",
   }
 
 
   onClickMudaPagina = () => {
     if (this.state.pagina === "cadastro") {
       this.setState({ pagina: "lista" })
-    } else {
+    } else if (this.state.pagina === "lista") {
       this.setState({ pagina: "cadastro" })
-
+    } else {
+      this.setState({ pagina: "lista" })
     }
+  }
+
+  irParaDetalhe = (id) => {
+    this.setState({
+      pagina: "detalhe",
+      detalhesId: id,
+    })
   }
 
   render() {
@@ -33,19 +43,29 @@ export default class App extends React.Component {
     const paginaAtiva = () => {
       if (this.state.pagina === "cadastro") {
         return (<Cadastro/>)
+      } else if (this.state.pagina === "lista") {
+        return (<Lista onClickDetalhe={this.irParaDetalhe}/>)
       } else {
-        return (<Lista/>)
+        return (<Detalhe detalhesItem={this.state.detalhesId} voltarParaLista={this.onClickMudaPagina}/>)
       }
     }
 
-    const textoBotao = this.state.pagina === "cadastro"  ? "Lista de Usuários" : "Tela de Cadastro"
+    const textoBotao = (pagina) => {
+      if (pagina === "cadastro") {
+        return "ir para: Lista de Usuários"
+      } else if (pagina === "lista") {
+        return "voltar para: Tela de Cadastro"
+      } else {
+        return "voltar para: Lista de Usuários"    
+      }
+    }
 
     return (
       <Container>
         <BotaoTrocaPagina
-          onClick={this.onClickMudaPagina}
+          onClick={()=>this.onClickMudaPagina()}
         >
-          {textoBotao}
+          {textoBotao(this.state.pagina)}
         </BotaoTrocaPagina>
         
         {paginaAtiva()}
