@@ -135,7 +135,7 @@ export default class Lista extends React.Component {
             const header = { headers: { Authorization: 'danilo-chagas-molina' } }
 
             try {
-               await axios.delete(url + param, header)
+                await axios.delete(url + param, header)
                 alert("Cadastro excluído")
                 this.atualizarLista()
 
