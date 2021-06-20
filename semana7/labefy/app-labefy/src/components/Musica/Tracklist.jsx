@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class ListMusica extends React.Component {
+export default class Tracklist extends React.Component {
     render () {
         return (
             <div>
