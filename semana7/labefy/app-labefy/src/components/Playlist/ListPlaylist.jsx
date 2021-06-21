@@ -2,12 +2,157 @@ import React from 'react'
 import axios from 'axios'
 import CreatePlaylist from './CreatePlaylist'
 import DetailPlaylist from './DetailPlaylist'
+import styled from 'styled-components'
+
+const ContainerMain = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const ContainerSplit = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+`
+
+const ContainerPlaylist = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #d3d3d337;
+    border: 1px solid lightgray;
+    padding-bottom: 24px;
+    padding-right: 24px;
+    @media (max-device-width: 414px) {
+        flex-direction: column;
+    }
+`
+
+const Card = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-width: 10vw;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 24px;
+    margin-left: 24px;
+    border: 1px solid #1e64e5;
+    border-radius: 4px;
+    h3{
+        color:#1e64e5;
+    }
+        :hover,:focus{
+            opacity: 50%;
+            cursor: pointer;
+            :active{
+                opacity: 80%;
+            }
+        }
+    @media (max-device-width: 414px) {
+        width: 90%;
+        margin: 24px auto 0 auto;
+    }
+`
+
+const CardPlaylist = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 150px;
+    margin-top: 24px;
+    margin-left: 24px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    :hover,:focus{
+        cursor: pointer;
+        :active{
+            opacity: 80%;
+        }
+    }
+    #playlist-name{
+        display: table;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        span{
+            display: table-cell;
+            vertical-align: middle;
+            white-space: -moz-pre-wrap !important;
+            white-space: -pre-wrap;     
+            white-space: -o-pre-wrap;    
+            white-space: pre-wrap;      
+            word-wrap: break-word;      
+            word-break: break-all;
+            white-space: normal;
+        }
+    }
+
+    .buttons{
+        width: 100%;
+        
+        #open-playlist{
+            background-image: url("https://fonts.gstatic.com/s/i/materialicons/playlist_play/v13/24px.svg");
+            background-position:center;
+            background-repeat: no-repeat;
+            min-height: 24px;
+            min-width: 24px;
+            border: 0px;
+            margin: 0 0.5vw;
+            float:right;
+            opacity: 50%;
+            :hover,:focus{
+                opacity: 100%;
+                cursor: pointer;
+                :active{
+                    background-size: 22px;
+                }
+            }
+        }
+        #delete{
+            background-image: url("https://fonts.gstatic.com/s/i/materialicons/delete_outline/v10/24px.svg");
+            background-position:center;
+            background-repeat: no-repeat;
+            min-height: 24px;
+            min-width: 24px;
+            border: 0px;
+            float:right;
+            opacity: 50%;
+            :hover,:focus{
+                opacity: 100%;
+                cursor: pointer;
+                :active{
+                    background-size: 22px;
+                }
+            }
+        }  
+    }
+    @media (max-device-width: 414px) {
+        width: 90%;
+        margin: 24px auto 0 auto;
+    }
+
+`
+
+const InfoTrackQty = styled.h6`
+    margin: 0 0 0.5vh 1vw;
+    align-self: flex-start;
+    float: left;
+`
 
 export default class Playlist extends React.Component {
     state = {
         playlists: [],
         quantity: '',
-        playlistDetail: {}
+        playlistDetail: {},
+        creatingPlaylist: false,
+        seeingPlaylist: false,
     }
 
     componentDidMount() {
@@ -53,46 +198,94 @@ export default class Playlist extends React.Component {
         }
     }
 
-    playlistDetail = (item) => { this.setState({ playlistDetail: item }) }
+    playlistDetail = (item) => {
+        this.setState({
+            playlistDetail: item,
+            seeingPlaylist: true,
+        })
+    }
 
     catchTrackInfo = (info) => {
         this.props.catchTrackInfo(info)
     }
 
+    onClickCreatePlaylistCard = () => {
+        this.setState({
+            creatingPlaylist: !this.state.creatingPlaylist
+        })
+    }
+
+    closeMusicPage = () => {
+        this.setState({
+            seeingPlaylist: false,
+        })
+    }
+
     render() {
 
         const displayPlaylists = this.state.quantity ?
-        this.state.playlists.map((item) => {
-            return <div key={item.id}>
-                <li>{item.name}</li>
-                <button
-                    onClick={() => this.deletePlaylist(item.name, item.id)}
-                >X</button>
-                <button
-                    onClick={() => this.playlistDetail(item)}
-                >ver</button>
-            </div>
-        })
-        :
-        <p> você não tem playlist cadastrada</p>
+            this.state.playlists.map((item) => {
+                return <CardPlaylist key={item.id}>
+
+                    <div id={"playlist-name"}
+                    onClick={() => this.playlistDetail(item)}>
+                        <span>
+                            {item.name}
+                        </span>
+                    </div>
+                    
+                    <div className={"buttons"}>
+                        <div id={"open-playlist"}
+                            onClick={() => this.playlistDetail(item)} />
+                        <div id={"delete"}
+                            onClick={() => this.deletePlaylist(item.name, item.id)} />
+                    </div>
+
+                </CardPlaylist>
+            })
+            :
+            <p> você não tem playlist cadastrada</p>
+
+
+        const trackQty = this.state.quantity > 0 &&
+        this.state.quantity===1 ?
+        <InfoTrackQty>você tem 1 playlist</InfoTrackQty> :
+        <InfoTrackQty>você tem {this.state.quantity} playlists</InfoTrackQty>
 
         return (
-            <div>
+            <ContainerMain>
                 <h1>Playlists</h1>
-                <h3>Criar</h3>
-                <CreatePlaylist
-                    refreshList={() => this.componentDidMount()}
-                />
 
-                <h3>Minhas Playlists</h3>
-                {displayPlaylists}
+                    {trackQty}
 
-                {this.state.playlistDetail && <DetailPlaylist
-                    playlistDetail={this.state.playlistDetail}
-                    catchTrackInfo={this.catchTrackInfo}
-                />}
+                <ContainerSplit>
+                    <ContainerPlaylist>
+                        <Card
+                            onClick={this.onClickCreatePlaylistCard}
+                        >
+                            <h3>+<br />criar<br />playlist</h3>
+                        </Card>
+                        <CreatePlaylist
+                            refreshList={() => this.componentDidMount()}
+                            activePopUp={this.state.creatingPlaylist}
+                            closePopUp={this.onClickCreatePlaylistCard}
+                        />
 
-            </div>
+                        {displayPlaylists}
+
+                    </ContainerPlaylist>
+
+                    {this.state.playlistDetail && <DetailPlaylist
+                        playlistDetail={this.state.playlistDetail}
+                        catchTrackInfo={this.catchTrackInfo}
+                        activePage={this.state.seeingPlaylist}
+                        closePage={this.closeMusicPage}
+                    />}
+
+                </ContainerSplit>
+
+
+            </ContainerMain>
         )
     }
 
