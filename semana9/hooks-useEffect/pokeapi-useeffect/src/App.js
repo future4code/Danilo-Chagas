@@ -5,28 +5,25 @@ import PokeCard from "./components/PokeCard";
 
 const App = () => { 
   
-    const [pokeList, setPokeList] = useState()
+    const [pokeList, setPokeList] = useState([])
 
     const [pokeName, setPokeName] = useState("")
 
-
-
   useEffect(()=>{
-
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
       .then(response => {
-        setPokeList(response.data.results);
+        setPokeList(response.data.results)
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
       })
     } , []
   )
 
-  changePokeName = event => {
-    setPokeName(event.target.value);
-  };
+  const changePokeName = event => {
+    setPokeName(event.target.value)
+  }
 
     return (
       <div className="App">
