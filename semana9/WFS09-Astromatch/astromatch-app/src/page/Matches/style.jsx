@@ -96,4 +96,7 @@ export const CardProfile = styled.div`
                     }   
                 }
         }
+    @media (max-device-width: 414px) {
+        width: 90vw;
+    }
 `
