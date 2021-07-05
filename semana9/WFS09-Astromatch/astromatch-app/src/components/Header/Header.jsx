@@ -4,7 +4,7 @@ import {Container} from './style'
 function Header () {
     return (
         <Container>
-            <h1>Header</h1>
+            <p>Astro<span>match</span></p>
         </Container>
     )
 }
