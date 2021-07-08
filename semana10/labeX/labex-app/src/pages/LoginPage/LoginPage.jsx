@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { postLogin } from '../../component/Endpoint/Endpoint.jsx'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { Container } from '../HomePage/style';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
@@ -19,9 +19,9 @@ export default function LoginPage() {
     const history = useHistory()
 
     function onClickSubmitButton () {
-        const response = postLogin({data: input})
+        const response = postLogin(input)
         setInput({email:"",password:""})
-        response ? history.push("/login") : alert("Falha ao efetuar login.\nTente novamente")
+        response && history.push("/admin")
     }
 
     return <Container>
