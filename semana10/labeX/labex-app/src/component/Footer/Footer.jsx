@@ -1,5 +1,8 @@
 import React from 'react'
+import { Container } from './style'
 
 export default function Footer () {
-    return <><h6>Footer</h6></>
+    return <Container>
+        <h6>Footer</h6>
+        </Container>
 }

@@ -1,7 +1,8 @@
 import React from 'react'
-import { postLogin } from '../../component/Endpoint/Endpoint.jsx'
+import { postLogin } from '../../Endpoint/Endpoint.jsx'
 import { useHistory } from 'react-router-dom';
 import useForm from '../../hooks/useForm'
+// import useIsLogged from '../../hooks/isLogged.jsx';
 import { Container } from './style';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
@@ -45,7 +46,7 @@ export default function LoginPage() {
                 value={input.password}
                 onChange={onChangeInput}
                 title={"Insira sua senha cadastrada. Máximo de 6 caracteres"}
-                pattern={"^.{6,}"}
+                pattern={"^.{6,}$"}
                 required
                 id="outlined-password-input"
                 autoComplete="current-password"
