@@ -1,15 +1,19 @@
-export function goToLogin (history) {
+export function goToHomePage (history) {
+    history.push("/")
+}
+
+export function goToLoginPage (history) {
     history.push("/login")
 }
 
-export function goToSignUp (history) {
+export function goToSignUpPage (history) {
     history.push("/signup")
 }
 
-export function goToFeed (history) {
+export function goToFeedPage (history) {
     history.push("/posts")
 }
 
-export function goToComments (history,postId) {
+export function goToCommentsPage (history,postId) {
     history.push(`/login/${postId}`)
 }
