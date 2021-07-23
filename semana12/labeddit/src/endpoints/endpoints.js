@@ -1,6 +1,6 @@
 import axios from "axios"
 import { BASE_URL, BASE_HEADERS } from "../constants/endpointBase"
-import { goToFeedPage } from "../router/coordinator"
+import { goToRefreshPage, goToFeedPage } from "../router/coordinator"
 
 export const postSignUp = (body, cleanFields, history, setIsLoading) => {
     setIsLoading(true)
@@ -58,9 +58,30 @@ export const postCreatePost = (body, token, cleanFields, history, setIsLoading) 
             window.alert(`${res.data}`)
             cleanFields()
             setIsLoading(false)
-            goToFeedPage(history)
+            goToRefreshPage(history)
         })
         .catch((err) => {
             window.alert('Erro ao criar postagem.\n Tente novamente.')
+        })
+}
+
+export const postCreateComment = (postId, body, token, cleanFields, history, setIsLoading) => {
+    setIsLoading(true)
+    const config = {
+        method: 'post',
+        url: BASE_URL + `/posts/${postId}/comments`,
+        headers: { ...BASE_HEADERS, 'Authorization': token },
+        data: body,
+    }
+
+    axios(config)
+        .then((res) => {
+            window.alert(`${res.data}`)
+            cleanFields()
+            setIsLoading(false)
+            goToRefreshPage(history)
+        })
+        .catch((err) => {
+            window.alert('Erro ao postar comentário.\n Tente novamente.')
         })
 }

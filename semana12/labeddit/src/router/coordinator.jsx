@@ -15,5 +15,9 @@ export function goToFeedPage (history) {
 }
 
 export function goToCommentsPage (history,postId) {
-    history.push(`/login/${postId}`)
+    history.push(`/posts/${postId}`)
+}
+
+export function goToRefreshPage (history) {
+    history.go(0)
 }

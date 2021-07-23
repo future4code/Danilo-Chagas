@@ -10,7 +10,7 @@ export default function FeedPage() {
     const [ isLoading , setIsLoading ] = useState(false)
 
     const postsList = useRequestData([],'/posts?page=1&size=40', localStorage.getItem('token'))
-    console.log(postsList)
+
     const displayPosts = postsList.map((item)=>{
         return (
             <CardPost
