@@ -60,7 +60,7 @@ export const postCreatePost = (body, token, cleanFields, history, setIsLoading) 
             setIsLoading(false)
             goToRefreshPage(history)
         })
-        .catch((err) => {
+        .catch(() => {
             window.alert('Erro ao criar postagem.\n Tente novamente.')
         })
 }
@@ -81,7 +81,60 @@ export const postCreateComment = (postId, body, token, cleanFields, history, set
             setIsLoading(false)
             goToRefreshPage(history)
         })
-        .catch((err) => {
+        .catch(() => {
             window.alert('Erro ao postar comentário.\n Tente novamente.')
         })
+}
+
+export const postCreatePostVote = (postId, token, body, history) => {
+    const config = {
+        method: 'post',
+        url: BASE_URL + `/posts/${postId}/votes`,
+        headers: { ...BASE_HEADERS, 'Authorization': token },
+        data: body,
+    }
+
+    axios(config)
+    .then((res)=>{
+        window.alert(`${res.data}`)
+        goToRefreshPage(history)
+    })
+    .catch(() => {
+        window.alert('Erro ao votar.\n Tente novamente.')
+    })
+}
+
+export const putChangePostVote = (postId, token, body, history) => {
+    const config = {
+        method: 'put',
+        url: BASE_URL + `/posts/${postId}/votes`,
+        headers: { ...BASE_HEADERS, 'Authorization': token },
+        data: body,
+    }
+
+    axios(config)
+    .then((res)=>{
+        window.alert(`mudou voto`)
+        goToRefreshPage(history)
+    })
+    .catch(() => {
+        window.alert('Erro ao votar.\n Tente novamente.')
+    })
+}
+
+export const delPostVote = (postId, token, history) => {
+    const config = {
+        method: 'delete',
+        url: BASE_URL + `/posts/${postId}/votes`,
+        headers: {'Authorization': token },
+    }
+
+    axios(config)
+    .then((res)=>{
+        window.alert(`deletou voto`)
+        goToRefreshPage(history)
+    })
+    .catch(() => {
+        window.alert('Erro ao votar.\n Tente novamente.')
+    })
 }
