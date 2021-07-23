@@ -5,9 +5,12 @@ import { useHistory, useParams } from 'react-router-dom'
 import { CardComment } from '../../components/CardComment/CardComment'
 import useRequestData from '../../hooks/useRequestData'
 import {Container} from './style'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 export default function CommentsPage() {
     
+    useProtectedPage()
+
     const history = useHistory()
 
     const { postId } = useParams()
