@@ -12,12 +12,18 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
         gap: 5%;
-        p{
-            text-align: center;
-            a{
-                cursor: pointer;
-                font-weight: 600;
-            }
+        margin: 2%;
     }
+    p{
+        text-align: center;
+        a{
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            :visited{
+                text-decoration: none;
+                color:inherit;
+            }
+        }
     }
 `

@@ -2,8 +2,7 @@ import React from 'react'
 import { TextField , Button } from '@material-ui/core'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
-import { goToSignUpPage } from '../../router/coordinator'
-import { Container } from './style'
+import { Container, Link } from './style'
 
 export default function LoginPage() {
     const { input, onChangeInput, cleanFields } = useForm({
@@ -15,6 +14,7 @@ export default function LoginPage() {
 
     const submitLogin = (e) => {
         e.preventDefault()
+        console.log(input)
         cleanFields()
     }
 
@@ -52,8 +52,8 @@ export default function LoginPage() {
             >Entrar</Button>
 
             <p>Não tem uma conta? &nbsp;
-                <a onClick={() => goToSignUpPage(history)}>
-                    Crie aqui!</a></p>
+                <Link href='/signup'>
+                    Crie aqui!</Link></p>
 
         </form>
     </Container>

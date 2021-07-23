@@ -21,3 +21,12 @@ export const Container = styled.div`
         }
     }
 `
+export const Link = styled.a`
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    :visited{
+        text-decoration: none;
+        color:inherit;
+    }
+`
