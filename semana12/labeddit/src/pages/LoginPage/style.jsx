@@ -12,21 +12,18 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
         gap: 5%;
+        margin: 2%;
     }
     p{
         text-align: center;
         a{
+            text-decoration: none;
             cursor: pointer;
             font-weight: 600;
+            :visited{
+                text-decoration: none;
+                color:inherit;
+            }
         }
-    }
-`
-export const Link = styled.a`
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 600;
-    :visited{
-        text-decoration: none;
-        color:inherit;
     }
 `
