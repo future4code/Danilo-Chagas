@@ -43,3 +43,24 @@ export const postLogin = (body, cleanFields, history, setIsLoading) => {
             alert(`Erro ao efetuar Log In. Verifique os critérios de cada campo.\n${JSON.stringify(err.response.data.errors)}`)
         })
 }
+
+export const postCreatePost = (body, token, cleanFields, history, setIsLoading) => {
+    setIsLoading(true)
+    const config = {
+        method: 'post',
+        url: BASE_URL + '/posts',
+        headers: { ...BASE_HEADERS, 'Authorization': token },
+        data: body,
+    }
+
+    axios(config)
+        .then((res) => {
+            window.alert(`${res.data}`)
+            cleanFields()
+            setIsLoading(false)
+            goToFeedPage(history)
+        })
+        .catch((err) => {
+            window.alert('Erro ao criar postagem.\n Tente novamente.')
+        })
+}
