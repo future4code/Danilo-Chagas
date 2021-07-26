@@ -15,7 +15,7 @@ export const postSignUp = (body, cleanFields, history, setIsLoading) => {
             localStorage.setItem("token", res.data.token)
             cleanFields()
             setIsLoading(false)
-            goToFeedPage(history)
+            goToFeedPage(history,1)
         })
         .catch((err) => {
             setIsLoading(false)
@@ -36,7 +36,7 @@ export const postLogin = (body, cleanFields, history, setIsLoading) => {
             localStorage.setItem("token", res.data.token)
             cleanFields()
             setIsLoading(false)
-            goToFeedPage(history)
+            goToFeedPage(history,1)
         })
         .catch((err) => {
             setIsLoading(false)

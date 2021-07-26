@@ -17,9 +17,9 @@ export default function Router() {
                 component={LoginPage} />
             <Route exact path={"/signup"}
                 component={SignUpPage} />
-            <Route exact path={"/posts"}
+            <Route exact path={"/posts/page/:pageNumber"}
                 component={FeedPage} />
-            <Route exact path={"/posts/:postId"}
+            <Route exact path={"/posts/:postId/comments"}
                 component={CommentsPage} />
             <Route component={NotFoundPage} />
         </Switch>

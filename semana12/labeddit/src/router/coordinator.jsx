@@ -10,12 +10,12 @@ export function goToSignUpPage (history) {
     history.push("/signup")
 }
 
-export function goToFeedPage (history) {
-    history.push("/posts")
+export function goToFeedPage (history, pageNumber) {
+    history.push(`/posts/page/${pageNumber}`)
 }
 
 export function goToCommentsPage (history,postId) {
-    history.push(`/posts/${postId}`)
+    history.push(`/posts/${postId}/comments`)
 }
 
 export function goToRefreshPage (history) {
