@@ -8,5 +8,6 @@ export const ContainerCardList = styled.div`
     justify-content: center;
     gap: 8%;
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    /* background-color: red; */
 `

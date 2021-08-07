@@ -16,7 +16,7 @@ function App() {
   }, [])
 
   const displayCards = cards?.map((item) => {
-    return <Card item={item} src={imagesUrl+item.image} />
+    return <Card key={item.name} item={item} src={imagesUrl+item.image} backCard={imageBackCard} />
   })
 
   return (
