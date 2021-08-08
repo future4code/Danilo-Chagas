@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "./component/Card/Card";
+import Header from "./component/Header/Header";
 import { getTarot } from "./services/getTarot";
 import { ContainerCardList } from "./style"
 
@@ -20,12 +21,13 @@ function App() {
   })
 
   return (
-    <div>
+    <React.Fragment>
+      <Header/>
       {isLoading ? '...loading' :
         <ContainerCardList>
           {data && displayCards}
         </ContainerCardList>}
-    </div>
+    </React.Fragment>
 
   );
 }
