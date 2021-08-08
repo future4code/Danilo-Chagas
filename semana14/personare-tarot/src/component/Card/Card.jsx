@@ -4,18 +4,18 @@ import { ContainerCard, CardImage, CardDescription, ButtonDescription } from "./
 export const Card = (props) => {
 
     const [isFlipped, setIsFlipped] = useState(false)
-    const [descriptionOnOff, setDescriptionOnOff] = useState(false)
+    const [descriptionOnOff, setDescriptionOnOff] = useState()
 
     const fieldRef = useRef(null)
 
     function switchDescription() {
         setDescriptionOnOff(!descriptionOnOff)
-        console.log(descriptionOnOff)
     }
 
     function onClickCard(e) {
         setIsFlipped(!isFlipped)
-        e.current.scrollIntoView({ block: "center", behavior: "smooth" })
+        switchDescription()
+        e.current.scrollIntoView({ block: "start", behavior: "smooth" })
     }
 
     return <React.Fragment>

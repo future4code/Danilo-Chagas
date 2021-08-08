@@ -5,16 +5,24 @@ export const ContainerCard = styled.div`
     display: flex;
     flex-direction: column;
     width: 162px;
-    ${(props) => props.flippedUp ?
+    ${(props) => props.flippedUp && !props.descriptionOnOff ?
+    `height: fit-component;
+    margin-top: calc(100vmax*-0.01);
+    margin-bottom: calc(100vmin*-0.5);
+    z-index: 50;
+    filter: drop-shadow(4px 6px 4px);
+    border-radius: 8px;`
+    :
+    props.flippedUp ?
     `
     height: fit-component;
     margin-bottom: calc(100vmin*-0.2);
     z-index: 50;
     filter: drop-shadow(4px 6px 4px);
     border-radius: 8px;`
-    :`
-    height: 309px;
-    margin-bottom: calc(100vmin*-0.2);
+    :
+    `height: 309px;
+    margin-bottom: -10%;
     filter: drop-shadow(1px 1px 2px);`};
     overflow: hidden;   
     ${(props) => !props.flippedUp && `
@@ -53,7 +61,8 @@ export const CardImage = styled.img`
 `
 
 export const CardDescription = styled.div`
-    display: flex;
+    ${(props) => props.descriptionOnOff ?
+    `display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -66,5 +75,8 @@ export const CardDescription = styled.div`
         font-size: small;
         padding: 0 5%;
     }
-    background-color: rgba(125,125,125,0.8);    
+    background-color: rgba(125,125,125,0.8);`
+    :
+    `display: none`
+    }
 `
