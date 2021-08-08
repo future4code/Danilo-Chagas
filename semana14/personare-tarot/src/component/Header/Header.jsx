@@ -1,9 +1,21 @@
 import { ContainerHeader } from "./style";
 
-export default function Header () {
+export default function Header (props) {
 
+
+    
     return <ContainerHeader>
-        <button>Jogar</button>
+        {
+            !props.gameStatus ? 
+            <button
+            onClick={()=>props.shuffleCards()}
+            >Jogar</button>
+            :
+            <button
+            onClick={()=>props.setGameStatus(false)}
+            >Reiniciar</button>
+        }
+      
     </ContainerHeader>
 
 }

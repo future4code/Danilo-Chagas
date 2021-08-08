@@ -8,12 +8,12 @@ export const ContainerCard = styled.div`
     ${(props) => props.flippedUp && !props.descriptionOnOff ?
     `height: fit-component;
     margin-top: calc(100vmax*-0.01);
-    margin-bottom: calc(100vmin*-0.5);
+    margin-bottom: calc(100vmin*0.04);
     z-index: 50;
     filter: drop-shadow(4px 6px 4px);
     border-radius: 8px;`
     :
-    props.flippedUp ?
+    props.flippedUp?
     `
     height: fit-component;
     margin-bottom: calc(100vmin*-0.2);
@@ -21,8 +21,11 @@ export const ContainerCard = styled.div`
     filter: drop-shadow(4px 6px 4px);
     border-radius: 8px;`
     :
-    `height: 309px;
-    margin-bottom: -10%;
+    `
+    position: relative;
+    z-index: 50;
+    height: 309px;
+    margin-bottom: calc(100vmin*-0.2);
     filter: drop-shadow(1px 1px 2px);`};
     overflow: hidden;   
     ${(props) => !props.flippedUp && `

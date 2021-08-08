@@ -1,10 +1,16 @@
-import React, { useRef, useState } from "react"
-import { ContainerCard, CardImage, CardDescription, ButtonDescription } from "./style"
+import React, { useEffect, useRef, useState } from "react"
+import { ContainerCard, CardImage, CardDescription } from "./style"
 
 export const Card = (props) => {
 
     const [isFlipped, setIsFlipped] = useState(false)
-    const [descriptionOnOff, setDescriptionOnOff] = useState()
+    const [descriptionOnOff, setDescriptionOnOff] = useState(false)
+    const { cardWasSelected, setCardWasSelected } = props.cardStatus
+
+    useEffect(() => {
+        props.gameStatus ?
+            setIsFlipped(false) : setIsFlipped(true)
+    }, [props])
 
     const fieldRef = useRef(null)
 
@@ -16,12 +22,16 @@ export const Card = (props) => {
         setIsFlipped(!isFlipped)
         switchDescription()
         e.current.scrollIntoView({ block: "start", behavior: "smooth" })
+        // return setCardWasSelected(true)
     }
 
     return <React.Fragment>
         <ContainerCard
             ref={fieldRef}
-            onClick={() => onClickCard(fieldRef)}
+            onClick={props.gameStatus && !cardWasSelected ?
+                () => onClickCard(fieldRef)
+                :
+                () => alert("Inicie um novo jogo")}
             flippedUp={isFlipped}
             imageBackCard={props.backCard}>
             <CardImage src={props.src} flippedUp={isFlipped} />
