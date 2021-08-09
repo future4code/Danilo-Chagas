@@ -7,9 +7,27 @@ argumento1 = 2
 argumento2 = 3*/
 
 //1b)
-const userName = String(process.argv[2])
-const userAge = Number(process.argv[3])
-console.log(`Olá, ${userName}! Você tem ${userAge} anos`)
+const userName = process.argv[2] ? process.argv[2] : false
+const userAge =  process.argv[3] ? Number(process.argv[3]) : false
+// console.log(`Olá, ${userName}! Você tem ${userAge} anos`)
+
 
 //1c)
-console.log(`Olá, ${userName}! Você tem ${userAge} anos. Em sete anos você terá ${userAge+7} anos`)
+// console.log(`Olá, ${userName}! Você tem ${userAge} anos. Em sete anos você terá ${userAge + 7} anos`)
+
+//Desafio 1)
+const inputsValidation = (name, age) => {
+    const validation = {}
+    validation.arg = name || age ? "São esperados 2 parametros: 1o Nome e o 2o Idade" : true
+    validation.nameValue = name === '' || name === false ? 'É esperado um nome no 1o parametro' : true
+    validation.ageValue = age === '' || age === false ? 'É esperado uma idade no 2o parametro' : true
+    validation.nameType = !isNaN(name) ? 'É esperado um nome em texto no 1o parametro' : true
+    validation.ageType = isNaN(age) ? 'É esperado um número no 2o parametro' : true
+    Object.values(validation).every(item => item === true) ?
+        (console.log(`Olá, ${name}! Você tem ${age} anos`),
+            console.log(`Olá, ${name}! Você tem ${age} anos. Em sete anos você terá ${age + 7} anos`))
+        :
+        (console.log("Verificar os seguintes erros"),
+        console.table(Object.values(validation).filter(item => item!==true)))
+}
+inputsValidation(userName, userAge)
