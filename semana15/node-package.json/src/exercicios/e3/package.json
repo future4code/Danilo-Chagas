@@ -2,7 +2,7 @@
   "name": "e3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "e3.js",
   "scripts": {
     "e3": "node ./e3.js",
     "test": "echo \"Error: no test specified\" && exit 1"

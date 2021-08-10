@@ -1,3 +1,5 @@
+const colors = require('colors');
+
 const newTask = process.argv[2]
 
 const taskList = [
@@ -6,5 +8,5 @@ const taskList = [
 
 taskList.push({tarefa: newTask})
 
-console.log(`Tarefa adicionada com sucesso!`)
+console.log(`Tarefa adicionada com sucesso!`.bgMagenta.bold)
 console.table(taskList)
