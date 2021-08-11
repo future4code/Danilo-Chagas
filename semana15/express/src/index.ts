@@ -33,14 +33,14 @@ app.get("/countries/search", (req: Request, res: Response) => {
     const searchResult: Array<any> = []
     const inexistentQuery: Array<string> = []
 
-    !receivedQuery
-        .map((item: any) => ["name", "capital", "continent"].includes(item) ?
-            true : (inexistentQuery.push(item), false))
-        .every(item => item) ?
+    try {
+        if (!receivedQuery.map((item: any) => ["name", "capital", "continent"]
+            .includes(item) ? true : (inexistentQuery.push(item), false))
+            .every(item => item)) {
+            throw new Error()
+        }
 
-        res.status(400).send(Object(`Bad request by query: ${inexistentQuery}`)) :
-
-        (countries.filter(
+        countries.filter(
             (item: { [key: string]: any }) => {
                 const itemResult: Array<boolean> = []
 
@@ -52,7 +52,16 @@ app.get("/countries/search", (req: Request, res: Response) => {
 
                 return itemResult.every(item => item === true) && searchResult.push(item)
             })
-            , res.status(200).send(searchResult))
+        res.status(200).send(searchResult)
+
+    } catch {
+        res.status(400).send({'Bad request by query': inexistentQuery})
+    }
+
+
+
+
+
 })
 
 app.listen(3003, () => {
