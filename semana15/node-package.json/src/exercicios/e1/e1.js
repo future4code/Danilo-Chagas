@@ -25,8 +25,8 @@ const inputsValidation = (name, age) => {
     validation.nameValue = name === false ? 'Falta 1o parametro com nome' : true
     validation.ageValue = age === false ? 'Falta 2o parametro com idade' : true
     Object.values(validation).every(item => item === true) ?
-        (console.log(`Olá, ${name}! Você tem ${age} anos`),
-            console.log(`Olá, ${name}! Você tem ${age} anos. Em sete anos você terá ${age + 7} anos`))
+        (console.log(`Olá, ${name}! Você tem ${age} anos`.black.bgWhite),
+            console.log(`Olá, ${name}! Você tem ${age} anos. Em sete anos você terá ${age + 7} anos`.black.bgWhite))
         :
         (console.log("Verificar os seguintes erros".bgRed),
         console.table(Object.values(validation).filter(item => item!==true)))

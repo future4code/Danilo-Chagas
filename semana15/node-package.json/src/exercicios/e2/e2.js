@@ -18,8 +18,8 @@ const opResult = {
 
 const inputsValidation = (op, n1, n2) => {
     const validation = {}
-    validation.args = op!==false && n1!==false && n2!==false ? true : "São esperados 3 parametros para a operação".red
-    validation.operationType = Object.getOwnPropertyNames(opResult).some(item => op===item) ? true : `É esperada uma dessas operações: ${Object.getOwnPropertyNames(opResult)}`
+    validation.args = op!==false && n1!==false && n2!==false ? true : "São esperados 3 parametros para a operação"
+    validation.operationType = Object.getOwnPropertyNames(opResult).some(item => op===item) ? true : `É esperada uma dessas operações no 1o param.: ${Object.getOwnPropertyNames(opResult)}`
     validation.n1Value = n1 === false || isNaN(n1)? 'É esperado um número no 2o parametro' : true
     validation.n2Value = n2 === false || isNaN(n2)? 'É esperado um número no 3o parametro' : true
     Object.values(validation).every(item => item === true) ?

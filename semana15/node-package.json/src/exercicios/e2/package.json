@@ -5,10 +5,10 @@
   "main": "e2.js",
   "scripts": {
     "e2": "node ./e2.js",
-    "add": "node ./add.js",
-    "sub": "node ./sub.js",
-    "mult": "node ./mult.js",
-    "div": "node ./div.js",
+    "add": "node ./e2.js add",
+    "sub": "node ./e2.js sub",
+    "mult": "node ./e2.js mult",
+    "div": "node ./e2.js div",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
