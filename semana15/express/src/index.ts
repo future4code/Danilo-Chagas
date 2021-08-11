@@ -29,40 +29,30 @@ app.get("/countries", (req: Request, res: Response) => {
 
 app.get("/countries/search", (req: Request, res: Response) => {
 
-   
+    const receivedQuery: Array<string> = Object.getOwnPropertyNames(req.query)
+    const searchResult: Array<any> = []
+    const inexistentQuery: Array<string> = []
 
+    !receivedQuery
+        .map((item: any) => ["name", "capital", "continent"].includes(item) ?
+            true : (inexistentQuery.push(item), false))
+        .every(item => item) ?
 
-    // const searchResult = countries.filter(item => {
-    //     return req.query &&
-    //     req.query.name ? item.name.toLowerCase().includes(String(req.query.name).toLowerCase()) : true
-    //     &&
-    //     req.query.capital ? item.capital.toLowerCase().includes(String(req.query.capital).toLowerCase()) : false
-    //     &&
-    //     req.query.continent ? item.continent.toLowerCase().toLocaleString().includes(String(req.query.continent).toLocaleString().toLowerCase()) : false
-    // })
-   
-   
-    const searchResult = countries.filter(item => {
-        
-        let finalResult: Array<boolean> = []
+        res.status(400).send(Object(`Bad request by query: ${inexistentQuery}`)) :
 
-        function resultMount (result: boolean) {
-            finalResult = [...finalResult, result]
-        }
+        (countries.filter(
+            (item: { [key: string]: any }) => {
+                const itemResult: Array<boolean> = []
 
-        req.query.name &&
-        resultMount(item.name.toLowerCase().includes(String(req.query.name).toLowerCase()))
+                receivedQuery.forEach(element => {
+                    itemResult.push(
+                        item[element].toLowerCase().includes(String(req.query[element]).toLowerCase())
+                    )
+                })
 
-        req.query.capital &&
-        resultMount(item.capital.toLowerCase().includes(String(req.query.capital).toLowerCase()))
-
-        req.query.continent &&
-        resultMount(item.continent.toLowerCase().includes(String(req.query.continent).toLowerCase()))
-        
-        return finalResult && item
-    })
-
-    res.status(200).send(searchResult)
+                return itemResult.every(item => item === true) && searchResult.push(item)
+            })
+            , res.status(200).send(searchResult))
 })
 
 app.listen(3003, () => {
