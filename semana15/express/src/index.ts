@@ -29,12 +29,13 @@ app.get("/countries", (req: Request, res: Response) => {
 
 app.get("/countries/search", (req: Request, res: Response) => {
 
+    const expectedQueries: Array<string> = ["name", "capital", "continent"]
     const receivedQuery: Array<string> = Object.getOwnPropertyNames(req.query)
     const searchResult: Array<any> = []
-    const inexistentQuery: Array<string> = []
+    const inexistentQuery: Array<any> = []
 
     try {
-        if (!receivedQuery.map((item: any) => ["name", "capital", "continent"]
+        if (!receivedQuery.map((item: any) => expectedQueries
             .includes(item) ? true : (inexistentQuery.push(item), false))
             .every(item => item)) {
             throw new Error()
