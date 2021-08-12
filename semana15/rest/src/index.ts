@@ -73,10 +73,10 @@ app.get("/users", (req: Request, res: Response) => {
   res.status(200).send(users.map(user => user.name))
 })
 
-//2
+//2 (adaptado no exercício 3)
 
-const validTypes = [...new Set(users.map(item => item.type))].sort()
-
+const validTypes: Array<string> = [...new Set(users.map(item => item.type))].sort()
+/*
 app.get("/users/search", (req: Request, res: Response) => {
   let erroCode: number = 400
   const receivedQuery = req.query.types
@@ -102,6 +102,51 @@ app.get("/users/search", (req: Request, res: Response) => {
 
   } catch (err) {
     res.status(erroCode).send({ message: err.message })
+  }
+
+})
+*/
+
+//3
+
+app.get("/users/search", (req: Request, res: Response) => {
+
+  const expectedQueries: Array<string> = ["name", "type"]
+  const receivedQuery: Array<string> = Object.getOwnPropertyNames(req.query)
+  const searchResult: Array<any> = []
+  const invalidQuery: Array<any> = []
+  let errorCode: number = 400
+
+  try {
+
+    if (!receivedQuery.map((item: any) => expectedQueries
+      .includes(item) ? true : (invalidQuery.push(item), false))
+      .every(item => item)) {
+      throw new Error("Invalid Query")
+    }
+
+    users.filter(
+      (item: { [key: string]: any }) => {
+        const itemResult: Array<boolean> = []
+
+        receivedQuery.forEach(element => {
+          itemResult.push(
+            item[element].toLowerCase().includes(String(req.query[element]).toLowerCase())
+          )
+        })
+
+        return itemResult.every(item => item === true) && searchResult.push(item)
+      })
+
+    if (searchResult.length===0) {
+      errorCode = 404
+      throw new Error("No Search Result")
+    } else {
+      res.status(200).send(searchResult)
+    }
+
+  } catch (err) {
+    res.status(errorCode).send({ message: `${err.message}: ${invalidQuery}` })
   }
 
 })
