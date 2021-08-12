@@ -67,3 +67,8 @@ app.get("/ping", (req: Request, res: Response) => {
 app.listen(3003, () => {
   console.log('Server is running at port 3003')
 })
+
+//1
+app.get("/users",(req: Request, res: Response) => {
+  res.status(200).send(users.map(user=>user.name))
+})
