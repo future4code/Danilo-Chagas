@@ -138,7 +138,7 @@ app.get("/users/search", (req: Request, res: Response) => {
         return itemResult.every(item => item === true) && searchResult.push(item)
       })
 
-    if (searchResult.length===0) {
+    if (searchResult.length === 0) {
       errorCode = 404
       throw new Error("No Search Result")
     } else {
@@ -146,7 +146,7 @@ app.get("/users/search", (req: Request, res: Response) => {
     }
 
   } catch (err) {
-    res.status(errorCode).send({ message: `${err.message}: ${invalidQuery}` })
+    res.status(errorCode).send({ message: `${err.message} ${invalidQuery}` })
   }
 
 })
