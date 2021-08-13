@@ -150,3 +150,62 @@ app.get("/users/search", (req: Request, res: Response) => {
   }
 
 })
+
+//E4
+app.post("/users", (req: Request, res: Response) => {
+
+  const newUser: User | any = {}
+  let erroCode = 400
+  let errorsMsg = ""
+
+  function validateBody() {
+    const expectedObject: Array<string> = ["name", "email", "type", "age"]
+    const expectedUserType: Array<string> = ["admin", "normal"]
+    const expectedValues: any = {
+      isStringAndLength: function (input: any) { return isNaN(input) && input.trim().length > 0 },
+      isNumberAndLength: function (input: any) { return !isNaN(input) && Number.isInteger(input) && String(input).length === 2 && String(input).length < 3},
+      name: (input: any) => expectedValues.isStringAndLength(input),
+      email: (input: any) => expectedValues.isStringAndLength(input),
+      type: (input: any) => expectedUserType.includes(input.toLowerCase()) && expectedValues.isStringAndLength(input),
+      age: (input: any) => expectedValues.isNumberAndLength(input),
+    }     
+
+    if (!req.body) {
+      errorsMsg = "Empty Body"
+      return false
+    } else if (
+      Object.keys(req.body).length !== 4 || 
+      !Object.getOwnPropertyNames(req.body)
+      .map((item: any) => expectedObject
+      .includes(item)).every(item=> item===true)
+      ) {
+      erroCode = 406
+      errorsMsg = "Some property is invalid or missing"
+      return false
+    } else if (
+      !Object.getOwnPropertyNames(req.body)
+      .map(item => {return expectedValues[item](req.body[item])})
+      .every(item=> item===true)) {
+      erroCode = 406
+      errorsMsg = "Invalid or missing value for some property"
+      return false
+    } else {
+      return true
+    }
+  }
+
+  try {
+    if (!validateBody()) {
+      throw new Error()
+    } else {
+      Object.assign(newUser, req.body)
+      Object.assign(newUser, { id: new Date() })
+      users.push(newUser)
+      return res.status(200).send(newUser).end()
+    }
+  } catch {
+    res.status(erroCode).send({ messagem: errorsMsg }).end()
+  }
+
+}
+)

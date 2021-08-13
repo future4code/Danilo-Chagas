@@ -1,0 +1,21 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "exercicios semana15a41",
+  "main": "index.js",
+  "scripts": {
+    "e1": "node ./src/exercicios/e1/e1.js",
+    "e2": "node ./src/exercicios/e2/e2.js",
+    "add": "node ./src/exercicios/e2/e2.js add",
+    "sub": "node ./src/exercicios/e2/e2.js sub",
+    "mult": "node ./src/exercicios/e2/e2.js mult",
+    "div": "node ./src/exercicios/e2/e2.js div",
+    "e3": "node ./src/exercicios/e3/e3.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Danilo Chagas",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}

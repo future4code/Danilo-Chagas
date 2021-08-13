@@ -1,0 +1,17 @@
+{
+  "name": "e2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "e2.js",
+  "scripts": {
+    "e2": "node ./e2.js",
+    "add": "node ./e2.js add",
+    "sub": "node ./e2.js sub",
+    "mult": "node ./e2.js mult",
+    "div": "node ./e2.js div",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

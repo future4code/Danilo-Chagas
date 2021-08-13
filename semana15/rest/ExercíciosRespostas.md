@@ -7,3 +7,5 @@
 3a) Exercício 2 incluído. Busca simultanea tanto por 'nome' ou 'type'
 3b) Inserido condicional para msg de erro tanto para resultado vazio ou queries inválidas.
 
+4a)sem efeito
+4b)o metodo post é o mais adequado para inserção enquanto put é para edição
