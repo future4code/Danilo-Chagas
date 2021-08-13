@@ -1,6 +1,7 @@
-export type user = {
+export type User = {
     name: string,
     CPF: number,
+    birthday: string,
     currentBalance: number,
     transactionsHistory: transactions[],
     scheduledTransactions: Array<any>

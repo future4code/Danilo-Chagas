@@ -1,9 +1,10 @@
-import {user, OPERATION} from './types'
+import {User, OPERATION} from './types'
 
-export const users: user[] = [
+export const users: User[] = [
     {
         name: "Fulano",
         CPF: 12345678901,
+        birthday: "20/02/1988",
         currentBalance: 1,
         transactionsHistory: [
             {
@@ -19,6 +20,7 @@ export const users: user[] = [
     {
         name: "Beltrano",
         CPF: 12345678902,
+        birthday: "20/03/1987",
         currentBalance: 3,
         transactionsHistory: [
             {
