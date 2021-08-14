@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
 import cors from 'cors'
-import { users } from './data'
+import { users } from './accountData'
 import { User } from './types'
 
 const app = express()
@@ -16,12 +16,22 @@ app.post("/users", (req: Request, res: Response) => {
     const newUser: User | any = {}
     let erroCode = 400
     let errorsMsg = ""
-    let errorTips = []
+    let errorTips: Array<any> = []
 
     function validateBody() {
-        const expectedObject: Array<string> = ["name", "CPF", "birthday"]
-        const expectedValues: any = {
-            isStringAndLength: function (input: any) { return isNaN(input) && input.trim().length > 0 },
+        const checkers: any = {
+            isValidName: function (input: any) {
+                if (input.trim().length > 0) {
+                    if (!isNaN(input) || input.split("").some((item: any) => Number(item))) {
+                        errorTips.push("Name is empty or isn't a text")
+                        return false
+                    } else {
+                        return true
+                    }
+                } else {
+                    return false
+                }
+            },
             isValidCPF: function (input: any) {
                 if (![!isNaN(Number(input)),
                 Number.isInteger(Number(input)),
@@ -29,11 +39,13 @@ app.post("/users", (req: Request, res: Response) => {
                     errorTips.push("CPF must be 11 digits and only numbers. If X digit, replace it for 0.")
                     return false
                 } else if (
-                    users.some(item => item.cpf === Number(input))
+                    users.some(item => Number(item.cpf) === Number(input))
                 ) {
                     errorTips.push("CPF already been registered.")
                     return false
-                } else { return true }
+                } else {
+                    return true
+                }
             },
             isValidBirthday: function (input: any) {
                 if (
@@ -47,27 +59,31 @@ app.post("/users", (req: Request, res: Response) => {
                     const today = new Date().getFullYear() + new Date().getMonth() * 0.1
                     const birthday = new Date(input).getFullYear() + new Date(input).getMonth() * 0.1
                     if ((today - birthday) < 18) {
-                        errorTips.push("A new user age must be greather than 18 years")
+                        errorTips.push("Only users higher than 18 years old can be registred")
                         return false
                     } else { return true }
                 }
-            },
-            name: (input: any) => expectedValues.isStringAndLength(input),
-            birthday: (input: any) => expectedValues.isValidBirthday(input),
-            cpf: (input: any) => expectedValues.isValidCPF(input),
+            }
+        }
+        const expectedObject: Array<string> = ["name", "cpf", "birthday"]
+        const expectedValues: any = {
+            name: (input: any) => checkers.isValidName(input),
+            birthday: (input: any) => checkers.isValidBirthday(input),
+            cpf: (input: any) => checkers.isValidCPF(input),
         }
 
         if (!req.body) {
             errorsMsg = "Empty Body"
             return false
         } else if (
-            Object.keys(req.body).length !== 4 ||
+            Object.keys(req.body).length !== expectedObject.length ||
             !Object.getOwnPropertyNames(req.body)
                 .map((item: any) => expectedObject
                     .includes(item)).every(item => item === true)
         ) {
             erroCode = 406
-            errorsMsg = "Some property is invalid or missing"
+            errorsMsg = "Some property is missing or invalid"
+            errorTips.push(`Expected properties: ${expectedObject}`)
             return false
         } else if (
             !Object.getOwnPropertyNames(req.body)
@@ -85,13 +101,12 @@ app.post("/users", (req: Request, res: Response) => {
         if (!validateBody()) {
             throw new Error()
         } else {
-            Object.assign(newUser, req.body)
-            Object.assign(newUser, { id: new Date() })
+            Object.assign(newUser, { ...req.body, id: Number(new Date()) })
             users.push(newUser)
             return res.status(200).send(newUser).end()
         }
     } catch {
-        res.status(erroCode).send({ messagem: errorsMsg }).end()
+        res.status(erroCode).send({ message: errorsMsg, error: errorTips }).end()
     }
 
 })

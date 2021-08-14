@@ -1,10 +1,9 @@
-import {User, OPERATION} from './types'
+import { OPERATION } from './types'
 
-export const users: User[] = [
+
+export const accountIndoData = [
     {
-        name: "Fulano",
-        cpf: 12345678901,
-        birthday: "20/02/1988",
+        id: 1628902028710,
         currentBalance: 1,
         transactionsHistory: [
             {
@@ -16,11 +15,8 @@ export const users: User[] = [
         ],
         scheduledTransactions: []
     },
-
     {
-        name: "Beltrano",
-        cpf: 12345678902,
-        birthday: "20/03/1987",
+        id: 1628902047125,
         currentBalance: 3,
         transactionsHistory: [
             {
@@ -33,3 +29,16 @@ export const users: User[] = [
         scheduledTransactions: []
     }
 ]
+
+export const newAccountInfo = {
+    currentBalance: 0,
+    transactionsHistory: [
+        {
+            date: "",
+            typeOperation: OPERATION,
+            value: 0,
+            details: ""
+        }
+    ],
+    scheduledTransactions: []
+}
