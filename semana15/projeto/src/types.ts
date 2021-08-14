@@ -1,6 +1,6 @@
 export type User = {
     name: string,
-    CPF: number,
+    cpf: number | string,
     birthday: string,
     currentBalance: number,
     transactionsHistory: transactions[],

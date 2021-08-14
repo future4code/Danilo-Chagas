@@ -13,7 +13,6 @@ app.get("/users", (req: Request, res: Response) => {
 })
 
 app.post("/users", (req: Request, res: Response) => {
-
     const newUser: User | any = {}
     let erroCode = 400
     let errorsMsg = ""
@@ -21,10 +20,21 @@ app.post("/users", (req: Request, res: Response) => {
 
     function validateBody() {
         const expectedObject: Array<string> = ["name", "CPF", "birthday"]
-        // const expectedUserType: Array<string> = ["admin", "normal"]
         const expectedValues: any = {
             isStringAndLength: function (input: any) { return isNaN(input) && input.trim().length > 0 },
-            isNumberAndLength: function (input: any) { return !isNaN(input) && Number.isInteger(input) && String(input).length === 2 && String(input).length < 3 },
+            isValidCPF: function (input: any) {
+                if (![!isNaN(Number(input)),
+                Number.isInteger(Number(input)),
+                String(input).length === 11].every(item => item === true)) {
+                    errorTips.push("CPF must be 11 digits and only numbers. If X digit, replace it for 0.")
+                    return false
+                } else if (
+                    users.some(item => item.cpf === Number(input))
+                ) {
+                    errorTips.push("CPF already been registered.")
+                    return false
+                } else { return true }
+            },
             isValidBirthday: function (input: any) {
                 if (
                     !Date.parse(input.split("/").map((item: any) => {
@@ -36,16 +46,15 @@ app.post("/users", (req: Request, res: Response) => {
                 } else {
                     const today = new Date().getFullYear() + new Date().getMonth() * 0.1
                     const birthday = new Date(input).getFullYear() + new Date(input).getMonth() * 0.1
-                    if ( (today - birthday) < 18) {
+                    if ((today - birthday) < 18) {
                         errorTips.push("A new user age must be greather than 18 years")
                         return false
-                    } else { return true}
+                    } else { return true }
                 }
             },
             name: (input: any) => expectedValues.isStringAndLength(input),
-            email: (input: any) => expectedValues.isStringAndLength(input),
-            // type: (input: any) => expectedUserType.includes(input.toLowerCase()) && expectedValues.isStringAndLength(input),
             birthday: (input: any) => expectedValues.isValidBirthday(input),
+            cpf: (input: any) => expectedValues.isValidCPF(input),
         }
 
         if (!req.body) {
