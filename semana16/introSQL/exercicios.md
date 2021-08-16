@@ -110,3 +110,50 @@
         |004|Antônio Fagundes|400000|1949-04-18|male|
         |005|Juliana Paes|719333|1979-03-26|female|
 
+### Exercício 5
+- [x] 5a)
+    - ~~~~sql
+        CREATE TABLE Filmes (
+        id VARCHAR(255) PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        synopsis TEXT NOT NULL,
+        rate INT NOT NULL,
+        launch_date DATE NOT NULL
+        );
+        ~~~~
+- [x] 5b)
+    - ~~~~sql
+        INSERT INTO Filmes (id, title, synopsis, rate, launch_date)
+        VALUES("001",
+        "Se Eu Fosse Você",
+        "Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+        7,
+        "2006/01/06");
+        ~~~~
+- [x] 5c)
+    - ~~~~sql
+       INSERT INTO Filmes (id, title, synopsis, rate, launch_date)
+        VALUES("002",
+        "Doce de mãe",
+        "Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+        10,
+        "2012/12/27");
+        ~~~~
+- [x] 5d)
+    - ~~~~sql
+        INSERT INTO Filmes (id, title, synopsis, rate, launch_date)
+        VALUES("003",
+        "Dona Flor e Seus Dois Maridos",
+        "Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.",
+        8,
+        "2017/11/02");
+        ~~~~
+- [x] 5e)
+    - ~~~~sql
+        INSERT INTO Filmes (id, title, synopsis, rate, launch_date)
+        VALUES("004",
+        "O Auto da Compadecida",
+        "O filme mostra as aventuras de João Grilo e Chicó, dois nordestinos pobres que vivem de golpes para sobreviver. Eles estão sempre enganando o povo de um pequeno vilarejo no sertão da Paraíba, inclusive o temido cangaceiro Severino de Aracaju, que os persegue pela região. Somente a aparição da Nossa Senhora poderá salvar esta dupla.",
+        10,
+        "2000/09/15");
+        ~~~~
