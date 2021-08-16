@@ -98,3 +98,12 @@ SELECT id, name, salary from actor WHERE salary <= 500000;
 SELECT id, nome from actor WHERE id = "002";
 
 SELECT id, name from actor WHERE id = "002";
+
+SELECT * FROM actor
+WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000;
+
+SELECT * FROM actor
+WHERE (name NOT LIKE "A%") AND salary > 350000;
+
+SELECT * FROM actor
+WHERE (name LIKE "%a%" OR name LIKE "%A%" OR name LIKE "%g%" OR name LIKE "%G%") AND (salary BETWEEN 350000 AND 900000 );

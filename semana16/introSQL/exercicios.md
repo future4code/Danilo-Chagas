@@ -55,7 +55,6 @@
         ~~~~sql
             SELECT id, name, salary from actor WHERE salary <= 500000;
         ~~~~
-
 - [x] 3e)
     - *Error Code: 1054. Unknown column 'nome' in 'field list', Coluna 'nome' desconhecida em 'lista de campo'*, indica que 'nome' não é um valor presente em na lista de campos cadastrados. Para que tenhamos sucesso, precisamos corrigir o valor para 'name', pois este é um valor registrado na 'lista de campo' em nossa tabela.
     
@@ -68,3 +67,46 @@
         |--|--|
         |002|Glória Pires|
         
+### Exercício 4
+- [x] 4a)
+    - ~~~~sql
+        SELECT * FROM Actor
+        WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000
+        ~~~~
+        Esta query busca o retorno de todos os campos da tabela Actor, onde o campo de nome contenha valores que comecem com A ou J e os salários acima de 300.000.
+        O * indica que esperamos todos os campos registrados na tabela Actor
+        WHERE indica que temos uma condição para esta busca
+        Os argumentos contidos em *()* é a prioridade de busca, ou seja, o conjunto de argumentos contidos por ele devem ser resolvidos juntamente; após isso há o operador AND que indica que esse resultado deva ser concomitante as condições sequentes, sendo elas o salário maior que 300.000
+- [x] 4b)
+    - ~~~~sql
+        SELECT * FROM Actor
+        WHERE (name NOT LIKE "A%") AND salary > 350000
+        ~~~~
+
+        |id|name|salary|birth_date|gender|
+        |--|--|--|--|--|
+        |001|Tony Ramos|400000|1948-08-25|male|
+        |002|Glória Pires|1200000|1963-08-23|female|
+        |005|Juliana Paes|719333|1979-03-26|female|
+- [x] 4c)
+    - ~~~~sql
+        SELECT * FROM actor
+        WHERE (name LIKE "%G%" OR name LIKE "%g%");
+        ~~~~
+        |id|name|salary|birth_date|gender|
+        |--|--|--|--|--|
+        |002|Glória Pires|1200000|1963-08-23|female|
+        |003|Fernanda Montenegro|300000|1929-10-19|female|
+        |004|Antônio Fagundes|400000|1949-04-18|male|
+- [x] 4d)
+    - ~~~~sql
+        SELECT * FROM actor
+        WHERE (name LIKE "%a%" OR name LIKE "%A%" OR name LIKE "%g%" OR name LIKE "%G%") AND (salary BETWEEN 350000 AND 900000 );
+        ~~~~
+
+        |id|name|salary|birth_date|gender|
+        |--|--|--|--|--|
+        |001|Tony Ramos|400000|1948-08-25|male|
+        |004|Antônio Fagundes|400000|1949-04-18|male|
+        |005|Juliana Paes|719333|1979-03-26|female|
+
