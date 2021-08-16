@@ -26,4 +26,14 @@
 n/a
 
 ### Imagens
-n/a
+###### ver usuários cadastrados get /users
+<img src="./img/getUsers_Sucess.png" alt="ver usuários cadastrados" width=400>
+
+###### cadastar um novo usuário post /users + body json
+<img src="./img/postUsers_Success.png" alt="cadastrar um novo usuário" width=400>
+
+###### Exemplo de erro 1: cadastar um novo usuário post /users + body json
+<img src="./img/postUsers_Error_Body_1.png" alt="erro 1 ao cadastrar um novo usuário" width=400>
+
+###### Exemplo de erro 2: cadastar um novo usuário post /users + body json
+<img src="./img/postUsers_Error_Body_2.png" alt="erro 2 ao cadastrar um novo usuário" width=400>
