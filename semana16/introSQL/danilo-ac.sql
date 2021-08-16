@@ -91,4 +91,10 @@ VALUES(
 
 SELECT * from actor WHERE gender = "female";
 
-SELECT salary from actor WHERE name = "Tony Ramos";
+SELECT * from actor WHERE gender = "invalid";
+
+SELECT id, name, salary from actor WHERE salary <= 500000;
+
+SELECT id, nome from actor WHERE id = "002";
+
+SELECT id, name from actor WHERE id = "002";

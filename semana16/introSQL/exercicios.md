@@ -26,3 +26,45 @@
     - *" Error Code: 1292. Incorrect date value: '1950' for column 'birth_date' at row 1 ", Valor incorreto de data: '1950' para a coluna 'birth_date' na linha 1*, nese caso o campo indicado espera receber um valor em formato de data do SQL, que deve ser em string, e como foi passado um valor ser estar contido em "", foi interpretado como uma operação matemática de subtração, resultando em 1950, que por sua vez também não corresponde ao valor esperado no campo.
 - [x] 2f)
     - OK; registros efetuados
+
+### Exercício 3
+- [x] 3a)
+    - Query com condição *WHERE gender = "female"*
+        ~~~~sql
+        SELECT * from actor WHERE gender = "female";
+        ~~~~
+- [x] 3b)
+    - Query com seleção do campo *salary* e condição *WHERE name = "Tony Ramos"*
+        ~~~~sql
+        SELECT salary from actor WHERE name = "Tony Ramos";
+        ~~~~
+- [x] 3c)
+    - Query com condição *WHERE gender = "invalid* retornou vazio, pois, embora toda a sintaxe esteja correta, não foi encontrado o valor "invalid" no campo gender
+        ~~~~sql
+        SELECT * from actor WHERE gender = "invalid";
+        ~~~~
+- [x] 3d)
+    - Query com condição *WHERE salary <= 500000* retornou 3 linhas:
+    
+        |id|name|salary|
+        |--|--|--|
+        |001|Tony Ramos|400000|
+        |003|Fernanda Montenegro|300000|
+        |004|Antônio Fagundes|400000|
+
+        ~~~~sql
+            SELECT id, name, salary from actor WHERE salary <= 500000;
+        ~~~~
+
+- [x] 3e)
+    - *Error Code: 1054. Unknown column 'nome' in 'field list', Coluna 'nome' desconhecida em 'lista de campo'*, indica que 'nome' não é um valor presente em na lista de campos cadastrados. Para que tenhamos sucesso, precisamos corrigir o valor para 'name', pois este é um valor registrado na 'lista de campo' em nossa tabela.
+    
+        ~~~~sql
+            SELECT id, name from actor WHERE id = "002";
+        ~~~~
+
+        resultado
+        |id|name|
+        |--|--|
+        |002|Glória Pires|
+        
