@@ -75,10 +75,26 @@
     
 
 ### Exercício 4
-- [] 4a)
-- [] 4b)
-- [] 4c)
-- [] 4d)
+- [x] 4a)
+   ~~~~sql
+   SELECT MAX(salary) FROM actor;
+   ~~~~
+    *1200000*
+- [x] 4b)
+   ~~~~sql
+    SELECT MIN(salary) FROM actor WHERE gender = "female";
+   ~~~~
+    *300000*
+- [x] 4c)
+    ~~~~sql
+    SELECT COUNT(*) FROM actor WHERE gender = "female";
+    ~~~~
+    *3*
+- [x] 4d)
+    ~~~~sql
+    SELECT COUNT(*) FROM actor WHERE gender = "female";
+    ~~~~
+    *3300000*
 
 ### Exercício 5
 - [] 5a)

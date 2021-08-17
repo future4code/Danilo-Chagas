@@ -38,3 +38,15 @@ SELECT * FROM actor;
 
 /*3b) Escreva uma query que apague todos os atores (do gênero male) com o salário maior do que R$1.000.000,00*/
 DELETE FROM actor WHERE gender = "male" AND salary > "1000000";
+
+/*4a) Escreva uma query que pegue o maior salário de todos os atores e atrizes*/
+SELECT MAX(salary) FROM actor;
+
+/*4b) Escreva uma query que pegue o menor salário das atrizes*/
+SELECT MIN(salary) FROM actor WHERE gender = "female";
+
+/*4c) Escreva uma query que pegue a quantidade de atrizes*/
+SELECT COUNT(*) FROM actor WHERE gender = "female";
+
+/*4d) Escreva uma query que pegue a soma de todos os salários*/
+SELECT SUM(salary) FROM actor;
