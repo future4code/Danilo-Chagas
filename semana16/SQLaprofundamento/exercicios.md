@@ -97,11 +97,66 @@
     *3300000*
 
 ### Exercício 5
-- [] 5a)
-- [] 5b)
-- [] 5c)
-- [] 5d)
-- [] 5e)
+- [x] 5a)
+    ~~~~sql
+    SELECT COUNT(*), gender
+    FROM actor
+    GROUP BY gender
+    ~~~~
+    - Contou a quantidade de valores diferentes dentro da coluna gender e agrupou a soma desse resultado por esses diferentes valores de gender;
+    
+    |COUNT(*)|gender|
+    |--|--|
+    |2|male|
+    |3|female|
+- [x] 5b)
+    ~~~~sql
+    SELECT id, name
+    FROM actor
+    ORDER BY name DESC;
+    ~~~~
+
+    |id|name|
+    |--|--|
+    |001|Tony Ramos|
+    |005|Novo nome2|
+    |003|Novo Nome|
+    |002|Glória Pires|
+    |004|Antônio Fagundes|
+- [x] 5c)
+    ~~~~sql
+    SELECT *
+    FROM actor
+    ORDER BY salary ASC;
+    ~~~~
+    
+    |id|name|salary|birth_date|gender|
+    |--|--|--|--|--|
+    |003|Novo Nome|300000|2021-08-17|female|
+    |001|Tony Ramos|400000|1948-08-25|male|
+    |004|Antônio Fagundes|400000|1949-04-18|male|
+    |005|Novo nome2|1000000|2021-08-17|female|
+    |002|Glória Pires|1200000|1963-08-23|female|
+- [x] 5d)
+    ~~~~sql
+    SELECT *
+    FROM actor
+    ORDER BY salary DESC
+    LIMIT 3;
+    ~~~~
+    |id|name|salary|birth_date|gender|
+    |--|--|--|--|--|
+    |002|Glória Pires|1200000|1963-08-23|female|
+    |005|Novo nome2|1000000|2021-08-17|female|
+    |004|Antônio Fagundes|400000|1949-04-18|male|
+- [x] 5e)
+    ~~~~sql
+    SELECT gender, AVG(salary) FROM actor GROUP BY gender;
+    ~~~~
+    |gender|AVG(salary)|
+    |--|--|
+    |male|400000|
+    |female|833333.3333333334|
 
 ### Exercício 6
 - [] 6a)

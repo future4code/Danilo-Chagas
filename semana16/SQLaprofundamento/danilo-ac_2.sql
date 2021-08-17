@@ -50,3 +50,29 @@ SELECT COUNT(*) FROM actor WHERE gender = "female";
 
 /*4d) Escreva uma query que pegue a soma de todos os salários*/
 SELECT SUM(salary) FROM actor;
+
+/*5a) Releia a última query. Teste-a. Explique o resultado com as suas palavras*/
+SELECT COUNT(*), gender
+FROM actor
+GROUP BY gender;
+
+/*5b) Faça uma query que retorne somente o id e o nome dos atores em ordem decrescente alfabética*/
+SELECT id, name
+FROM actor
+ORDER BY name DESC;
+
+/*5c) Faça uma query que retorne todos os atores ordenados pelo salário*/
+SELECT *
+FROM actor
+ORDER BY salary ASC;
+
+/*5d) Faça uma query que retorne os atores com os três maiores salarios*/
+SELECT *
+FROM actor
+ORDER BY salary DESC
+LIMIT 3;
+
+/*5e) Faça uma query que retorne a média de salário por gênero*/
+SELECT gender, AVG(salary)
+FROM actor
+GROUP BY gender;
