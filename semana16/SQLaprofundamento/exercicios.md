@@ -1,8 +1,25 @@
 ### Exercício 1
-- [] 1a) 
-- [] 1b) 
-- [] 1c) 
-- [] 1d)
+- [x] 1a)
+    ~~~~sql    
+    ALTER TABLE Actor DROP COLUMN salary;
+    ~~~~
+    - deleta a coluna/campo salary da tabela Actor;
+- [x] 1b)
+    ~~~~sql    
+    ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
+    ~~~~
+    - altera o nome da coluna/campo *gender* para *sex* e define o tipo;
+- [x] 1c) 
+    ~~~~sql
+    ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
+    ~~~~
+    - altera o tipo da coluna/campo *gender* para conter até 255 caracteres;
+- [x] 1d)
+    ~~~~sql
+    ALTER TABLE actor CHANGE gender gender VARCHAR(100)
+    ~~~~
+    *5 row(s) affected Records: 5  Duplicates: 0  Warnings: 0*
+
 
 ### Exercício 2
 - [] 2a)
