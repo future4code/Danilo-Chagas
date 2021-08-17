@@ -210,7 +210,6 @@
     |AVG(rate)|
     |--|
     |8.333333333333334|
-
 - [x] 7c) 
     ~~~~sql
     SELECT COUNT(*)
@@ -247,7 +246,49 @@
     |7|
 
 ### Exercício 8
-- [] 8a)
-- [] 8b)
-- [] 8c) 
-- [] 8d)
+- [x] 8a)
+    ~~~~sql
+    SELECT *
+    FROM Filmes
+    ORDER BY title ASC;
+    ~~~~
+    |id|title|synopsis|rate|launch_date|playing_limit_date|
+    |--|--|--|--|--|--|
+    |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|10|2012-12-27|2013-01-27|
+    |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.|8|2017-11-02|
+    |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|7|2006-01-06|2021-12-25|
+- [x] 8b)
+    ~~~~sql
+    SELECT *
+    FROM Filmes
+    ORDER BY title DESC
+    LIMIT 5;
+    ~~~~
+    |id|title|synopsis|rate|launch_date|playing_limit_date|
+    |--|--|--|--|--|--|
+    |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|7|2006-01-06|2021-12-25|
+    |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.|8|2017-11-02|
+    |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|10|2012-12-27|2013-01-27|
+- [x] 8c)
+    ~~~~sql
+    SELECT *
+    FROM Filmes
+    WHERE playing_limit_date >= curdate() AND launch_date <= curdate()
+    ORDER BY launch_date DESC
+    LIMIT 3;
+    ~~~~
+    |id|title|synopsis|rate|launch_date|playing_limit_date|
+    |--|--|--|--|--|--|
+    |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|7|2006-01-06|2021-12-25|
+- [x] 8d)
+    ~~~~sql
+    SELECT *
+    FROM Filmes
+    ORDER BY rate DESC
+    LIMIT 3;
+    ~~~~
+    |id|title|synopsis|rate|launch_date|playing_limit_date|
+    |--|--|--|--|--|--|
+    |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|10|2012-12-27|2013-01-27|
+    |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.|8|2017-11-02|
+    |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|7|2006-01-06|2021-12-25| 

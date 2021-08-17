@@ -133,12 +133,25 @@ SELECT MIN(rate)
 FROM Filmes;
 
 /*8a) Retorne todos os filmes em ordem alfabética*/
-SELECT title
-FROM FILMES
+SELECT *
+FROM Filmes
 ORDER BY title ASC;
 
 /*8b) Retorne os 5 primerios filmes em ordem descrente alfabética*/
+SELECT *
+FROM Filmes
+ORDER BY title DESC
+LIMIT 5;
 
 /*8c) Retorne os 3 filmes mais recentes em cartaz*/
+SELECT *
+FROM Filmes
+WHERE playing_limit_date >= curdate() AND launch_date <= curdate()
+ORDER BY launch_date DESC
+LIMIT 3;
 
 /*8d) Retorne os 3 filmes melhor avalidos*/
+SELECT *
+FROM Filmes
+ORDER BY rate DESC
+LIMIT 3;
