@@ -159,18 +159,92 @@
     |female|833333.3333333334|
 
 ### Exercício 6
-- [] 6a)
-- [] 6b)
-- [] 6c) 
-- [] 6d)
+- [x] 6a)
+    ~~~~sql
+    ALTER TABLE Filmes
+    ADD playing_limit_date DATE;
+    select * from Filmes
+    ~~~~
+- [x] 6b)
+    ~~~~sql
+    ALTER TABLE Filmes
+    CHANGE rate rate FLOAT NOT NULL;
+    ~~~~
+- [X] 6c) 
+    ~~~~sql
+    UPDATE Filmes
+    SET playing_limit_date = "2021-12-25" WHERE id = "001";
+    
+    UPDATE Filmes
+    SET playing_limit_date = "2013-01-27" WHERE id = "002";
+    ~~~~
+- [X] 6d)
+    ~~~~sql
+    DELETE from Filmes
+    WHERE id = "004";
+    
+    SELECT * FROM Filmes;
+    
+    UPDATE Filmes
+    SET synopsis = "teste"
+    WHERE id = "004";
+    ~~~~
+    *0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0*
+    - o update do id deletado não teve efeito, pois o id não existe mais/ não é mais acessível para manipulação.
 
 ### Exercício 7
-- [] 7a)
-- [] 7b)
-- [] 7c) 
-- [] 7d)
-- [] 7e)
-- [] 7f)
+- [x] 7a)
+    ~~~~sql
+    SELECT COUNT(*)
+    FROM Filmes
+    WHERE rate > 7.5;
+    ~~~~
+    |COUNT(*)|
+    |--|
+    |2|
+- [x] 7b)
+    ~~~~sql
+    SELECT AVG(rate)
+    FROM Filmes;
+    ~~~~
+    |AVG(rate)|
+    |--|
+    |8.333333333333334|
+
+- [x] 7c) 
+    ~~~~sql
+    SELECT COUNT(*)
+    FROM Filmes
+    WHERE playing_limit_date > curdate();
+    ~~~~
+    |COUNT(*)|
+    |--|
+    |1|
+- [x] 7d)
+    ~~~~sql
+    SELECT COUNT(*)
+    FROM Filmes
+    WHERE launch_date > curdate();
+    ~~~~
+    |COUNT(*)|
+    |--|
+    |0|
+- [x] 7e)
+    ~~~~sql
+    SELECT MAX(rate)
+    FROM Filmes;
+    ~~~~
+    |MAX(rate)|
+    |--|
+    |10|
+- [x] 7f)
+    ~~~~sql
+    SELECT MIN(rate)
+    FROM Filmes;
+    ~~~~
+    |MIN(rate)|
+    |--|
+    |7|
 
 ### Exercício 8
 - [] 8a)

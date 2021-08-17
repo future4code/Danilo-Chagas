@@ -76,3 +76,69 @@ LIMIT 3;
 SELECT gender, AVG(salary)
 FROM actor
 GROUP BY gender;
+
+/*6a) Altere a tabela de `Movie` e adicione um novo parâmetro: `playing_limit_date` que indique a data limite em que o filme será passado no cinema.*/
+ALTER TABLE Filmes
+ADD playing_limit_date DATE;
+
+/*6b) Altere a tabela de `Movie` para que o parâmetro `rating` possa aceitar valores não inteiros, como, por exemplo, uma avaliação `8.5`.*/
+ALTER TABLE Filmes
+CHANGE rate rate FLOAT NOT NULL;
+describe Filmes;
+
+/*6c) Atualize dois filmes de tal forma que tenhamos um que ainda esteja em cartaz e um que já tenha saído*/
+UPDATE Filmes
+SET playing_limit_date = "2021-12-25" WHERE id = "001";
+
+UPDATE Filmes
+SET playing_limit_date = "2013-01-27" WHERE id = "002";
+
+/*6d) Delete algum dos filmes, mas guarde o id.
+Tente fazer uma query para atualizar a sinopse desse
+filme que você acabou de deletar (usando o mesmo id).
+Anote o resultado e explique.*/
+DELETE from Filmes
+WHERE id = "004";
+
+SELECT * FROM Filmes;
+
+UPDATE Filmes
+SET synopsis = "teste"
+WHERE id = "004";
+
+/*7a) Quantos filmes em cartaz possuem avaliações maiores do que `7.5`?*/
+SELECT COUNT(*)
+FROM Filmes
+WHERE rate > 7.5;
+
+/*7b) Qual a média das avaliações dos filmes?*/
+SELECT AVG(rate)
+FROM Filmes;
+
+/*7c) Qual a quantidade de filmes em cartaz?*/
+SELECT COUNT(*)
+FROM Filmes
+WHERE playing_limit_date > curdate();
+
+/*7d) Qual a quantidade de filmes que ainda irão lançar?*/
+SELECT COUNT(*)
+FROM Filmes
+WHERE launch_date > curdate();
+
+/*7e) Qual a maior nota dos filmes?*/
+SELECT MAX(rate)
+FROM Filmes;
+/*7f) Qual a menor nota dos filmes?*/
+SELECT MIN(rate)
+FROM Filmes;
+
+/*8a) Retorne todos os filmes em ordem alfabética*/
+SELECT title
+FROM FILMES
+ORDER BY title ASC;
+
+/*8b) Retorne os 5 primerios filmes em ordem descrente alfabética*/
+
+/*8c) Retorne os 3 filmes mais recentes em cartaz*/
+
+/*8d) Retorne os 3 filmes melhor avalidos*/
