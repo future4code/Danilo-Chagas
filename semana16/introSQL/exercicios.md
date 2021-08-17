@@ -186,4 +186,44 @@
         |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|
         |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.
         |004|O Auto da Compadecida|O filme mostra as aventuras de João Grilo e Chicó, dois nordestinos pobres que vivem de golpes para sobreviver. Eles estão sempre enganando o povo de um pequeno vilarejo no sertão da Paraíba, inclusive o temido cangaceiro Severino de Aracaju, que os persegue pela região. Somente a aparição da Nossa Senhora poderá salvar esta dupla.|
+
+### Exercícios 7
+- [x] 7a)
+    - ~~~~sql
+        SELECT * from Filmes WHERE title LIKE "%vida%";
+        ~~~~
         
+        |id|title|synopsis|rate|launch_date|
+        |--|--|--|--|--|
+        |null|null|null|null|null|
+- [x] 7b)
+     - ~~~~sql
+        SELECT * from Filmes WHERE title LIKE "%dona%" or synopsis LIKE "%dona%";
+        ~~~~
+
+        |id|title|synopsis|rate|launch_date|
+        |--|--|--|--|--|
+        |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|10|2012-12-27|
+        |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.|8|2017-11-02|
+- [x] 7c)
+     - ~~~~sql
+        SELECT * from Filmes WHERE launch_date <= "2021-08-16";
+        ~~~~
+
+        |id|title|synopsis|rate|launch_date|
+        |--|--|--|--|--|
+        |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|7|2006-01-06|
+        |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|10|2012-12-27|
+        |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.|8|2017-11-02|
+        |004|O Auto da Compadecida|O filme mostra as aventuras de João Grilo e Chicó, dois nordestinos pobres que vivem de golpes para sobreviver. Eles estão sempre enganando o povo de um pequeno vilarejo no sertão da Paraíba, inclusive o temido cangaceiro Severino de Aracaju, que os persegue pela região. Somente a aparição da Nossa Senhora poderá salvar esta dupla.|10|2000-09-15|
+- [x] 7d)
+     - ~~~~sql
+        SELECT * from Filmes WHERE launch_date <= "2021-08-16" AND
+        (title LIKE "%dona%" or synopsis LIKE "%dona%") AND
+        rate >= 7;
+        ~~~~
+        
+        |id|title|synopsis|rate|launch_date|
+        |--|--|--|--|--|
+        |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|10|2012-12-27|
+        |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.|8|2017-11-02|        

@@ -151,3 +151,11 @@ SELECT * from Filmes WHERE title = "Se eu fosse você";
 SELECT id, title, synopsis from Filmes WHERE rate >= 7;
 
 SELECT * from Filmes WHERE title LIKE "%vida%";
+
+SELECT * from Filmes WHERE title LIKE "%dona%" or synopsis LIKE "%dona%";
+
+SELECT * from Filmes WHERE launch_date <= "2021-08-16";
+
+SELECT * from Filmes WHERE launch_date <= "2021-08-16" AND
+(title LIKE "%dona%" or synopsis LIKE "%dona%") AND
+rate >= 7;
