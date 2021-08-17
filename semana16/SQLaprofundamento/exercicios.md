@@ -37,7 +37,6 @@
     UPDATE actor
     SET name = "Juliana Paes" WHERE name = "JULIANA PAES";
     ~~~~
-
 - [x] 2c)
     ~~~~sql
     UPDATE actor
@@ -63,8 +62,17 @@
     No 2o usei o campo name que consta na tabela, mas com o um id inexistente, nesse caso uma msg de SUCESSO foi retornada, mas informando 0 mundanças.
  
 ### Exercício 3
-- [] 3a)
-- [] 3b)
+- [x] 3a)
+    ~~~~sql
+    DELETE FROM actor WHERE name = "Fernanda Montenegro";
+    ~~~~
+    obs.: como já havia alterado na 2a, resultou em operação sem ação: *"0 row(s) affected"*
+- [x] 3b)
+    ~~~~sql
+    DELETE FROM actor WHERE gender = "male" AND salary > "1000000";
+    ~~~~
+    obs.: resultou em operação sem ação uma vez que não teve valor correspondente econtrado: *"0 row(s) affected"*
+    
 
 ### Exercício 4
 - [] 4a)

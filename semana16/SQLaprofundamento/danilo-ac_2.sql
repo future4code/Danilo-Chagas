@@ -31,3 +31,10 @@ WHERE id = "080";
 UPDATE actor
 SET name = "Fulano"
 WHERE id = "080";
+
+/*3a) Escreva uma query que apague a atriz com o nome Fernanda Montenegro*/
+DELETE FROM actor WHERE name = "Fernanda Montenegro";
+SELECT * FROM actor;
+
+/*3b) Escreva uma query que apague todos os atores (do gênero male) com o salário maior do que R$1.000.000,00*/
+DELETE FROM actor WHERE gender = "male" AND salary > "1000000";
