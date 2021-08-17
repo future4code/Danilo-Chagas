@@ -157,3 +157,33 @@
         10,
         "2000/09/15");
         ~~~~
+
+### Exercício 6
+- [x] 6a)
+    - ~~~~sql
+        SELECT id, title, rate from Filmes WHERE id = "004";
+        ~~~~
+
+        |id|title|rate|
+        |--|--|--|
+        |004|O Auto da Compadecida|10|
+- [x] 6b)
+    - ~~~~sql
+        SELECT id, title, rate from Filmes WHERE title = "Se eu fosse você";
+        ~~~~
+
+        |id|title|synopsis|rate|launch_date|
+        |--|--|--|--|--|
+        |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|7|2006-01-06|
+- [x] 6c)
+    - ~~~~sql
+        SELECT id, title, synopsis from Filmes WHERE rate >= 7;
+        ~~~~
+
+        |id|title|synopsis|
+        |--|--|--|
+        |001|Se Eu Fosse Você|Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos|
+        |002|Doce de mãe|Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela|
+        |003|Dona Flor e Seus Dois Maridos|Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.
+        |004|O Auto da Compadecida|O filme mostra as aventuras de João Grilo e Chicó, dois nordestinos pobres que vivem de golpes para sobreviver. Eles estão sempre enganando o povo de um pequeno vilarejo no sertão da Paraíba, inclusive o temido cangaceiro Severino de Aracaju, que os persegue pela região. Somente a aparição da Nossa Senhora poderá salvar esta dupla.|
+        

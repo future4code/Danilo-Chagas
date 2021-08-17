@@ -143,3 +143,11 @@ VALUES("004",
 "O filme mostra as aventuras de João Grilo e Chicó, dois nordestinos pobres que vivem de golpes para sobreviver. Eles estão sempre enganando o povo de um pequeno vilarejo no sertão da Paraíba, inclusive o temido cangaceiro Severino de Aracaju, que os persegue pela região. Somente a aparição da Nossa Senhora poderá salvar esta dupla.",
 10,
 "2000/09/15");
+
+SELECT id, title, rate from Filmes WHERE id = "004";
+
+SELECT * from Filmes WHERE title = "Se eu fosse você";
+
+SELECT id, title, synopsis from Filmes WHERE rate >= 7;
+
+SELECT * from Filmes WHERE title LIKE "%vida%";
