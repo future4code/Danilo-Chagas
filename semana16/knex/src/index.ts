@@ -187,3 +187,34 @@ app.get("/actors/salary/:gender", async (req: Request, res: Response) => {
       res.status(500).send(error.sqlMessage || error.message)
    }
 })
+
+/* E x e r c í c i o   3 A*/
+
+app.get("/actor/:id", async (req: Request, res: Response) => {
+   try {
+     const id = req.params.id;
+     const actor = await getActorById(id);
+ 
+     res.status(200).send(actor)
+   } catch (err) {
+     res.status(400).send({
+       message: err.message,
+     });
+   }
+ });
+
+ /* E x e r c í c i o   3 B*/
+ app.get("/actor", async (req: Request, res: Response) => {
+   
+   const gender: string | any= req.query?.gender;
+
+   try {
+     const result = await countGender(gender);
+ 
+     res.status(200).send(result[0])
+   } catch (err) {
+     res.status(400).send({
+       message: err.message,
+     });
+   }
+ });
