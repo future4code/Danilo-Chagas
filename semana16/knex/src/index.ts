@@ -218,3 +218,36 @@ app.get("/actor/:id", async (req: Request, res: Response) => {
      });
    }
  });
+
+ /* E x e r c í c i o   4 A*/
+app.put("/actor", async (req: Request, res: Response) => {
+
+   const id: any = req.body?.id
+   const salary: any = Number(req.body?.salary)
+
+   try {
+      const result: any = await updateSalary(id, salary)
+
+      result ?
+         res.status(200).send("sucess to update")
+         : res.status(400).send("failed to update")
+
+   } catch (error) {
+      console.log(error);
+      res.status(500).send(error.sqlMessage || error.message)
+   }
+})
+
+/* E x e r c í c i o   4 B*/
+app.delete("/actor/:id", async (req: Request, res: Response) => {
+   const id: any = req.params?.id
+   try {
+      const result: any = await deleteActor(id)
+      result ?
+         res.status(200).send("sucess to delete")
+         : res.status(400).send("failed to delete")
+   } catch (error) {
+      console.log(error);
+      res.status(500).send(error.sqlMessage || error.message)
+   }
+})

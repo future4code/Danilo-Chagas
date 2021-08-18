@@ -185,5 +185,38 @@
     ~~~~
 
 #### Exercício 4
-- []4a)
-- []4b)
+- [x]4a)
+    ~~~~TypeScript
+    app.put("/actor", async (req: Request, res: Response) => {
+    
+       const id: any = req.body?.id
+       const salary: any = Number(req.body?.salary)
+    
+       try {
+          const result: any = await updateSalary(id, salary)
+    
+          result ?
+             res.status(200).send("sucess to update")
+             : res.status(400).send("failed to update")
+    
+       } catch (error) {
+          console.log(error);
+          res.status(500).send(error.sqlMessage || error.message)
+       }
+    })
+    ~~~~
+- [x]4b)
+    ~~~~TypeScript
+    app.delete("/actor/:id", async (req: Request, res: Response) => {
+       const id: any = req.params?.id
+       try {
+          const result: any = await deleteActor(id)
+          result ?
+             res.status(200).send("sucess to delete")
+             : res.status(400).send("failed to delete")
+       } catch (error) {
+          console.log(error);
+          res.status(500).send(error.sqlMessage || error.message)
+       }
+    })
+    ~~~~
