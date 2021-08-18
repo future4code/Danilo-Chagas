@@ -31,12 +31,21 @@
         uri: localhost:3003/actors/search/gender/male
     ~~~~
     ~~~~TypeScript
+
+    const countGender = async (gender: string): Promise<any> => {
+       try {
+          return await connection
+       .raw(`SELECT COUNT(*) as "${gender} qty" FROM actor WHERE gender = "${gender}"`)
+       } catch {
+          return false
+       }
+    }
+
     app.get("/actors/search/gender/:gender", async (req, res) => {
        try {
     
-          const result = await connection
-          .raw(`SELECT COUNT(*) as "${req.params?.gender} qty" FROM actor WHERE gender = "${req.params?.gender}"`)
-         
+          const result = await countGender(req.params?.gender)
+    
           res.send(result[0][0])
     
        } catch (error) {
