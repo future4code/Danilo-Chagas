@@ -66,14 +66,22 @@ app.get("/users/:id", async (req, res) => {
 
 /* E x e r c í c i o   1 B*/
 
+const searchByName = async (name: string): Promise<any> => {
+   try {
+      return await connection.raw(`SELECT * FROM actor WHERE name = "${name}"`)
+   } catch {
+      return false
+   }
+}
+
 app.get("/actors/search/name/:name", async (req, res) => {
    try {
 
-      const result = await connection.raw(`SELECT * FROM actor WHERE name = "${req.params?.name}"`)
+      const result = await searchByName(req.params?.name)
 
       const actors = result[0]
 
-      res.send(actors)
+      res.send(actors).end()
 
    } catch (error) {
       console.log(error);
