@@ -31,7 +31,6 @@
       Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`molina-2135959-danilo-chagas`.`Rating`, CONSTRAINT `Rating_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`id`))
         ~~~~
     - Como o valor de id não existe em Movie, a ação de inserção não foi realizada.
-
 - [x]1d)
     - ~~~~sql
         ALTER TABLE Movie
@@ -44,10 +43,59 @@
     - Sucede mensagem de erro e não executa ação, pois a linha que seria excluída em "Movie" tem a chave "id" referenciada em outra tabela (Rating)
 
 #### Exercício 2)
-- []2a)
-- []2b)
-- []2c)
-- []2d)
+- [x]2a)
+    - ~~~~sql
+        CREATE TABLE MovieCast (
+    	movie_id VARCHAR(255),
+    	actor_id VARCHAR(255),
+        FOREIGN KEY (movie_id) REFERENCES Movie(id),
+        FOREIGN KEY (actor_id) REFERENCES Actor(id)
+        );
+        ~~~~
+    - A tabela MovieCast possui 2 colunas que fazem referencias as colunas  das tabelas Movie e Actor, ou seja MovieCast só poderá armazernar dados que estão primeiramente contidos em Movie e Actor
+
+- [x]2b)
+    - ~~~~sql
+        INSERT INTO MovieCast ( movie_id, actor_id )
+        VALUES(
+        	"001",
+        	"001"
+        ),(
+        	"001",
+            "002"
+        ),(
+        	"002",
+            "003"
+        ),(
+        	"003",
+            "005"
+        ),(
+        	"004",
+            "004"
+        ),(
+        	"004",
+            "001"
+        );
+        ~~~~
+- [x]2c)
+   - ~~~~sql
+        INSERT INTO MovieCast ( movie_id, actor_id )
+        VALUES("007","001");
+        ~~~~
+    - ~~~~sql
+        Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`molina-2135959-danilo-chagas`.`MovieCast`, CONSTRAINT `MovieCast_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`id`))
+        ~~~~
+    - Não foi possível criar uma nova linha em MovieCast com um dos valores inexistentes para Movie, pois para inserir qlqr dado dentro de MovieCast, os valore precisam existir nas duas tabelas de referência, Movie e Actor.
+- [x]2d)
+    - ~~~~sql
+        DELETE FROM Actor
+        WHERE id = "001";
+        ~~~~
+
+    - ~~~~sql
+        Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`molina-2135959-danilo-chagas`.`MovieCast`, CONSTRAINT `MovieCast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `Actor` (`id`))
+        ~~~~
+     - Não foi possível apagar a linha do Ator em  referenciado em Actor, pois ele é um valor dependido por actor_id na tabela MovieCast
 
 #### Exercícios 3)
 - []3a)

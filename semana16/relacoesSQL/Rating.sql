@@ -45,3 +45,42 @@ DROP COLUMN rating;
 
 /*1e. Tente apagar um filme que possua avaliações. Anote e explique o resultado da query.*/
 DELETE FROM Movie WHERE id = "001";
+
+
+/*2a. Explique, com as suas palavras, essa tabela*/
+CREATE TABLE MovieCast (
+		movie_id VARCHAR(255),
+		actor_id VARCHAR(255),
+    FOREIGN KEY (movie_id) REFERENCES Movie(id),
+    FOREIGN KEY (actor_id) REFERENCES Actor(id)
+);
+
+/*2b. Crie, ao menos, 6 relações nessa tabela */
+INSERT INTO MovieCast ( movie_id, actor_id )
+VALUES(
+	"001",
+	"001"
+),(
+	"001",
+    "002"
+),(
+	"002",
+    "003"
+),(
+	"003",
+    "005"
+),(
+	"004",
+    "004"
+),(
+	"004",
+    "001"
+);
+
+/*2c. Tente criar uma relação com um filme ou um ator inexistente. Anote e explique o resultado da query*/
+INSERT INTO MovieCast ( movie_id, actor_id )
+VALUES(	"007",	"001");
+
+/*2d. Tente apagar um ator que possua uma relação nessa tabela. Anote e explique o resultado da query*/
+DELETE FROM Actor
+WHERE id = "001";
