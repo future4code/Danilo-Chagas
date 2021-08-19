@@ -84,3 +84,12 @@ VALUES(	"007",	"001");
 /*2d. Tente apagar um ator que possua uma relação nessa tabela. Anote e explique o resultado da query*/
 DELETE FROM Actor
 WHERE id = "001";
+
+/*3b. Escreva uma query que retorne somente o nome, id e nota de avaliação dos filmes que já foram avaliados.**/
+
+SELECT Movie.title as "Title",
+Movie.id as "ID",
+Rating.rate as "Rate"
+FROM Movie
+INNER JOIN Rating
+ON Movie.id = Rating.movie_id;

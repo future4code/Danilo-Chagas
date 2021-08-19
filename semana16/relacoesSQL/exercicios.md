@@ -46,8 +46,8 @@
 - [x]2a)
     - ~~~~sql
         CREATE TABLE MovieCast (
-    	movie_id VARCHAR(255),
-    	actor_id VARCHAR(255),
+    |movie_id VARCHAR(255),
+    |actor_id VARCHAR(255),
         FOREIGN KEY (movie_id) REFERENCES Movie(id),
         FOREIGN KEY (actor_id) REFERENCES Actor(id)
         );
@@ -58,22 +58,22 @@
     - ~~~~sql
         INSERT INTO MovieCast ( movie_id, actor_id )
         VALUES(
-        	"001",
-        	"001"
+        |"001",
+        |"001"
         ),(
-        	"001",
+        |"001",
             "002"
         ),(
-        	"002",
+        |"002",
             "003"
         ),(
-        	"003",
+        |"003",
             "005"
         ),(
-        	"004",
+        |"004",
             "004"
         ),(
-        	"004",
+        |"004",
             "001"
         );
         ~~~~
@@ -98,5 +98,24 @@
      - Não foi possível apagar a linha do Ator em  referenciado em Actor, pois ele é um valor dependido por actor_id na tabela MovieCast
 
 #### Exercícios 3)
-- []3a)
-- []3b)
+- [x]3a)
+    - ~~~~sql
+        SELECT * FROM Movie 
+        INNER JOIN Rating ON Movie.id = Rating.movie_id;
+        ~~~~
+    - Essa query busca retornar um junção/intersecção (INNER JOIN) de Movie e Rating, sendo que o operador ON indica qual é o campo em comum que deve ser feita a buca desses dados. Caso seja encontrado um valor em comum entre as colunas 'id' de Movie e 'movie_id' de Rating, será feita uma junção das respectivas linhas dessas duas tabelas, bem como trazendo as colunas definadas logo no começo da query em SELECT .
+- [x]3b)
+    - ~~~~sql
+        SELECT Movie.title as "Title",
+        Movie.id as "ID",
+        Rating.rate as "Rate"
+        FROM Movie
+        INNER JOIN Rating
+        ON Movie.id = Rating.movie_id;
+        ~~~~
+    - |Title|ID|Rate|
+        |--|--|--|
+        |Deus é Brasileiro|004|7|
+        |Doce de mãe|002|9|
+        |Dona Flor e Seus Dois Maridos|003|8|
+        |Se Eu Fosse Você|001|10|
