@@ -86,10 +86,19 @@ DELETE FROM Actor
 WHERE id = "001";
 
 /*3b. Escreva uma query que retorne somente o nome, id e nota de avaliação dos filmes que já foram avaliados.**/
-
 SELECT Movie.title as "Title",
 Movie.id as "ID",
 Rating.rate as "Rate"
 FROM Movie
 INNER JOIN Rating
+ON Movie.id = Rating.movie_id;
+
+
+/*4a. Escreva uma query que retorne todos os filmes e suas avaliações (com essa avaliação existindo ou não). A sua query deve retornar somente o nome, id, nota do filme e comentário*/
+SELECT Movie.title as "Title",
+Movie.id as "ID",
+Rating.rate as "Rate",
+Rating.comment as "Comments"
+FROM Movie
+LEFT JOIN Rating
 ON Movie.id = Rating.movie_id;
