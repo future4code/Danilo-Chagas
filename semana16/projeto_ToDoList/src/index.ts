@@ -23,7 +23,7 @@ const server = app.listen(process.env.PORT || 3003, () => {
 app.post("/user", async (req: Request, res: Response) => {
    const { name, nickname, email }: String | any = req.body
    try {
-      validateBody(req.body)
+      validateBody("new",req.body)
       try {
          const result = await createUser(name, nickname, email)
          res.status(201).send(["Success to register new user",result]).end()

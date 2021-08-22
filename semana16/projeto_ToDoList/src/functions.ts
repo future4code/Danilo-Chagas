@@ -1,9 +1,17 @@
 import connection from "./connection";
 
-export function validateBody(body: any) {
+export function validateBody(actionType: "new" | "edit", body: any) {
    const expectedObject: Array<string> = ["name", "nickname", "email"]
    const errorTips: Array<any> = []
    const checkers: any = {
+      isValidBodyLength: function (input: any) {
+         return Object.keys(input).length === expectedObject.length
+      },
+      isValidBodyKeys: function (input: any) {
+         return Object.getOwnPropertyNames(input)
+            .map((item: any) => expectedObject
+               .includes(item)).every(item => item === true)
+      },
       isValidName: function (input: any) {
          if (input.trim().length > 0 && input.trim().length <= 255) {
             if (!isNaN(input) || input.split("").some((item: any) => Number(item))) {
@@ -46,27 +54,33 @@ export function validateBody(body: any) {
       nickname: (input: any) => checkers.isValidNickName(input),
       email: (input: any) => checkers.isValidEmail(input),
    }
+   const validationType: any = {
+      new: {
+         keys: (input: any) => checkers.isValidBodyLength(input) && checkers.isValidBodyKeys(input),
+         values: (input: any) => Object.getOwnPropertyNames(input)
+            .map(item => { return expectedValues[item](input[item]) })
+            .every(item => item === true)
+      },
+      edit: {
+         keys: (input: any) => checkers.isValidBodyKeys(input),
+         values: (input: any) => Object.getOwnPropertyNames(input)
+            .map(item => { return expectedValues[item](body[item]) })
+            .every(item => item === true)
+      }
+   }
 
    if (!body) {
       throw new Object({ status: 400, message: "Empty Body" })
-   } else if (
-      Object.keys(body).length !== expectedObject.length ||
-      !Object.getOwnPropertyNames(body)
-         .map((item: any) => expectedObject
-            .includes(item)).every(item => item === true)
-   ) {
+   } else if (!validationType[actionType].keys(body)) {
       throw new Object({
          status: 406,
-         message: "Some key is missing or invalid",
-         tips: `Expected properties: ${expectedObject}`
+         message: "Invalid or missing Body Property Key",
+         tips: `Expected properties keys: ${expectedObject}`
       })
-   } else if (
-      !Object.getOwnPropertyNames(body)
-         .map(item => { return expectedValues[item](body[item]) })
-         .every(item => item === true)) {
+   } else if (!validationType[actionType].values(body)) {
       throw new Object({
          status: 406,
-         message: "Invalid or missing value for some property",
+         message: "Invalid or missing Body Property Value",
          tips: errorTips
       })
    } else {
