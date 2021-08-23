@@ -10,19 +10,11 @@ CREATE TABLE TodoListTask (
     title VARCHAR(255) NOT NULL, 
     description TEXT NOT NULL, 
     status VARCHAR(255) NOT NULL DEFAULT "to_do",
+    create_date DATE NOT NULL DEFAULT (CURRENT_DATE()),
     limit_date DATE NOT NULL,
     creator_user_id INT NOT NULL,
     FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
 );
 
 SELECT * FROM TodoListUser;
-
-SELECT id, nickname FROM TodoListUser where id = 2;
-
-DELETE from TodoListUser where id = 3;
-
-truncate table TodoListUser;
-
-update TodoListUser
-set name="ad", nickname="as"
-where id = 3 ;
+SELECT * FROM TodoListTask;

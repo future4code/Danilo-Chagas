@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { validateUserBody, validateId } from "./functions";
-import { createUser, getUserById, editUser } from "./queryBuilder";
+import { validateUserBody, validateTaskBody, validateId } from "./functions";
+import { createUser, createTask, getUserById, editUser } from "./queryBuilder";
 
 const app = express();
 
@@ -80,10 +80,10 @@ app.put("/user/edit/:id", async (req: Request, res: Response) => {
 app.post("/task", async (req: Request, res: Response) => {
    const { title, description, limitDate, creatorUserId }: String | any = req.body
    try {
-      validateUserBody("new", req.body)
+      validateTaskBody("new", req.body)
       try {
-         
-         
+         const result = await createTask(title, description, limitDate, creatorUserId)
+         res.status(201).send(["Success to register new task", result]).end()
       } catch (error) {
          res.status(error.status || 400).send(error.sqlMessage || error.message)
       }
