@@ -5,11 +5,24 @@ CREATE TABLE TodoListUser (
     email VARCHAR(255) UNIQUE NOT NULL
 );
 
+CREATE TABLE TodoListTask (
+	id INT NOT NULL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL, 
+    description TEXT NOT NULL, 
+    status VARCHAR(255) NOT NULL DEFAULT "to_do",
+    limit_date DATE NOT NULL,
+    creator_user_id INT NOT NULL,
+    FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
+);
+
 SELECT * FROM TodoListUser;
 
-DELETE from TodoListUser where id = 6
-and id = 5
-and id = 4
-and id = 3
-and id = 2
-and id = 1;
+SELECT id, nickname FROM TodoListUser where id = 2;
+
+DELETE from TodoListUser where id = 3;
+
+truncate table TodoListUser;
+
+update TodoListUser
+set name="ad", nickname="as"
+where id = 3 ;

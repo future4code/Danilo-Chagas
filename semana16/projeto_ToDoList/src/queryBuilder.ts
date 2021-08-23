@@ -27,8 +27,23 @@ export const getUserById = async (id: any) => {
       if (result[0]) {
          return result[0]
       } else {
-         throw new Object({code: "NOT_FOUND"})
+         throw new Object({code: "NOT_FOUND_ID"})
       }
+   } catch (err) {
+      return errorMsg(err)
+   }
+}
+
+export const editUser = async (id: number, name: any, nickname: any): Promise<any> => {
+   const newUserInfo = {
+      name: name,
+      nickname: nickname,
+   }
+   try {
+      await connection("TodoListUser")
+         .where({id:id})
+         .update(newUserInfo)
+      return newUserInfo
    } catch (err) {
       return errorMsg(err)
    }

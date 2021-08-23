@@ -1,6 +1,6 @@
 import connection from "./connection";
 
-export function validateBody(actionType: "new" | "edit", body: any) {
+export function validateUserBody(actionType: "new" | "edit", body: any) {
    const expectedObject: Array<string> = ["name", "nickname", "email"]
    const errorTips: Array<any> = []
    const checkers: any = {
@@ -21,13 +21,13 @@ export function validateBody(actionType: "new" | "edit", body: any) {
                return true
             }
          } else {
-            errorTips.push("Name is empty or has more than 255 characters.")
+            errorTips.push("Name is empty or longer than 255 characters.")
             return false
          }
       },
       isValidNickName: function (input: any) {
          if (input.trim().length === 0 || input.trim().length > 255) {
-            errorTips.push("Nickname is empty or it has more than 255 characters.")
+            errorTips.push("Nickname is empty or longer than 255 characters.")
             return false
          } else {
             return true
@@ -35,7 +35,7 @@ export function validateBody(actionType: "new" | "edit", body: any) {
       },
       isValidEmail: function (input: any) {
          if (!input.trim().length || input.trim().length > 255) {
-            errorTips.push("Email is empty or it has more than 255 characters.")
+            errorTips.push("Email is empty or longer than 255 characters.")
             return false
          } else if (!input.includes("@") ? true
             : !input.split("@")[0] ? true
@@ -88,6 +88,14 @@ export function validateBody(actionType: "new" | "edit", body: any) {
    }
 }
 
+export function validateId(input: any) {
+   if (isNaN(input) || !Number.isInteger(input)) {
+      return errorMsg({ code: "NOT_FOUND_ID" })
+   } else {
+      return true
+   }
+}
+
 export const idGenerator = async () => {
    try {
       const lastNumber: number | any = await connection("TodoListUser")
@@ -102,7 +110,7 @@ export function errorMsg(err: any) {
    switch (err.code) {
       case "ER_DUP_ENTRY":
          throw new Object({ status: 409, message: "Email or nickname already registred" })
-      case "NOT_FOUND":
+      case "NOT_FOUND_ID":
          throw new Object({ status: 404, message: "Invalid or not found ID" })
       default:
          throw new Object({ status: 500, message: "Unexpected error" })
