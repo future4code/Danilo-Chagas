@@ -25,7 +25,7 @@ export const createTask = async (title: any, description: any, limitDate: any, c
       title: title,
       description: description,
       limit_date: convertDate(limitDate),
-      creatorUserId: creatorUserId,
+      creator_user_id: creatorUserId,
    }
    try {
       await connection("TodoListTask")
@@ -63,6 +63,36 @@ export const editUser = async (id: number, name: any, nickname: any): Promise<an
          .update(newUserInfo)
       return newUserInfo
    } catch (err) {
+      return errorMsg(err)
+   }
+}
+
+export const getTaskById = async (id: any) => {
+   try {
+      const result = await connection("TodoListTask")
+         .select(
+            "TodoListTask.id as taskId",
+            "TodoListTask.title",
+            "TodoListTask.description",
+            "TodoListTask.limit_date as limitDate",
+            "TodoListTask.status",
+            "TodoListTask.creator_user_id as creatorUserId",
+            "TodoListUser.nickname as creatorUserNickname"
+         )
+         .join("TodoListUser","creator_user_id","=","TodoListUser.id")
+         .where("TodoListTask.id", "=",id)
+         
+
+      if (result[0]) {
+         const receivedtDate: any = new Date(result[0].limitDate)
+         const newDate = `${receivedtDate.getDate()}/${receivedtDate.getMonth()+1}/${receivedtDate.getFullYear()}`
+         const adequadedResult = {...result[0],limitDate: newDate}
+         return adequadedResult
+      } else {
+         throw new Object({ code: "NOT_FOUND_ID" })
+      }
+   } catch (err) {
+      console.log(err)
       return errorMsg(err)
    }
 }

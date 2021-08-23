@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
 import { validateUserBody, validateTaskBody, validateId } from "./functions";
-import { createUser, createTask, getUserById, editUser } from "./queryBuilder";
+import { createUser, createTask, getUserById, getTaskById, editUser } from "./queryBuilder";
 
 const app = express();
 
@@ -87,6 +87,18 @@ app.post("/task", async (req: Request, res: Response) => {
       } catch (error) {
          res.status(error.status || 400).send(error.sqlMessage || error.message)
       }
+   } catch (error) {
+      res.status(error.status)
+         .send({ message: error.message, error: error.tips })
+         .end()
+   }
+})
+
+app.get("/task/:id", async (req: Request, res: Response) => {
+
+   try {
+      const result = await getTaskById(req.params.id)
+      res.status(200).send(result).end()
    } catch (error) {
       res.status(error.status)
          .send({ message: error.message, error: error.tips })

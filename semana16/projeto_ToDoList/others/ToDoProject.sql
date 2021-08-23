@@ -18,3 +18,14 @@ CREATE TABLE TodoListTask (
 
 SELECT * FROM TodoListUser;
 SELECT * FROM TodoListTask;
+
+SELECT TodoListTask.id as taskId,
+TodoListTask.title,
+TodoListTask.description,
+TodoListTask.limit_date as limitDate,
+TodoListTask.status,
+TodoListTask.creator_user_id as creatorUserId,
+TodoListUser.nickname as creatorUserNickname
+FROM TodoListTask
+JOIN TodoListUser
+ON creator_user_id = TodoListUser.id;

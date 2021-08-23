@@ -178,9 +178,8 @@ export function validateTaskBody(actionType: "new" | "edit", body: any) {
          if (input.trim().length === 0) {
             errorTips.push("Field is empty or longer than 255 characters.")
          } else if (
-            !Date.parse(input.split("/").map((item: any) => {
-               return Number(item) > 0 && !isNaN(item) && item
-            }))
+            !Date.parse(input.split("/").reverse().map((item: any) => {
+               return Number(item) > 0 && !isNaN(item) && item}))
          ) {
             errorTips.push("limitDate must DD/MM/YYYY formart")
             return false
@@ -188,7 +187,7 @@ export function validateTaskBody(actionType: "new" | "edit", body: any) {
             const convertedDate = convertDate(input)
             const today = new Date().getFullYear() + new Date().getMonth() * 0.1 + new Date().getDate() * 0.01
             const limitDate = new Date(convertedDate).getFullYear() + new Date(convertedDate).getMonth() * 0.1 + new Date(convertedDate).getDate() * 0.01
-            if (limitDate >= today) {
+            if (limitDate < today) {
                errorTips.push("limitDate must be iqual or higher than current date")
                return false
             } else { return true }
