@@ -5,7 +5,7 @@ export default async function selectByUserNameOrTypeAndOrder(inputWhere: any, in
     const result = await connection("aula48_exercicio")
     // .select("*")
     .where(inputWhere)
-    .orderBy(inputOrder)
+    .orderBy(inputOrder,"asc")
  
     return result
  }

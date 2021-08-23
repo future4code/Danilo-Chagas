@@ -5,6 +5,7 @@ import { getAllUsers } from "./endpoints/getAllUsers"
 import { getUserByName } from "./endpoints/getUserByName"
 import { getUserByType } from "./endpoints/getUserByType"
 import { getUserByNameOrTypeAndOrder } from "./endpoints/getUserByNameOrTypeAndOrder"
+import { getUsersByPagination } from "./endpoints/getUsersByPagination"
 
 export const app = express()
 
@@ -20,8 +21,11 @@ app.use(cors())
 // //E1b)
 // app.get("/users/:type", getUserByType)
 
-// E2)
-app.get("/users", getUserByNameOrTypeAndOrder)
+// // E2)
+// app.get("/users", getUserByNameOrTypeAndOrder)
+
+// E3
+app.get("/users", getUsersByPagination)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
