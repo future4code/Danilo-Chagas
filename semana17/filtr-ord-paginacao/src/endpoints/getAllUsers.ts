@@ -1,7 +1,8 @@
 import { Request, Response } from "express"
-import selectAllUsers from "../queries/selectAllUseres"
+import selectAllUsers from "../queries/selectAllUsers"
 import { user } from "../types"
 
+//E0
 export async function getAllUsers(
    req: Request,
    res: Response
@@ -18,7 +19,7 @@ export async function getAllUsers(
    }
 }
 
-const toFormat = (input: any): user => {
+export const toFormat = (input: any): user => {
    return {
       id: input.id,
       name: input.name,
