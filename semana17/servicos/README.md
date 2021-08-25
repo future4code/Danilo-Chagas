@@ -8,4 +8,7 @@
 
 - [x]E3)
     - [index](./src/index.ts)
-    - [endpoint](./src//endpoints/createAddress.ts)
+    - [endpoint](./src/endpoints/createAddress.ts)
+- [x]E4)
+    - [sendEmail](./src/endpoints/sendMail.ts)
+    - [mailTransporter](./src/services/mailTransporter.ts)
