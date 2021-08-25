@@ -1,0 +1,9 @@
+CREATE TABLE semana17aula51 (
+cep VARCHAR(8) NOT NULL,
+street_name VARCHAR(255) NOT NULL,
+number INT NOT NULL,
+complement VARCHAR(255),
+district VARCHAR(255) NOT NULL,
+city VARCHAR(255) NOT NULL,
+state VARCHAR(255) NOT NULL
+);
