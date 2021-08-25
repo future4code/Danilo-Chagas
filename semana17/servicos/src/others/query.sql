@@ -1,9 +1,15 @@
 CREATE TABLE semana17aula51 (
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 cep VARCHAR(8) NOT NULL,
 street_name VARCHAR(255) NOT NULL,
 number INT NOT NULL,
 complement VARCHAR(255),
 district VARCHAR(255) NOT NULL,
 city VARCHAR(255) NOT NULL,
-state VARCHAR(255) NOT NULL
+state VARCHAR(255) NOT NULL,
+user_id VARCHAR(255),
+FOREIGN KEY(user_id)
+REFERENCES aula51_users(id)
 );
+
+SELECT * from semana17aula51;

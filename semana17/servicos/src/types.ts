@@ -13,5 +13,6 @@ export type address = {
    complement: string,
    district: string,
    city: string,
-   state: string
+   state: string,
+   user_id: string
 }

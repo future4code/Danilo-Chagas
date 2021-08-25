@@ -9,11 +9,12 @@ export default async function createAddress(
 ): Promise<void> {
    try {
 
+      const { id } = req.params
       const { cep, complement, number } = req.body
 
-      if (!cep || !number) {
+      if (!id || !cep || !number) {
          res.statusCode = 422
-         throw "'CEP' and 'number' are required values"
+         throw "'id' from user id, 'CEP' and 'number' are required values"
       }
 
       const formatedCEP: string = await cep.split("")
@@ -30,7 +31,8 @@ export default async function createAddress(
          complement: complement && complement,
          district,
          city,
-         state
+         state,
+         user_id: id
          }
 
       await connection('semana17aula51').insert(newAddress)
