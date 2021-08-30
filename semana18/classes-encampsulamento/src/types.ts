@@ -10,3 +10,9 @@ export type character = {
    id?: number,
    description?: string
 }
+
+export type Transaction = {
+   description: string,
+   value: number,
+   date: string
+ }
