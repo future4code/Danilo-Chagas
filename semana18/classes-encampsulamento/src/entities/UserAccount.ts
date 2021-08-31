@@ -12,7 +12,7 @@ export default class UserAccount {
    constructor(
       cpf: string,
       name: string,
-      age: number,
+      age: number
    ) {
       console.log("Chamando o construtor da classe UserAccount")
       this.cpf = cpf;
@@ -25,12 +25,15 @@ export default class UserAccount {
    getAge(){return this.age}
    getBalance(){return this.balance}
    getTransactions(){return this.transactions}
+   getAll(){
+      const all = {
+         cpf: this.cpf,
+         name: this.name,
+         age: this.age,
+      }
+   }
   
-   //incompleto
-   // setTransactions(
-   //    date: string,
-   //    value: number,
-   //    description: string
-   // ){
-   //    new Transaction(date)}
+   setTransactions(input: Transaction) {
+      this.transactions.push(input)
+   }
 }

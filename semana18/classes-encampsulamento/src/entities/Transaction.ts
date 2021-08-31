@@ -9,9 +9,18 @@ export default class Transaction {
         this.description = description
     }
 
-    getDate(){return this.date}
+    getDate(): string { return this.date }
 
-    getValue(){return this.value}
+    getValue(): number { return this.value }
 
-    getDescription(){return this.description}
+    getDescription(): string { return this.description }
+
+    getAll(): Object {
+        const all = {
+            date: this.date,
+            values: this.value,
+            description: this.description
+        }
+        return all
+    }
 }

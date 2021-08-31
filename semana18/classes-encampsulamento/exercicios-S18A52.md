@@ -7,3 +7,5 @@
         Chamando o construtor da classe UserAccount
         ~~~~
 - [x] 1c) Através de funções criadas dentro da classe. Geralmente funções declaradas como "**set**AlgumaCoisa" ou "**get**AlgumaCoisa" que fariam esse acesso com keys privadas.
+- [x] 2)
+- [x] 3)
