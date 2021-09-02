@@ -1,0 +1,36 @@
+{
+  "name": "labecommerce",
+  "version": "1.0.0",
+  "description": "Projeto LabeCommerce Backend | Turma Molina 2021 | Modulo 5",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-noe ./src/index.ts",
+    "dev-start": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "javascript",
+    "typescript",
+    "endpoint",
+    "express",
+    "knex",
+    "sql"
+  ],
+  "author": "danilo-ac",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.10"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.10",
+    "ts-node-dev": "^1.1.8"
+  }
+}
