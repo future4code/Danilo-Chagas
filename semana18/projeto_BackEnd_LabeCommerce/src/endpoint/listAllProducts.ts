@@ -7,7 +7,7 @@ export default async function listAllProducts(req: Request, res: Response): Prom
     try {
         const result: Product[] = await selectAllProducts()
         result.length < 1 ?
-            res.status(200).send("No products to list").end()
+            res.status(204).end()
             : res.status(200).send(result).end()
 
     } catch (err: any) {

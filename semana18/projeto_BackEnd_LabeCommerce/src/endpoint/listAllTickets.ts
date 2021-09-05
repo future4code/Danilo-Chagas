@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
-import User from '../entities/User'
-import selectAllUsers from '../service/selectAllUsers'
+import Ticket from '../entities/Ticket'
+import selectAllTickets from '../service/selectAllTickets'
 
-export default async function listAllUsers(req: Request, res: Response): Promise<any> {
+export default async function listAllTickets(req: Request, res: Response): Promise<any> {
     
     try {
-        const result: User[] = await selectAllUsers()
-        result ?
+        const result: Ticket[] = await selectAllTickets()
+        result.length < 1 ?
             res.status(204).end()
             : res.status(200).send(result).end()
 

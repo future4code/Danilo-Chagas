@@ -65,11 +65,11 @@
     - [x] Deve inserir a classe criada a partir de **Product** no banco de dados
     - [x] O produto criado deve ser inserido a partir de uma nova instância da classe criada a partir de **Product**
 
-- [] **6. Listar todas as viagens**
-    - [] **método: `get`**
-    - [] Sem parâmetros;
-    - [] Deve trazer uma lista de todos as **viagens** cadastrados no banco;
-    - [] Precisa **obrigatóriamente** devolver um array da Classe Polimórfica criada a partir de **Product**
+- [x] **6. Listar todas as viagens**
+    - [x] **método: `get`**
+    - [x] Sem parâmetros;
+    - [x] Deve trazer uma lista de todos as **viagens** cadastrados no banco;
+    - [x] Precisa **obrigatóriamente** devolver um array da Classe Polimórfica criada a partir de **Product**
 
 - [] **7. Criar uma compra**
     - [] método: `post`

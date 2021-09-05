@@ -6,6 +6,8 @@ import createProduct from './endpoint/createProduct'
 import listAllUsers from './endpoint/listAllUsers'
 import listAllProducts from './endpoint/listAllProducts'
 import createTicket from './endpoint/createTicket'
+import listAllTickets from './endpoint/listAllTickets'
+
 
 
 const app: Express = express()
@@ -27,3 +29,4 @@ app.post("/product/create", createProduct) // 2. Criar um Produto
 app.get("/user", listAllUsers) //3. Listar todos os usuários
 app.get("/product", listAllProducts) //4. Listar todos os produtos
 app.post("/ticket/create", createTicket) //5. Criar uma viagem
+app.get("/ticket", listAllTickets) //6. Listar todos as viagens
