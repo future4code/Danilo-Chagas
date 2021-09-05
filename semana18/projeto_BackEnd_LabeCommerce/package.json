@@ -4,7 +4,7 @@
   "description": "Projeto LabeCommerce Backend | Turma Molina 2021 | Modulo 5",
   "main": "index.js",
   "scripts": {
-    "start": "ts-noe ./src/index.ts",
+    "start": "ts-node ./src/index.ts",
     "dev-start": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
     "build": "tsc",
     "migrations": "tsnd ./src/data/migration.ts"

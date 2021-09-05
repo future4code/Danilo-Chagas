@@ -48,11 +48,11 @@
     - [x] Deve inserir o **Product** no banco de dados
     - [x] O produto criado deve ser inserido a partir de uma nova instância de **Product**
 
-- [] **3. Listar todos os usuários**
-    - [] **método: `get`**
-    - [] Sem parâmetros
-    - [] Deve trazer uma lista de todos os **usuários** cadastrados no banco
-    - [] Precisa **obrigatóriamente** devolver um array da Classe **User**
+- [x] **3. Listar todos os usuários**
+    - [x] **método: `get`**
+    - [x] Sem parâmetros
+    - [x] Deve trazer uma lista de todos os **usuários** cadastrados no banco
+    - [x] Precisa **obrigatóriamente** devolver um array da Classe **User**
 
 - [] **4. Listar todos os produtos**
     - [] **método: `get`**
