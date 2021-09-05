@@ -54,16 +54,16 @@
     - [x] Deve trazer uma lista de todos os **usuários** cadastrados no banco
     - [x] Precisa **obrigatóriamente** devolver um array da Classe **User**
 
-- [] **4. Listar todos os produtos**
-    - [] **método: `get`**
-    - [] Sem parâmetros;
-    - [] Deve trazer uma lista de todos os **produtos** cadastrados no banco;
+- [x] **4. Listar todos os produtos**
+    - [x] **método: `get`**
+    - [x] Sem parâmetros;
+    - [x] Deve trazer uma lista de todos os **produtos** cadastrados no banco;
 
-- [] **5. Criar uma viagem**
-    - [] **método: `post`**
-    - [] `name`, `description`, `price`, `origin` e `destination` passados por **body params**. O id deve ser gerado pela própria aplicação, e precisa ser uma **string**.
-    - [] Deve inserir a classe criada a partir de **Product** no banco de dados
-    - [] O produto criado deve ser inserido a partir de uma nova instância da classe criada a partir de **Product**
+- [x] **5. Criar uma viagem**
+    - [x] **método: `post`**
+    - [x] `name`, `description`, `price`, `origin` e `destination` passados por **body params**. O id deve ser gerado pela própria aplicação, e precisa ser uma **string**.
+    - [x] Deve inserir a classe criada a partir de **Product** no banco de dados
+    - [x] O produto criado deve ser inserido a partir de uma nova instância da classe criada a partir de **Product**
 
 - [] **6. Listar todas as viagens**
     - [] **método: `get`**
