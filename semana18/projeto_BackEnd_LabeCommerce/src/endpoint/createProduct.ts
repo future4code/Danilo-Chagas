@@ -22,10 +22,9 @@ export default async function createProduct(req: Request, res: Response): Promis
                 .end()
         }
     } catch (err: any) {
-        res.status(err.code || 500)
-            .send({
-                message: err.message || "Something went wrong",
-                error: err.tips || "Internal Error"
-            })
+        res.status(err.code || 500).send({
+            message: err.message,
+            error: err.tips || "Internal Error"
+        })
     }
 }
