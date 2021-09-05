@@ -36,17 +36,17 @@
         - [x] valor total da compra. 
 
 ## Endpoint Tasks
-- [] **1. Criar um usuário**
-    - [] **método: `post`**
-    - [] name, email e age, passados por **body params**. O id deve ser gerado pela própria aplicação, e precisa ser uma **string**.
-    - [] Deve inserir o **User** no banco de dados
-    - [] O User criado deve ser inserido a partir de uma nova instância de **User**
+- [x] **1. Criar um usuário**
+    - [x] **método: `post`**
+    - [x] name, email e age, passados por **body params**. O id deve ser gerado pela própria aplicação, e precisa ser uma **string**.
+    - [x] Deve inserir o **User** no banco de dados
+    - [x] O User criado deve ser inserido a partir de uma nova instância de **User**
 
 - [] **2. Criar um produto**
-    - [] **método: `post`**
-    - [] name, description e price, passados por **body params**. O id deve ser gerado pela própria aplicação, e precisa ser uma **string**
-    - [] Deve inserir o **Product** no banco de dados
-    - [] O produto criado deve ser inserido a partir de uma nova instância de **Product**
+    - [x] **método: `post`**
+    - [x] name, description e price, passados por **body params**. O id deve ser gerado pela própria aplicação, e precisa ser uma **string**
+    - [x] Deve inserir o **Product** no banco de dados
+    - [x] O produto criado deve ser inserido a partir de uma nova instância de **Product**
 
 - [] **3. Listar todos os usuários**
     - [] **método: `get`**

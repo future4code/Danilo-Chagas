@@ -1,22 +1,20 @@
-
 export default class Product {
     constructor(
-        protected id: string,
-        protected name: string,
-        protected description: string,
-        protected price: number
-        ){
+        public name: string,
+        public description: string,
+        public price: number,
+        public id?: string
+    ) {
+        this.name = name
+        this.description = description
+        this.price = price
+        this.id && (this.id = id)
+    }
 
-        }
-        getId(){return this.id}
-        setProduct(
-            name: string,
-            description: string,
-            price: number
-        ): Product|void {
-            this.id = String(Number(new Date()))
-            this.name = name
-            this.description = description
-            this.price = price
-        }
+    getId() { return this.id }
+
+    setProduct(): Product | void {
+        this.id = String(Number(new Date()))
+    }
+    
 }

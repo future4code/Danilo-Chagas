@@ -22,9 +22,10 @@ export default async function createUser(req: Request, res: Response): Promise<a
                 .end()
         }
     } catch (err: any) {
-        res.status(err.code || 500).send({
-            message: err.message,
-            error: err.tips || err
-        })
+        res.status(err.code || 500)
+            .send({
+                message: err.message || "Something went wrong",
+                error: err.tips || "Internal Error"
+            })
     }
 }

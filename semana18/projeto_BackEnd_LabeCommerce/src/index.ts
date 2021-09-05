@@ -2,6 +2,7 @@ import express, { Express } from 'express'
 import cors from 'cors'
 import { AddressInfo } from 'net'
 import createUser from './endpoint/createUser'
+import createProduct from './endpoint/createProduct'
 
 const app: Express = express()
 
@@ -17,4 +18,5 @@ const server = app.listen( process.env.PORT || 3003, ()=>{
     }
 })
 
-app.post("/user/create", createUser)
+app.post("/user/create", createUser) //1 Criar um Usuário
+app.post("/product/create",createProduct) // Criar um Produto
