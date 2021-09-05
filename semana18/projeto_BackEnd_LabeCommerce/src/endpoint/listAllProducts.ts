@@ -1,13 +1,13 @@
 import { Request, Response } from 'express'
-import User from '../entities/User'
-import selectAllUsers from '../service/selectAllUsers'
+import Product from '../entities/Product'
+import selectAllProducts from '../service/selectAllProducts'
 
-export default async function listAllUsers(req: Request, res: Response): Promise<any> {
+export default async function listAllProducts(req: Request, res: Response): Promise<any> {
     
     try {
-        const result: User[] = await selectAllUsers()
-        result ?
-            res.status(200).send("No users to list").end()
+        const result: Product[] = await selectAllProducts()
+        result.length < 1 ?
+            res.status(200).send("No products to list").end()
             : res.status(200).send(result).end()
 
     } catch (err: any) {

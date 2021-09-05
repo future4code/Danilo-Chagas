@@ -4,6 +4,7 @@ import { AddressInfo } from 'net'
 import createUser from './endpoint/createUser'
 import createProduct from './endpoint/createProduct'
 import listAllUsers from './endpoint/listAllUsers'
+import listAllProducts from './endpoint/listAllProducts'
 
 const app: Express = express()
 
@@ -21,4 +22,5 @@ const server = app.listen( process.env.PORT || 3003, ()=>{
 
 app.post("/user/create", createUser) //1. Criar um Usuário
 app.post("/product/create",createProduct) // 2. Criar um Produto
-app.get("/user",listAllUsers) //3. Listar Todos usuários
+app.get("/user",listAllUsers) //3. Listar todos os usuários
+app.get("/product",listAllProducts) //4. Listar todos os produtos
