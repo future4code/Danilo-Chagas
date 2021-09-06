@@ -1,9 +1,16 @@
 #### WFS12S18 LabeCommerce API
 
-[Documentação Postman](https://documenter.getpostman.com/view/16227218/U16gPSPq)
+[Documentação Postman](https://documenter.getpostman.com/view/16227218/U16gPSPq)</br>
 [Coleção Postman](https://app.getpostman.com/run-collection/16227218-6822e66b-0272-45a9-9da5-74d3cfccb964?action=collection%2Ffork&collection-url=entityId%3D16227218-6822e66b-0272-45a9-9da5-74d3cfccb964%26entityType%3Dcollection)
 
-## Structure Taks
+#### DEPLOY HEROKU
+- BASE URL: https://labe-commerce-backend.herokuapp.com/ 
+
+## Tasks
+
+<details>
+<sumary>checklist</sumary>
+
 - [x] Usuário
     - [x] BD
     - [x] class User
@@ -99,3 +106,5 @@
     - [] Precisa **obrigatóriamente** devolver um array da classe **Purchase**
 
 - [] **12. Altere o endpoint de listar todos os usuários, para que ele também busque as *compras* do usuário.**
+
+</details>
