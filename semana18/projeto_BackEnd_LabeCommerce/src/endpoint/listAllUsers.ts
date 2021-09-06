@@ -6,7 +6,7 @@ export default async function listAllUsers(req: Request, res: Response): Promise
     
     try {
         const result: User[] = await selectAllUsers()
-        result ?
+        result.length < 1  ?
             res.status(204).end()
             : res.status(200).send(result).end()
 

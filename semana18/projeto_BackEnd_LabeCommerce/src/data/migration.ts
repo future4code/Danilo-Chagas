@@ -15,7 +15,7 @@ const createTables = () => connection
          id VARCHAR(255) PRIMARY KEY,
          name VARCHAR(255) NOT NULL,
          description VARCHAR(255) NOT NULL,
-         price FLOAT NOT NULL
+         price DECIMAL(8,2) NOT NULL
       );
       CREATE TABLE IF NOT EXISTS s18_tickets (
          id VARCHAR(255) PRIMARY KEY,
@@ -23,16 +23,16 @@ const createTables = () => connection
          description VARCHAR(255) NOT NULL,
          travel_from VARCHAR(255) NOT NULL,
          travel_to VARCHAR(255) NOT NULL,
-         price FLOAT NOT NULL
+         price DECIMAL(8,2) NOT NULL
       );
       CREATE TABLE IF NOT EXISTS s18_purchases (
          id VARCHAR(255) PRIMARY KEY,
-         item_type VARCHAR(255) NOT NULL,
+         item_category VARCHAR(255) NOT NULL,
          product_id VARCHAR(255) NULL,
          ticket_id VARCHAR(255) NULL,
          user_id VARCHAR(255) NOT NULL,
          quantity INT NOT NULL,
-         total_value FLOAT NOT NULL,
+         total_price DECIMAL(10,2) NOT NULL,
          FOREIGN KEY (product_id) REFERENCES s18_products(id),
          FOREIGN KEY (ticket_id) REFERENCES s18_travels(id)
       );
@@ -45,8 +45,14 @@ const insertUsers = () => connection("s18_users")
    .then(() => { console.log("Created Users") })
    .catch(printError)
 
+const insertProducts = () => connection("s18_products")
+   .insert(users)
+   .then(() => { console.log("Created Products") })
+   .catch(printError)
+
 const closeConnection = () => { connection.destroy() }
 
 createTables()
    .then(insertUsers)
+   .then(insertProducts)
    .finally(closeConnection)
