@@ -6,6 +6,6 @@ export type user = {
    password: string
 }
 
-export interface authenticationData {
+export interface AuthenticationData {
    id: string
 }

@@ -1,6 +1,6 @@
 import { config } from "dotenv"
 import { JwtPayload, sign, verify } from "jsonwebtoken"
-import { authenticationData } from "../types"
+import { AuthenticationData } from "../types"
 
 config()
 
@@ -9,7 +9,7 @@ export class Authenticator {
    private jwtKey = "segredo guardado com pouca segurança"
 
    public generateToken = (
-      payload: authenticationData
+      payload: AuthenticationData
    ): string => {
       return sign(
          payload,
@@ -20,11 +20,11 @@ export class Authenticator {
 
    public getTokenData = (
       token: string
-   ): authenticationData | null => {
+   ): AuthenticationData | null => {
 
       try {
 
-         const tokenData = verify(token, process.env.JWT_KEY) as authenticationData
+         const tokenData = verify(token, process.env.JWT_KEY) as AuthenticationData
 
          return {
             id: tokenData.id
