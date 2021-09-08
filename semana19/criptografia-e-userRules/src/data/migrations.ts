@@ -1,7 +1,7 @@
 import { connection } from "./connection";
 import users from './users.json'
 
-const newTable = "s19a55_users"
+const newTable = "s19a56_users"
 
 const printError = (error: any) => { console.log(error.sqlMessage || error.message) }
 

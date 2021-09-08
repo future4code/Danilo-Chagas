@@ -1,4 +1,4 @@
-- [] 1a. 
+- [X] 1a. <code>round</code> ou <code>cost</code> adiciona complexidade ho hash conforme for maior o seu número; <code>salt</code>, com base no <code>round/cost</code>, adiciona um conteúdo/string aleatória em meio a *plain text*  antes de gerar a *cypher*.
 - [] 1b.
 - [] 1c.
 - [] 2a. 
