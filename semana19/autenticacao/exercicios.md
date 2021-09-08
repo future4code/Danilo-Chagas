@@ -1,0 +1,8 @@
+- [x] 1a. O formato de string é melhor para repreentar um ID em relação ao formato de número, pois aumenta a quantidade de combinações ao permitir inserção de letras e caracteres especiais.
+- [x] 1b. [generateId](./src/services/generateId.ts)
+- [x] 2a. O código possui a função <code>createUser</code> que recebe os parametros para inserir no banco de dados os dados de um novo usuário. <code>createUser</code> conecta com o banco de dados atraves de <code>connection</code> que por sua vez contém a conexão configurada via <code>knex</code>
+- [x] 2b. [migrations: função createTables](./src/data/migrations.ts)
+- [x] 2c. [migrations: função insertUsers](./src/data/migrations.ts) e [users.json](./src/data/users.json)
+- [x] 3a. para garantir o valor ali recebido será interpretado como formato string. Dessa forma o TS não indicará incosistência no código
+- [x] 3b. [função específica: generateToken](./src/services/generateToken.ts) ou [por classe: Authenticator](./src/services/Authenticator.ts)
+- [] 4a. 

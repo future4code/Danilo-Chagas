@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1630674390296",
+        "name": "Fulano",
+        "email": "f@email.com",
+        "age": 33
+    },
+    {
+        "id":"1630674429052",
+        "name": "Beltrana",
+        "email": "bel@email.com",
+        "age": 22
+    },
+    {
+        "id":"1630674478612",
+        "name": "Ciclana",
+        "email": "cica@email.com",
+        "age": 44
+    },
+    {
+        "id":"1630674506145",
+        "name": "Asdrubal",
+        "email": "dudu@email.com",
+        "age": 18
+    },
+    {
+        "id":"1630674567666",
+        "name": "Pafuncia",
+        "email": "paci@email.com",
+        "age": 19
+    }
+]
