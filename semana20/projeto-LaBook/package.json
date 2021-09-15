@@ -6,7 +6,8 @@
   "scripts": {
     "dev-start": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
     "start": "tsc && node ./build/index.js",
-    "buid": "tsc"
+    "buid": "tsc",
+    "migration": "tsnd ./src/data/migration.ts"
   },
   "keywords": [],
   "author": "danilo-ac",
