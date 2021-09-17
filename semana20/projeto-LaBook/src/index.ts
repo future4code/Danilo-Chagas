@@ -1,6 +1,8 @@
-import express, { Express } from 'express'
+import express, { Express, Request, Response } from 'express'
 import cors from 'cors'
 import { AddressInfo } from 'net'
+import SQLUserDatabase from './data/UserDatabase/SQLUserDatabase'
+import UserController from './controllers/UserController/UserController'
 
 const app: Express = express()
 
@@ -15,3 +17,26 @@ const server = app.listen(process.env.PORT || 3003, () => {
         console.error("\x1b[41m%s\x1b[0m", `Failure upon starting server`)
     }
 })
+
+const userController = new UserController()
+app.post("/user/signup", (req: Request, res: Response) => userController.signup(req, res))
+app.post("/user/login", (req: Request, res: Response) => userController.login(req, res))
+
+
+// app.get("/", async (req, res) => {
+//     try {
+//         const sql = await new SQLUserDatabase().saveToDatabase({
+//             id: "id0001",
+//             name: "Teste",
+//             email: "tes@email",
+//             hashedPassword: "password hasheado"
+//         })
+//         console.log(sql)
+//         res.send(sql).end()
+//     } catch (err) {
+//         console.error(err)
+//         res.send("nok").end()
+
+//     }
+
+// })
