@@ -20,10 +20,11 @@ const createTables = () => connection
   
   CREATE TABLE IF NOT EXISTS s20_labook_posts (
     id VARCHAR(36) PRIMARY KEY UNIQUE NOT NULL,
-    user_id VARCHAR(36) NULL,
+    user_id VARCHAR(36) NOT NULL,
     description TEXT(2000) NOT NULL,
     create_date INT NOT NULL,
-    img_link LONGTEXT NULL,
+    img_link LONGTEXT NOT NULL,
+    postType enum('normal','evento') NOT NULL,
         FOREIGN KEY (user_id)
         REFERENCES s20_labook_users (id)
     );

@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from 'express'
 import cors from 'cors'
 import { AddressInfo } from 'net'
-import SQLUserDatabase from './data/UserDatabase/SQLUserDatabase'
 import UserController from './controllers/UserController/UserController'
+import PostController from './controllers/PostController/PostController'
 
 const app: Express = express()
 
@@ -22,21 +22,5 @@ const userController = new UserController()
 app.post("/user/signup", (req: Request, res: Response) => userController.signup(req, res))
 app.post("/user/login", (req: Request, res: Response) => userController.login(req, res))
 
-
-// app.get("/", async (req, res) => {
-//     try {
-//         const sql = await new SQLUserDatabase().saveToDatabase({
-//             id: "id0001",
-//             name: "Teste",
-//             email: "tes@email",
-//             hashedPassword: "password hasheado"
-//         })
-//         console.log(sql)
-//         res.send(sql).end()
-//     } catch (err) {
-//         console.error(err)
-//         res.send("nok").end()
-
-//     }
-
-// })
+const postController = new PostController
+app.post("/post", (req: Request, res: Response) => postController.createPost(req, res))
