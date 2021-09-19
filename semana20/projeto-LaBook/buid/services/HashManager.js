@@ -55,7 +55,8 @@ class HashManager {
                 return hashCompare;
             }
             catch (_a) {
-                throw new CustomError_1.default("Internal Error", 500, "Something went wrong on Hash Process");
+                throw new CustomError_1.default("Internal Error", 500, ["Something went wrong on Hash Validation",
+                    "Get in touch with technical support"]);
             }
         });
     }

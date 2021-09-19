@@ -24,3 +24,4 @@ app.post("/user/login", (req: Request, res: Response) => userController.login(re
 
 const postController = new PostController
 app.post("/post", (req: Request, res: Response) => postController.createPost(req, res))
+app.get("/post/:postId", (req: Request, res: Response) => postController.getPostbyId(req, res))

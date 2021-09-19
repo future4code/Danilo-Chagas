@@ -22,8 +22,12 @@ class SQLUserDatabase {
     saveToDatabase(user) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const res = yield (0, connection_1.default)(this.userDatabase);
-                return res;
+                const dataToPasswordDatabase = { user_id: user.id, user_password: user.hashedPassword };
+                delete user.hashedPassword;
+                const res = yield (0, connection_1.default)(this.userDatabase)
+                    .insert(user);
+                yield (0, connection_1.default)(this.passwordDatabase).insert(dataToPasswordDatabase);
+                return user;
             }
             catch (err) {
                 throw new CustomError_1.default("Internal Error", 500, err.message);
@@ -36,7 +40,31 @@ class SQLUserDatabase {
                 const res = yield (0, connection_1.default)(this.userDatabase)
                     .select("*")
                     .where({ "email": email });
-                return res ? res : null;
+                return res[0] ? res[0] : null;
+            }
+            catch (err) {
+                throw new CustomError_1.default("Internal Error", 500, err.message);
+            }
+        });
+    }
+    findCredential(loginDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield this.findByEmail(loginDTO.email);
+                if (!user) {
+                    return null;
+                }
+                const password = yield (0, connection_1.default)(this.passwordDatabase)
+                    .select("user_password")
+                    .where({ "user_id": user.id });
+                if (!password[0]) {
+                    throw new CustomError_1.default("Internal Error", 500, [
+                        "Something went wrong on server",
+                        "Get in touch with technical support"
+                    ]);
+                }
+                user.hashedPassword = password[0].user_password;
+                return user;
             }
             catch (err) {
                 throw new CustomError_1.default("Internal Error", 500, err.message);

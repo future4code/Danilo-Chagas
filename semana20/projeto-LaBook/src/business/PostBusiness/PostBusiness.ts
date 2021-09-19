@@ -8,7 +8,7 @@ export interface postDTO {
     description: string,
     imageLink: string,
     postType: POST_TYPE
-    createAt: number,
+    createdAt: number,
     postId?: string
 }
 
@@ -36,13 +36,43 @@ export default class PostBusiness {
             return postId
 
         } catch (err: any) {
-            console.error(err)
+
             throw new CustomError(
-                "Server service error",
+                "Internal Error",
                 500,
-                "Something went wrong on create post"
+                [
+                    "Something went wrong on create post",
+                    err.message
+                ]
             )
         }
 
+    }
+
+    async getPostById(postId: string): Promise<any> {
+
+        try {
+
+            const post = await this.postDatabase.getPostById(postId)
+
+            if (!post) {
+                throw new CustomError("Not Found", 404, "Post Not Found")
+            }
+
+            post[0].createdAt = new Date(post[0].createdAt).toISOString()
+
+            return post[0]
+
+        } catch (err: any) {
+
+            throw new CustomError(
+                "Internal Error",
+                500,
+                [
+                    "Something went wrong on get post",
+                    err.message
+                ]
+            )
+        }
     }
 }

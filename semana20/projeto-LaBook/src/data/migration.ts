@@ -22,7 +22,7 @@ const createTables = () => connection
     id VARCHAR(36) PRIMARY KEY UNIQUE NOT NULL,
     user_id VARCHAR(36) NOT NULL,
     description TEXT(2000) NOT NULL,
-    create_date INT NOT NULL,
+    create_date NUMERIC(13) NOT NULL,
     img_link LONGTEXT NOT NULL,
     postType enum('normal','evento') NOT NULL,
         FOREIGN KEY (user_id)

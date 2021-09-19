@@ -16,7 +16,7 @@ const CustomError_1 = __importDefault(require("../../models/CustomError"));
 const Authenticator_1 = require("../../services/Authenticator");
 const HashManager_1 = require("../../services/HashManager");
 const IdGenerator_1 = require("../../services/IdGenerator");
-class UserBusinness {
+class UserBusiness {
     constructor(userDatabase) {
         this.userDatabase = userDatabase;
         this.hashManager = new HashManager_1.HashManager();
@@ -26,9 +26,9 @@ class UserBusinness {
         return __awaiter(this, void 0, void 0, function* () {
             const generetedId = new IdGenerator_1.IdGenerator().generateId();
             const hashedPassword = yield this.hashManager.hash(signUpDTO.password);
-            const isRegisteredUser = yield this.userDatabase.findByEmail(signUpDTO.email);
-            if (isRegisteredUser) {
-                throw new CustomError_1.default("Invalid or missing Body Property Value ", 406, `An user already registered with email '${signUpDTO.email}'`);
+            const user = yield this.userDatabase.findByEmail(signUpDTO.email);
+            if (user) {
+                throw new CustomError_1.default("Denied register", 406, `An user already registered with email '${signUpDTO.email}'`);
             }
             else {
                 const userModel = {
@@ -45,7 +45,28 @@ class UserBusinness {
             }
         });
     }
-    login(loginDTO) { }
+    login(loginDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { email, password } = loginDTO;
+            try {
+                const credential = yield this.userDatabase.findCredential(loginDTO);
+                if (!credential) {
+                    throw new CustomError_1.default("Invalid credential", 401, "Invalid 'e-mail' or 'password'");
+                }
+                const isValidPassword = yield this.hashManager.compare(password, credential.hashedPassword);
+                if (!isValidPassword) {
+                    throw new CustomError_1.default("Invalid credential", 401, "Invalid 'e-mail' or 'password'");
+                }
+                const token = this.authenticator.generateToken({ id: credential.id });
+                return {
+                    token: token
+                };
+            }
+            catch (err) {
+                throw err;
+            }
+        });
+    }
 }
-exports.default = UserBusinness;
+exports.default = UserBusiness;
 //# sourceMappingURL=UserBusiness.js.map

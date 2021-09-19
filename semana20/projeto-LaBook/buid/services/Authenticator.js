@@ -18,17 +18,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Authenticator = void 0;
 const jwt = __importStar(require("jsonwebtoken"));
+const CustomError_1 = __importDefault(require("../models/CustomError"));
 class Authenticator {
     generateToken(info) {
         const token = jwt.sign({ id: info.id }, process.env.JWT_KEY, { expiresIn: "24h" });
         return token;
     }
-    getTokenData(token) {
-        const payload = jwt.verify(token, process.env.JWT_KEY);
-        return payload;
+    decodeTokenData(token) {
+        try {
+            const payload = jwt.verify(token, process.env.JWT_KEY);
+            return payload;
+        }
+        catch (err) {
+            throw new CustomError_1.default("Token Error", 406, "Token is expired");
+        }
     }
 }
 exports.Authenticator = Authenticator;
