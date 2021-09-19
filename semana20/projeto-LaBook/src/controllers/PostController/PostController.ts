@@ -51,9 +51,17 @@ export default class PostController {
 
         /* req validation goes here before request Business*/
 
-        if (!req.params.postId) { throw new CustomError("Invalid or missing value", 400, "'postId' is needed to 'get' request") }
-
         try {
+
+            if (!req.params.postId) {
+                throw new CustomError(
+                    "Invalid or missing value",
+                    400,
+                    "'postId' is needed to 'get' request")
+            } else {
+               const token = new Authenticator().decodeTokenData(req.headers.authorization as string)
+            }
+
 
             const post = await this.postBusiness.getPostById(req.params.postId)
 
