@@ -9,4 +9,8 @@ describe("Teste unitário da função 'performPurchase'", () => {
         const result = performPurchase({name:"Fulano", balance: 500},500)
         expect(result).toEqual({name:"Fulano", balance: 0})
     })
+    test("Teste com um usuário com o saldo menor do que o valor de compra", () => {
+        const result = performPurchase({name:"Fulano", balance: 500},600)
+        expect(result).toBe(undefined)
+    })
 })
