@@ -3,7 +3,7 @@ interface User {
 	balance: number
 }
 
-function performPurchase(user: User, value: number): User | undefined {
+export function performPurchase(user: User, value: number): User | undefined {
 	if(user.balance >= value) {
 		return {
 			...user,
