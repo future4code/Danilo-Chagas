@@ -9,7 +9,7 @@
     "buid": "tsc",
     "migration": "tsnd ./src/data/migration.ts",
     "test": "node ./node_modules/jest/bin/jest.js",
-    "test-createPost": "node ./node_modules/jest/bin/jest.js -i createPost.test.ts"
+    "test-specific": "node ./node_modules/jest/bin/jest.js -i AQUI-VAI-O-NOME-DO-ARQUIVO-DE-TESTE.test.ts "
   },
   "author": "",
   "license": "ISC",
