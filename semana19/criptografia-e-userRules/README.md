@@ -1,0 +1,1 @@
+[respostas exercícios s19a56](./exercicios.md)
