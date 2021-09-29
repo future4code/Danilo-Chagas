@@ -1,0 +1,6 @@
+- [x] 1a) ok
+- [x] 1b) ok
+- [x] 2a) ok
+- [x] 2b) ok
+- [x] 2c) ok
+- [x] 3c) A lógica para separação entre autorizados e não autorizados
