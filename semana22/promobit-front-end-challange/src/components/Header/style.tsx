@@ -8,13 +8,20 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    min-height: 20vmin;
+    min-height: fit-content;
     background-color: ${COLOR.BLUE_DARK};
 `
+export const DecoratorLine = styled.div`
+    width: 100%;
+    height: 0.4vmin;
+    background-color: ${COLOR.YELLOW};
+`
 
-export const Logo = styled.h2`
-    margin: auto;
-    font-size: ${fluidFontSize(24, 32)};
-    color: ${COLOR.YELLOW};
-    cursor: pointer;
+export const ContainerRow = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    margin: 1vmin 0;
 `

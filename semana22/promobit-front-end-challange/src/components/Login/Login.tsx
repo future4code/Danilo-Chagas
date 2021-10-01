@@ -7,7 +7,7 @@ export default function Login() {
 
     return (
         <Container>
-            <p>login</p>
+            <p>entre <span>ou</span> cadastra-se</p>
         </Container>
     )
 }
