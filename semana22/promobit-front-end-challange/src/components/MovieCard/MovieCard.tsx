@@ -24,7 +24,7 @@ export default function MovieCard(props: any) {
 
     return (
         <Container
-            onClick={() => goToMovieDetail(history, "here-goes-movie-Id")}
+            onClick={() => goToMovieDetail(history, item.id)}
         >
             <img loading={"lazy"} alt={"movie cover"} src={`https://image.tmdb.org/t/p/w${200}${poster_path}`} />
             <h3 className={"title"}>{title}</h3>

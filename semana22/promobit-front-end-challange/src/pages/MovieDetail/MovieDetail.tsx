@@ -1,10 +1,67 @@
-import { useHistory } from "react-router";
-import { Cast, ColumnContainer, Container, Details, Navigation, Poster, RowContainer, VideoContainer } from "./style";
+import { useHistory, useParams } from "react-router-dom";
+import { Cast, ColumnContainer, Container, Detail, Navigation, Poster, RowContainer, VideoContainer } from "./style";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { MovieCast, MovieDetailType } from "../../models/movieDetails";
+import React, { Suspense, useState, useLayoutEffect } from "react";
+import getMovieDetail from "../../services/geMovieDetail";
+import getMovieCast from "../../services/geMovieCast";
+import CastCard from "../../components/CastCard/CastCard";
+
 
 export default function MovieDetail() {
 
+    const { movieId } = useParams<{ movieId?: string }>()
+
+    const [details, setDetails] = useState<MovieDetailType>()
+    const [movieCast, setMovieCast] = useState<MovieCast>()
     const history = useHistory()
+
+    useLayoutEffect(() => {
+        getMovieDetail(Number(movieId))
+            .then(res => setDetails(res))
+        getMovieCast(Number(movieId))
+            .then(res => setMovieCast(res))
+    }, [])
+
+
+    const showCast = !movieCast ? <p>Loading...</p> : (
+        movieCast.cast.map(actor => { return <CastCard key={actor.order} info={actor}/> })
+    )
+
+    const showDetail = !details ? <p>Loading...</p> : (
+        <RowContainer >
+            <Poster>
+                <img className={"poster"}
+                    src={`https://image.tmdb.org/t/p/w${300}${details.poster_path}`} />
+            </Poster>
+            <Detail>
+                <RowContainer>
+                    <ColumnContainer>
+                        <h1 className={"title"}>{details?.title}</h1>
+                        {details.tagline && <h3
+                            className={"tagline"}>
+                            {details.tagline}</h3>}
+                        <h5 className={"launch"}>
+                            Lançamento: {new Date(details?.release_date).toLocaleDateString("pt-br")}
+                            | Duração: {!details?.runtime ? " - " :
+                                `${(details.runtime / 60).toString().split(".")[0]}h${((details.runtime / 60) % 1 * 60).toFixed(2).toString().split(".")[0]}min`}
+                        </h5>
+                        <div className={"subgender"}>
+                            <h5>Gênero(s):</h5> {details.genres.map(genre => <h5>{genre.name}</h5>)}</div>
+                        <p className={"synopsis"}>{details.overview}</p>
+                    </ColumnContainer>
+                    <VideoContainer controls>
+                        <source></source>
+                        Your browser does not support the video tag.
+                    </VideoContainer>
+                </RowContainer>
+                <Cast>{showCast}</Cast>
+            </Detail>
+        </RowContainer>
+    )
+
+
+
 
     return (
         <Container>
@@ -14,24 +71,7 @@ export default function MovieDetail() {
                     <h6 onClick={() => history.goBack()}>  voltar</h6>
                 </div>
             </Navigation>
-            <RowContainer >
-                <Poster><img className={"teste"} /></Poster>
-                <Details>
-                    <RowContainer>
-                        <ColumnContainer>
-                            <h1 className={"title"}>Título</h1>
-                            <h5 className={"launch"}>Lançamento | Duração </h5>
-                            <h5 className={"subgender"}>genero 1 | genero 2 | genero 3 </h5>
-                            <p className={"synopsis"}> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio magnam vel maxime exercitationem quae amet hic officia esse, velit rerum magni quia dignissimos repellendus eaque mollitia fugit nemo illum labore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab quo, quisquam atque reprehenderit consequatur cumque. Voluptates tenetur maiores id mollitia, asperiores soluta saepe hic veritatis, veniam quidem doloremque quos quam.</p>
-                        </ColumnContainer>
-                        <VideoContainer controls>
-                            <source></source>
-                            Your browser does not support the video tag.
-                        </VideoContainer>
-                    </RowContainer>
-                    <Cast>Elenco</Cast>
-                </Details>
-            </RowContainer>
+            {showDetail}
         </Container>
     )
 }

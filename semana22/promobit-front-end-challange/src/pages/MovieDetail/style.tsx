@@ -44,33 +44,40 @@ export const ColumnContainer = styled.div`
 `
 
 export const Poster = styled.div`
-    width: fit-content;
+    width: 400px;
     overflow: hidden;
     border-radius: 10px;
     background-color: gray;
-    .teste{
-        width: 300px;
+    .poster{
+        width: 100%;
         aspect-ratio: 2/3;
+        object-fit: contain;
+        object-position: center;
     }
 `
 
-export const Details = styled.div`
+export const Detail = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-    height: 64vh;
+    /* height: 64vh; */
     margin: 0 0 0 2%;
-    /* background-color: aquamarine; */
     *{
         margin: 0;
         padding: 0;
     };
     .title{};
     .launch{};
-    .subgender{};
-    .tagline{};
+    .subgender{
+        display: flex;
+        gap:2%;
+        width: 100%;
+    };
+    .tagline{
+        width: 100%;
+    };
     .synopsis{
         flex-grow: 1;
         margin-top: 2%;
@@ -79,10 +86,18 @@ export const Details = styled.div`
 
 export const Cast = styled.div`
     display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    /* gap:1%; */
     width: 100%;
-    height: 25rem;
+    height: fit-content;
     margin: 2% 0 0 0;
+    /* overflow: hidden; */
+    overflow-x: scroll;
+    scrollbar-width: thin;
     background-color: gray;
+
 `
 
 export const VideoContainer = styled.video`
