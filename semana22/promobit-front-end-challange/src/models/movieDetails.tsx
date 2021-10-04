@@ -28,7 +28,7 @@ export type MovieDetailType = {
     video: boolean,
     vote_average: number,
     vote_count: number,
-    videos?: Array<videos>,
+    videos?: videos,
     images?: Array<images>
 }
 
@@ -57,16 +57,20 @@ export type spokenLanguages = {
 }
 
 export type videos = {
-    iso_639_1: string,
-    iso_3166_1: string,
-    name: string,
-    key: string,
-    site: string,
-    size: number,
-    type: string,
-    official: boolean,
-    published_at: Date | string,
-    id: string
+    results: [
+        {
+            iso_639_1: string,
+            iso_3166_1: string,
+            name: string,
+            key: string,
+            site: string,
+            size: number,
+            type: string,
+            official: boolean,
+            published_at: Date | string,
+            id: string
+        }
+    ]
 }
 
 export type images = {

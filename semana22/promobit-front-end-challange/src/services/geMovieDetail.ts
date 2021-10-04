@@ -19,6 +19,8 @@ export default async function getMovieDetail(movieId: number): Promise<MovieDeta
         }
         if (error.status_code === 34) {
             window.alert("Id do filme não existe")
+            throw new Error()
         }
+        throw new Error()
     }
 }
