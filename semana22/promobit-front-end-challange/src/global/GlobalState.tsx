@@ -10,6 +10,10 @@ const GlobalState = (props: any) => {
     const [genreList, setGenreList] = useState("")
     const [moviesList, setMoviesList] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
+    const [filter, setFilter] = useState({
+        sortBy: "popularity.desc",
+        genres: [18,28,13]
+    })
     const history = useHistory()
 
     useLayoutEffect(() => {
@@ -23,7 +27,7 @@ const GlobalState = (props: any) => {
         if (isNaN(currentPage)) {
             goToPage(history, 1)
         }
-        getMoviesList(currentPage)
+        getMoviesList(currentPage,filter.sortBy,filter.genres)
             .then(res =>
                 setMoviesList(res)
             )
@@ -33,8 +37,8 @@ const GlobalState = (props: any) => {
     }, [currentPage])
 
 
-    const states = { genreList, moviesList, currentPage }
-    const setters = { setMoviesList, setCurrentPage }
+    const states = { genreList, moviesList, currentPage , filter}
+    const setters = { setMoviesList, setCurrentPage , setFilter}
     // const requests = { }
     // const functions = { }
 

@@ -19,9 +19,9 @@ export default function Filter() {
         <Container>
 
             <FilterType>
-                <details>
+                <details open>
 
-                    <summary className={"name"}>Ordenar por</summary>
+                    <summary className={"name"} >Ordenar por</summary>
 
                     <ul>
                         <li>mais populares</li>
