@@ -24,7 +24,7 @@ export default function MoviesList() {
         } else {
             setCurrentPage(Number(page))
         }
-    }, [page])
+    }, [genreList , page])
 
     const displayMovies = !moviesList ?
         <span>Loading...</span> :

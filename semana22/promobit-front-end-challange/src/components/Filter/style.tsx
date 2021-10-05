@@ -34,6 +34,9 @@ export const FilterType = styled.div`
         list-style: none;
         cursor: pointer;
     }
+        .active-true{
+            color: red;
+        }
 
     }
     

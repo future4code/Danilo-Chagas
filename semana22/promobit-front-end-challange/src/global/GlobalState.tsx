@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from "react"
+import { useState, useLayoutEffect, useEffect } from "react"
 import GlobalStateContext from "./GlobalStateContext"
 import getGenreList from "../services/getGenreList"
 import getMoviesList from "../services/getMoviesList"
@@ -12,33 +12,38 @@ const GlobalState = (props: any) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [filter, setFilter] = useState({
         sortBy: "popularity.desc",
-        genres: [18,28,13]
+        genresId: []
     })
     const history = useHistory()
 
-    useLayoutEffect(() => {
-        getGenreList()
-            .then(res =>
-                setGenreList(res)
-            )
-            .catch(err => {
-                window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
-            })
+    useEffect(() => {
+        if (!genreList) {
+            getGenreList()
+                .then(res =>
+                    setGenreList(res)
+                )
+                .catch(err => {
+                    window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
+                })
+        }
+
         if (isNaN(currentPage)) {
             goToPage(history, 1)
         }
-        getMoviesList(currentPage,filter.sortBy,filter.genres)
+
+        getMoviesList(currentPage, filter.sortBy, filter.genresId)
             .then(res =>
                 setMoviesList(res)
             )
             .catch(err => {
                 window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
             })
-    }, [currentPage])
+            console.log(filter)
+    }, [currentPage, filter])
 
 
-    const states = { genreList, moviesList, currentPage , filter}
-    const setters = { setMoviesList, setCurrentPage , setFilter}
+    const states = { genreList, moviesList, currentPage, filter }
+    const setters = { setMoviesList, setCurrentPage, setFilter }
     // const requests = { }
     // const functions = { }
 
