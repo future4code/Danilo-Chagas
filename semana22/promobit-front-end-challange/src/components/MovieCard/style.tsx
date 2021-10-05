@@ -48,8 +48,10 @@ export const Container = styled.div`
         scrollbar-width:thin;
 
         :hover, :focus{
-            overflow-x: visible;
-            flex-wrap: wrap;
+            cursor: grab;
+            overflow-x: scroll;
+            /* flex-wrap: wrap; */
+
         }
         
     }

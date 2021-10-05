@@ -12,6 +12,7 @@ export default function Router() {
                 <Header />
                 <Switch>
                     <Route exact path={"/"} component={Home} />
+                    <Route exact path={"/:page"} component={Home} />
                     <Route exact path={"/detalhes/:movieId"} component={MovieDetail}/>
                 </Switch>
                 <Footer />

@@ -1,17 +1,35 @@
-import { useContext } from "react";
+import { useContext, useLayoutEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
+import { goToPage } from "../../routes/coordinator";
+import getMoviesList from "../../services/getMoviesList";
 import MovieCard from "../MovieCard/MovieCard";
-import { Container } from "./style";
+import PaginationControlled from "../Pagination/Pagination";
+import { Container, MoviesContainer } from "./style";
 
 export default function MoviesList() {
 
-    const { states } = useContext(GlobalStateContext)
+    const { states, setters } = useContext(GlobalStateContext)
     const { genreList, moviesList } = states
+    const { setMoviesList, setCurrentPage } = setters
+    let { page } = useParams<{ page?: string | undefined }>()
+    const history = useHistory()
+
+    useLayoutEffect(() => {
+
+        if (!page) {
+            page = "1"
+        } else if (isNaN(Number(page))) {
+            goToPage(history, 1)
+        } else {
+            setCurrentPage(Number(page))
+        }
+    }, [page])
 
     const displayMovies = !moviesList ?
         <span>Loading...</span> :
         moviesList.results.map((item: any) => {
-        
+
             const genres: string[] = []
 
             item.genre_ids.forEach((id: number) => {
@@ -20,12 +38,16 @@ export default function MoviesList() {
             })
 
             return <MovieCard key={item.id} item={item} genres={genres} />
-        
+
         })
 
     return (
         <Container>
-            {displayMovies}
+            <PaginationControlled page={page} />
+            <MoviesContainer>
+                {displayMovies}
+            </MoviesContainer>
+            <PaginationControlled page={page} />
         </Container>
     )
 }
