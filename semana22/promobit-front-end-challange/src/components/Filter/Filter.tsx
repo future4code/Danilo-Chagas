@@ -18,6 +18,11 @@ export default function Filter(props: any) {
         { name: "menos recentes", value: sortByValues.RELEASE_DATE_ASC }
     ]
 
+    useEffect(() => {
+        setActiveSort({ sortBy: filter.sortBy })
+        setActivedGenres(filter.genresId)
+    }, [])
+
     const onClickSortByButton = (value: sortByValues) => {
         const newSort = { sortBy: value }
         setActiveSort(newSort)

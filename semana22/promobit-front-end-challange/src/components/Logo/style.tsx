@@ -5,7 +5,7 @@ import COLOR from '../../constants/colors'
 export const Logotype = styled.h2`
     justify-self: flex-start;
     margin: 1% 2% 1% 2%;
-    font-size: ${fluidFontSize(38, 48)};
+    font-size: ${fluidFontSize(28, 32)};
     font-family: 'Cinzel Decorative', cursive;
     font-style: oblique;
     font-weight: 900;
