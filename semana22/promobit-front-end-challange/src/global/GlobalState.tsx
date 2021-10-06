@@ -38,7 +38,7 @@ const GlobalState = (props: any) => {
             .catch(err => {
                 window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
             })
-            console.log(filter)
+
     }, [currentPage, filter])
 
 

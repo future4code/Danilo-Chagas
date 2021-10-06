@@ -21,10 +21,13 @@ export const Container = styled.div`
     };
     img{
         object-fit: cover;
-        /* width: 100%; */
+        width: 100%;
         height: 222px;
-        background-color: blue;
+        background-color: ${COLOR.GRAY_MIDDLE};
+        background-size: 1vmin;
+        background-repeat: no-repeat;       
     }
+
     .title{
         flex-grow: 1;
         display: flex;
@@ -46,12 +49,16 @@ export const Container = styled.div`
         margin-top: 2%;
         overflow: hidden;
         scrollbar-width:thin;
-
         :hover, :focus{
             cursor: grab;
             overflow-x: scroll;
-            /* flex-wrap: wrap; */
-
+        }
+        ::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: ${COLOR.BLUE_MIDDLE};
         }
         
     }
@@ -64,7 +71,7 @@ export const Container = styled.div`
 `
 
 export const Genre = styled.p`
-    box-sizing: content-box;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,4 +84,5 @@ export const Genre = styled.p`
     font-size: ${fluidFontSize(8, 12)};
     text-transform: lowercase;
     word-wrap: normal;
+    white-space: nowrap;
 `
