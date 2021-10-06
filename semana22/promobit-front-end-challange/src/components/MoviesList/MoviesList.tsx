@@ -2,16 +2,16 @@ import { useContext, useLayoutEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { goToPage } from "../../routes/coordinator";
-import getMoviesList from "../../services/getMoviesList";
 import MovieCard from "../MovieCard/MovieCard";
 import PaginationControlled from "../Pagination/Pagination";
+import NoContent from "../NoContent/NoContent"
 import { Container, MoviesContainer } from "./style";
 
 export default function MoviesList() {
 
     const { states, setters } = useContext(GlobalStateContext)
     const { genreList, moviesList } = states
-    const { setMoviesList, setCurrentPage } = setters
+    const { setCurrentPage } = setters
     let { page } = useParams<{ page?: string | undefined }>()
     const history = useHistory()
 
@@ -24,30 +24,34 @@ export default function MoviesList() {
         } else {
             setCurrentPage(Number(page))
         }
-    }, [genreList , page])
+    }, [genreList, page])
 
     const displayMovies = !moviesList ?
         <span>Loading...</span> :
-        moviesList.results.map((item: any) => {
+        moviesList?.total_results <= 0 ?
+            <NoContent /> :
+            moviesList.results.map((item: any) => {
 
-            const genres: string[] = []
+                const genres: string[] = []
 
-            item.genre_ids.forEach((id: number) => {
-                const genre = genreList.find((item: any) => Number(item.id) === Number(id))
-                return genres.push(genre.name)
+                item.genre_ids.forEach((id: number) => {
+                    const genre = genreList.find((item: any) => Number(item.id) === Number(id))
+                    return genres.push(genre.name)
+                })
+
+                return <MovieCard key={item.id} item={item} genres={genres} />
+
             })
 
-            return <MovieCard key={item.id} item={item} genres={genres} />
-
-        })
+    const displayPagination = (position: "top" | "botton") => moviesList.total_results > 0 && <PaginationControlled position={position} totalPages={moviesList.total_pages} page={page} />
 
     return (
         <Container>
-            <PaginationControlled page={page} />
+            {displayPagination("top")}
             <MoviesContainer>
                 {displayMovies}
             </MoviesContainer>
-            <PaginationControlled page={page} />
+            {displayPagination("botton")}
         </Container>
     )
 }
