@@ -5,7 +5,8 @@ export default async function getMoviesList(
     sortBy: string | null = "popularity.desc",
     selectedGenres: Array<number | null> = []
 ): Promise<any> {
-    console.log(selectedGenres,sortBy,selectedPage)
+    const language = "language=pt-br"
+    const region = "&region=BR"
     let page = `&page=${selectedPage}`
     let sort_by = `&sort_by=${sortBy}`
     let with_genre = `&with_genres=`
@@ -14,7 +15,7 @@ export default async function getMoviesList(
         with_genre += selectedGenres.toString()
     }
 
-    let url1 = `https://api.themoviedb.org/3/discover/movie?language=pt-br${sort_by}${with_genre}${page}&api_key=dc879ef9055d02756799dc37bfd73d7a`
+    let url1 = `https://api.themoviedb.org/3/discover/movie?${language + region + sort_by + with_genre + page}&api_key=dc879ef9055d02756799dc37bfd73d7a`
 
     let config: AxiosRequestConfig = {
         method: 'get',

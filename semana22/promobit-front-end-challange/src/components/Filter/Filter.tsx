@@ -11,7 +11,21 @@ export default function Filter(props: any) {
     const { setFilter } = setters
     const [activedGenres, setActivedGenres] = useState<number[]>([])
     const [activeSort, setActiveSort] = useState({ sortBy: sortByValues.POPULARITY_DESC })
+    const sortBy = [
+        { name: "mais populares", value: sortByValues.POPULARITY_DESC },
+        { name: "menos populares", value: sortByValues.POPULARITY_ASC },
+        { name: "mais recentes", value: sortByValues.RELEASE_DATE_DESC },
+        { name: "menos recentes", value: sortByValues.RELEASE_DATE_ASC }
+    ]
 
+    const onClickSortByButton = (value: sortByValues) => {
+        const newSort = { sortBy: value }
+        setActiveSort(newSort)
+        return setFilter({
+            ...newSort,
+            genresId: activedGenres
+        })
+    }
 
     const onClickGenreButton = (genreId: number) => {
         let newArray = []
@@ -31,9 +45,18 @@ export default function Filter(props: any) {
 
     }
 
+    const displaySortBy = !genreList ? <p>...</p> : sortBy.map((item: any, index: number) => {
+        const isActive = !activeSort ? false : activeSort.sortBy === item.value
+        return (
+            <li
+                onClick={() => onClickSortByButton(item.value)}
+                className={`active-${isActive}`}
+                key={index}>{item.name}</li>
+        )
+    })
 
     const displayGenres = !genreList ? <p>...</p> : genreList?.map((item: genres) => {
-        const isActive = !activedGenres ? false : activedGenres?.includes(item.id)
+        const isActive = !activedGenres ? false : activedGenres.includes(item.id)
         return (
             <li
                 onClick={() => onClickGenreButton(item.id)}
@@ -47,23 +70,14 @@ export default function Filter(props: any) {
 
             <FilterType>
                 <details open>
-
                     <summary className={"name"} >Ordenar por</summary>
-
-                    <ul>
-                        <li>mais populares</li>
-                        <li>menos populares</li>
-                        <li>mais recentes</li>
-                        <li>menos recentes</li>
-                    </ul>
+                    <ul>{displaySortBy}</ul>
                 </details>
             </FilterType>
 
             <FilterType>
                 <details open>
-
                     <summary className={"name"}>Gênero</summary>
-
                     <ul>{displayGenres}</ul>
                 </details>
             </FilterType>
