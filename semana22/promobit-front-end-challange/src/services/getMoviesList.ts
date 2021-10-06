@@ -5,17 +5,21 @@ export default async function getMoviesList(
     sortBy: string | null = "popularity.desc",
     selectedGenres: Array<number | null> = []
 ): Promise<any> {
+    const today = new Date()
     const language = "language=pt-br"
-    const region = "&region=BR"
-    let page = `&page=${selectedPage}`
-    let sort_by = `&sort_by=${sortBy}`
-    let with_genre = `&with_genres=`
+    const region = "region=BR"
+    const primaryLastReleaseDate = `primary_release_date.lte=${today.getFullYear()}-${(today.getMonth() + 1)}-${"0" + today.getDate()}`
+    const lastReleaseDate = `release_date.lte=${today.getFullYear()}-${(today.getMonth() + 1)}-${"0" + today.getDate()}`
+    const releaseType = `with_release_type=2|3`
+    let page = `page=${selectedPage}`
+    let sort_by = `sort_by=${sortBy}`
+    let with_genre = `with_genres=`
 
     if (selectedGenres && Array.isArray(selectedGenres)) {
         with_genre += selectedGenres.toString()
     }
 
-    let url1 = `https://api.themoviedb.org/3/discover/movie?${language + region + sort_by + with_genre + page}&api_key=dc879ef9055d02756799dc37bfd73d7a`
+    let url1 = `https://api.themoviedb.org/3/discover/movie?${language + "&" + region + "&" + sort_by + "&" + with_genre + "&" + lastReleaseDate + "&" + primaryLastReleaseDate + "&" + releaseType + "&" + page}&api_key=dc879ef9055d02756799dc37bfd73d7a`
 
     let config: AxiosRequestConfig = {
         method: 'get',
