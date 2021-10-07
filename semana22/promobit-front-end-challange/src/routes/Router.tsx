@@ -17,7 +17,7 @@ export default function Router() {
                     </Route>
                     <Route exact path={"/:page"} component={Home} />
                     <Route exact path={"/detalhes/:movieId"} component={MovieDetail} />
-                    <Route exact path={"/busca/:encodedQuery"} component={SearchResult} />
+                    <Route exact path={"/busca/:page/:encodedQuery"} component={SearchResult} />
                 </Switch>
                 <Footer />
             </BrowserRouter>

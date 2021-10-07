@@ -9,6 +9,6 @@ export const goToPage = (history: any, page: number) => {
     history.push(`/${page}`)
 }
 
-export const goToSearch = (history: any, encodedQuery: string) => {
-    history.push(`/busca/${encodedQuery}`)
+export const goToSearch = (history: any, page: number, encodedQuery: string) => {
+    history.push(`/busca/${page}/${encodedQuery}`)
 }

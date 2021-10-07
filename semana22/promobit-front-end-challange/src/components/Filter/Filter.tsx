@@ -7,7 +7,7 @@ import { filter, sortByValues } from "../../models/FilterModel";
 export default function Filter(props: any) {
 
     const { states, setters } = useContext(GlobalStateContext)
-    const { genreList, filter } = states
+    const { genreList, filter, isSearching } = states
     const { setFilter } = setters
     const [activedGenres, setActivedGenres] = useState<number[]>([])
     const [activeSort, setActiveSort] = useState({ sortBy: sortByValues.POPULARITY_DESC })
@@ -21,7 +21,7 @@ export default function Filter(props: any) {
     useEffect(() => {
         setActiveSort({ sortBy: filter.sortBy })
         setActivedGenres(filter.genresId)
-    }, [])
+    }, [isSearching])
 
     const onClickSortByButton = (value: sortByValues) => {
         const newSort = { sortBy: value }
@@ -71,7 +71,7 @@ export default function Filter(props: any) {
     })
 
     return (
-        <Container>
+        <Container className={`visible-${!isSearching}`}>
 
             <FilterType>
                 <details open>

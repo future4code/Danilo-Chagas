@@ -7,7 +7,7 @@ export default async function getSearchMovies(
     const language = "language=pt-br"
     const region = "region=BR"
     const excludeAdultMovie = "include_adult=false"
-    const queryInput = encodeURI(query.toString())
+    const queryInput = `query=${encodeURI(query.toString())}`
     let page = `page=${selectedPage}`
 
     let mountedURI = `https://api.themoviedb.org/3/search/movie?${language + "&" + region + "&" + excludeAdultMovie + "&" + page + "&" + queryInput} &api_key=dc879ef9055d02756799dc37bfd73d7a`

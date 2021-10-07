@@ -10,6 +10,9 @@ export const Container = styled.div`
     min-width: fit-content;
     height: 100%;
     padding: 0 2%;
+    .visible-false{
+        display: none;
+    }
 `
 
 export const FilterType = styled.div`

@@ -4,6 +4,7 @@ import getGenreList from "../services/getGenreList"
 import getMoviesList from "../services/getMoviesList"
 import { goToHome, goToPage } from "../routes/coordinator"
 import { useHistory } from "react-router"
+import getSearchMovies from "../services/getSearchMovies"
 
 const GlobalState = (props: any) => {
 
@@ -14,6 +15,9 @@ const GlobalState = (props: any) => {
         sortBy: "popularity.desc",
         genresId: []
     })
+    const [isSearching, setIsSearching] = useState<boolean>(false)
+    const [querySearch, setQuerySearch] = useState<string>("")
+
     const history = useHistory()
 
     useEffect(() => {
@@ -31,19 +35,30 @@ const GlobalState = (props: any) => {
             goToPage(history, 1)
         }
 
-        getMoviesList(currentPage, filter.sortBy, filter.genresId)
-            .then(res =>
-                setMoviesList(res)
-            )
-            .catch(err => {
-                window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
-            })
+        if (!isSearching) {
+            getMoviesList(currentPage, filter.sortBy, filter.genresId)
+                .then(res =>
+                    setMoviesList(res)
+                )
+                .catch(err => {
+                    window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
+                })
+        }
 
-    }, [currentPage, filter])
+        if (isSearching) {
+            getSearchMovies(currentPage, querySearch)
+                .then(res =>
+                    setMoviesList(res)
+                )
+                .catch(err => {
+                    window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
+                })
+        }
+    }, [currentPage, filter, isSearching])
 
 
-    const states = { genreList, moviesList, currentPage, filter }
-    const setters = { setMoviesList, setCurrentPage, setFilter }
+    const states = { genreList, moviesList, currentPage, filter, isSearching, querySearch }
+    const setters = { setMoviesList, setCurrentPage, setFilter, setIsSearching, setQuerySearch }
     // const requests = { }
     // const functions = { }
 

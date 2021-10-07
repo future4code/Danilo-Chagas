@@ -1,5 +1,10 @@
+import MoviesList from "../../components/MoviesList/MoviesList";
 import { Container } from "./style";
 
 export default function SearchResult() {
-    return (<Container>SearchResult</Container>)
+    return (
+        <Container>
+            <MoviesList />
+        </Container>
+    )
 }
