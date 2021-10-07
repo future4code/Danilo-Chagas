@@ -3,6 +3,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Home from "../pages/Home/Home";
 import MovieDetail from "../pages/MovieDetail/MovieDetail";
+import SearchResult from "../pages/SearchResult/SearchResult";
 import { Container } from "./style";
 
 export default function Router() {
@@ -16,6 +17,7 @@ export default function Router() {
                     </Route>
                     <Route exact path={"/:page"} component={Home} />
                     <Route exact path={"/detalhes/:movieId"} component={MovieDetail} />
+                    <Route exact path={"/busca/:encodedQuery"} component={SearchResult} />
                 </Switch>
                 <Footer />
             </BrowserRouter>

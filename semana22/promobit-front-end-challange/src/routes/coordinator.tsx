@@ -8,3 +8,7 @@ export const goToMovieDetail = (history: any, movieId: any) => {
 export const goToPage = (history: any, page: number) => {
     history.push(`/${page}`)
 }
+
+export const goToSearch = (history: any, encodedQuery: string) => {
+    history.push(`/busca/${encodedQuery}`)
+}

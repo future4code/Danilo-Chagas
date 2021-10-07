@@ -8,6 +8,7 @@ export default async function getMoviesList(
     const today = new Date()
     const language = "language=pt-br"
     const region = "region=BR"
+    const excludeAdultMovie = "include_adult=false"
     const primaryLastReleaseDate = `primary_release_date.lte=${today.getFullYear()}-${(today.getMonth() + 1)}-${"0" + today.getDate()}`
     const lastReleaseDate = `release_date.lte=${today.getFullYear()}-${(today.getMonth() + 1)}-${"0" + today.getDate()}`
     const releaseType = `with_release_type=2|3`
@@ -19,7 +20,7 @@ export default async function getMoviesList(
         with_genre += selectedGenres.toString()
     }
 
-    let url1 = `https://api.themoviedb.org/3/discover/movie?${language + "&" + region + "&" + sort_by + "&" + with_genre + "&" + lastReleaseDate + "&" + primaryLastReleaseDate + "&" + releaseType + "&" + page}&api_key=dc879ef9055d02756799dc37bfd73d7a`
+    let url1 = `https://api.themoviedb.org/3/discover/movie?${language + "&" + region + "&" + excludeAdultMovie + "&" + sort_by + "&" + with_genre + "&" + lastReleaseDate + "&" + primaryLastReleaseDate + "&" + releaseType + "&" + page}&api_key=dc879ef9055d02756799dc37bfd73d7a`
 
     let config: AxiosRequestConfig = {
         method: 'get',

@@ -1,10 +1,20 @@
-import { OutlinedInput } from "@material-ui/core";
+import { IconButton, OutlinedInput } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import SearchIcon from '@mui/icons-material/Search';
 import { Container } from "./style";
+import { SyntheticEvent } from "react";
+import { goToSearch } from "../../routes/coordinator";
+import { useHistory } from "react-router";
 export default function Search() {
 
     const { input, onChangeInput } = useForm({ search: "" })
+
+    const history = useHistory()
+
+    const requestQuery = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        if (event.key === "Enter") goToSearch(history, encodeURI(input.search))
+
+    }
 
     return (
         <Container>
@@ -15,9 +25,14 @@ export default function Search() {
                 value={input.search}
                 name={"search"}
                 inputProps={{ 'aria-label': 'search' }}
-                placeholder={"Encontre por um título"}
-                endAdornment={<SearchIcon />}
+                placeholder={"Busque por título"}
+                endAdornment={
+                    <IconButton onClick={() => goToSearch(history, encodeURI(input.search))} >
+                        <SearchIcon />
+                    </IconButton>
+                }
                 fullWidth={true}
+                onKeyPress={requestQuery}
             />
         </Container>
     )
