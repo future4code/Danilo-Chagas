@@ -1,30 +1,45 @@
 import { useContext, useLayoutEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
-import { goToPage } from "../../routes/coordinator";
+import { goToPage, goToSearch } from "../../routes/coordinator";
 import MovieCard from "../MovieCard/MovieCard";
 import PaginationControlled from "../Pagination/Pagination";
 import NoContent from "../NoContent/NoContent"
 import { Container, MoviesContainer } from "./style";
+import { Button, Stack } from "@material-ui/core";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 export default function MoviesList() {
 
-    const { states, setters } = useContext(GlobalStateContext)
-    const { genreList, moviesList } = states
-    const { setCurrentPage } = setters
-    let { page } = useParams<{ page?: string | undefined }>()
+
+    const { states, setters, functions } = useContext(GlobalStateContext)
+    const { genreList, moviesList, isSearching } = states
+    const { resetFilterState } = functions
+    const { setCurrentPage, setIsSearching, setQuerySearch } = setters
+
+    const pathParams = useParams<{ page?: string | undefined, encodedQuery?: string | undefined }>()
+    const location = useLocation()
     const history = useHistory()
 
-    useLayoutEffect(() => {
+    function goToHomePage() {
+        resetFilterState()
+        setIsSearching(false)
+        goToPage(history, 1)
+    }
 
-        if (!page) {
-            page = "1"
-        } else if (isNaN(Number(page))) {
-            goToPage(history, 1)
+    useLayoutEffect(() => {
+        console.log(isSearching, location.pathname.includes("busca"), pathParams.encodedQuery)
+        if (!pathParams.page || isNaN(Number(pathParams.page))) {
+            goToHomePage()
+        } else if (!isSearching && location.pathname.includes("busca") && !!pathParams.encodedQuery) {
+            resetFilterState()
+            setIsSearching(true)
+            setQuerySearch(pathParams.encodedQuery)
+            goToSearch(history, Number(pathParams.page), encodeURI(pathParams.encodedQuery))
         } else {
-            setCurrentPage(Number(page))
+            setCurrentPage(Number(pathParams.page))
         }
-    }, [genreList, page])
+    }, [genreList, pathParams.page, location])
 
     const displayMovies = !moviesList ?
         <span>Loading...</span> :
@@ -42,11 +57,23 @@ export default function MoviesList() {
                 return <MovieCard key={item.id} item={item} genres={genres} />
 
             })
+    const displayQuitSearch = () => {
+        if (isSearching) {
+            return <Stack mt={2}>
+                <Button
+                    variant="outlined"
+                    endIcon={<ExitToAppIcon />}
+                    onClick={() => goToHomePage()}
+                >sair da pesquisa</Button>
+            </Stack>
+        }
+    }
 
-    const displayPagination = (position: "top" | "botton") => moviesList.total_results > 0 && <PaginationControlled position={position} totalPages={moviesList.total_pages} page={page} />
+    const displayPagination = (position: "top" | "botton") => moviesList.total_results > 0 && <PaginationControlled position={position} totalPages={moviesList.total_pages} page={pathParams.page} />
 
     return (
         <Container>
+            {displayQuitSearch()}
             {displayPagination("top")}
             <MoviesContainer>
                 {displayMovies}

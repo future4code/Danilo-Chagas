@@ -5,11 +5,12 @@ import { goToHome } from "../../routes/coordinator";
 import { Logotype } from "./style";
 
 export default function Logo() {
-    const { setters } = useContext(GlobalStateContext)
+    const { setters, functions } = useContext(GlobalStateContext)
     const { setIsSearching } = setters
+    const { resetFilterState } = functions
     const history = useHistory()
 
     return (
-        <Logotype onClick={() => { setIsSearching(false); goToHome(history) }} >TopMovies</Logotype>
+        <Logotype onClick={() => { resetFilterState(); setIsSearching(false); goToHome(history) }} >TopMovies</Logotype>
     )
 }

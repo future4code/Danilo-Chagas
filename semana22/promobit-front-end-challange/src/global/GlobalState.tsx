@@ -8,17 +8,23 @@ import getSearchMovies from "../services/getSearchMovies"
 
 const GlobalState = (props: any) => {
 
+    const initialFilterState = {
+        sortBy: "popularity.desc",
+        genresId: []
+    }
+
     const [genreList, setGenreList] = useState("")
     const [moviesList, setMoviesList] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
-    const [filter, setFilter] = useState({
-        sortBy: "popularity.desc",
-        genresId: []
-    })
+    const [filter, setFilter] = useState(initialFilterState)
     const [isSearching, setIsSearching] = useState<boolean>(false)
     const [querySearch, setQuerySearch] = useState<string>("")
 
     const history = useHistory()
+
+    function resetFilterState () {
+        return setFilter(initialFilterState)
+    }
 
     useEffect(() => {
         if (!genreList) {
@@ -60,10 +66,10 @@ const GlobalState = (props: any) => {
     const states = { genreList, moviesList, currentPage, filter, isSearching, querySearch }
     const setters = { setMoviesList, setCurrentPage, setFilter, setIsSearching, setQuerySearch }
     // const requests = { }
-    // const functions = { }
+    const functions = { resetFilterState }
 
     return (
-        <GlobalStateContext.Provider value={{ states, setters }}>
+        <GlobalStateContext.Provider value={{ states, setters, functions }}>
             {props.children}
         </GlobalStateContext.Provider>
     )

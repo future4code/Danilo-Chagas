@@ -10,16 +10,17 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 
 export default function Search() {
 
-    const { setters } = useContext(GlobalStateContext)
+    const { setters, functions } = useContext(GlobalStateContext)
     const { setIsSearching, setQuerySearch } = setters
+    const { resetFilterState } = functions
     const { input, onChangeInput } = useForm({ search: "" })
-
 
     const history = useHistory()
 
     const requestQuery = (event: React.KeyboardEvent<HTMLDivElement>) => {
 
         if (event.key === "Enter") {
+            resetFilterState()
             setIsSearching(true)
             setQuerySearch(input.search)
             goToSearch(history, 1, encodeURI(input.search))
@@ -27,6 +28,7 @@ export default function Search() {
     }
 
     const onClickSearchIcon = () => {
+        resetFilterState()
         setIsSearching(true)
         setQuerySearch(input.search)
         goToSearch(history, 1, encodeURI(input.search))
