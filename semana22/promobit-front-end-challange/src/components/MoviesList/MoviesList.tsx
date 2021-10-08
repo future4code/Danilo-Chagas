@@ -76,8 +76,10 @@ export default function MoviesList() {
             totalPages={moviesList.total_pages}
             page={pathParams.page} />
 
-    const displayResultsQuantity = moviesList.total_results > 0 && <h5 id={"resultsInfo"}>
-        exibindo {moviesList.results.length.toLocaleString("pt-br")} de {moviesList.total_results.toLocaleString("pt-br")}
+    const displayResultsQuantity = moviesList.total_results > 0 &&
+    <h5 id={"resultsInfo"}> exibindo&nbsp;
+        {moviesList.results.length.toLocaleString("pt-br")}&nbsp;de&nbsp;
+        {moviesList.total_results.toLocaleString("pt-br")}&nbsp;títulos
     </h5>
 
     return (

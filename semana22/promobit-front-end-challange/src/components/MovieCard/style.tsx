@@ -49,13 +49,17 @@ export const Container = styled.div`
         margin-top: 2%;
         overflow: hidden;
         scrollbar-width:thin;
-        :hover, :focus{
-            cursor: grab;
-            overflow-x: scroll;
-        }
-        ::-webkit-scrollbar {
-        height: 8px;
-        width: 8px;
+        -webkit-overflow-scrolling: touch; 
+        :hover, :focus{            
+            overflow: scroll;
+            scroll-behavior: smooth;
+            scrollbar-width: 8px; 
+            cursor: move;
+            ::-webkit-scrollbar {
+                height: 8px;
+                width: 8px;
+                overflow-x: scroll;
+            }
         }
         ::-webkit-scrollbar-thumb {
             background: ${COLOR.BLUE_MIDDLE};
