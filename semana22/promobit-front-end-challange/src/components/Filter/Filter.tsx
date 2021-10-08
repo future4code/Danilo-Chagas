@@ -1,8 +1,13 @@
-import { Suspense, useContext, useEffect, useLayoutEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { Container, FilterType } from "./style";
 import { genres } from '../../models/genresList'
-import { filter, sortByValues } from "../../models/FilterModel";
+import { sortByValues } from "../../models/FilterModel";
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import Chip from '@mui/material/Chip';
+import { Button, Stack } from "@material-ui/core";
+import { Done } from "@mui/icons-material";
+import { FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 export default function Filter(props: any) {
 
@@ -50,23 +55,38 @@ export default function Filter(props: any) {
 
     }
 
+    const onClickClearAllGenres = () => {
+        setActivedGenres([])
+
+        return setFilter({
+            ...activeSort,
+            genresId: []
+        })
+    }
+
     const displaySortBy = !genreList ? <p>...</p> : sortBy.map((item: any, index: number) => {
         const isActive = !activeSort ? false : activeSort.sortBy === item.value
         return (
-            <li
-                onClick={() => onClickSortByButton(item.value)}
-                className={`active-${isActive}`}
-                key={index}>{item.name}</li>
+            <FormControlLabel
+                onChange={() => onClickSortByButton(item.value)}
+                label={item.name}
+                value={item.value}
+                control={<Radio />}/>
         )
     })
 
     const displayGenres = !genreList ? <p>...</p> : genreList?.map((item: genres) => {
         const isActive = !activedGenres ? false : activedGenres.includes(item.id)
         return (
-            <li
+            <Chip
+                label={item.name}
+                variant="outlined"
                 onClick={() => onClickGenreButton(item.id)}
-                className={`active-${isActive}`}
-                key={item.id}>{item.name}</li>
+                color={isActive ? "success" : "default"}
+                key={item.id}
+                deleteIcon={isActive ? <Done /> : <></>}
+                onDelete={() => onClickGenreButton(item.id)}
+            />
         )
     })
 
@@ -76,14 +96,28 @@ export default function Filter(props: any) {
             <FilterType>
                 <details open>
                     <summary className={"name"} >Ordenar por</summary>
-                    <ul>{displaySortBy}</ul>
+                    <RadioGroup
+                        aria-label="order by"
+                        defaultValue={sortByValues.POPULARITY_DESC}
+                        name="radio-option">
+                        {displaySortBy}
+                    </RadioGroup>
                 </details>
             </FilterType>
 
+
             <FilterType>
                 <details open>
-                    <summary className={"name"}>Gênero</summary>
-                    <ul>{displayGenres}</ul>
+                    <summary className={"name"}>Gênero </summary>
+                    <Stack direction="column" spacing={1} mt={1}>
+                        <Button
+                            variant="outlined"
+                            startIcon={<DeleteSweepIcon />}
+                            onClick={() => onClickClearAllGenres()}>
+                            Limpar Tudo
+                        </Button>
+                        {displayGenres}
+                    </Stack>
                 </details>
             </FilterType>
 
