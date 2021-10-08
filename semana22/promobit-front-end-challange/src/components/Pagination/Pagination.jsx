@@ -32,7 +32,7 @@ export default function PaginationControlled(props) {
     };
 
     return (
-        <Stack mb={props.position === "top" && 2} mt={props.position === "botton" && 2} spacing={2}>
+        <Stack id={"pagination"} mb={props.position === "top" && 0} mt={props.position === "botton" && 2} spacing={2}>
             <Pagination count={props.totalPages} defaultPage={1} page={Number(props.page)} onChange={onChangePagination} />
         </Stack>
     );

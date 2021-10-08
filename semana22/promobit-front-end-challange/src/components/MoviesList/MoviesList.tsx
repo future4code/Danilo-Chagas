@@ -5,12 +5,11 @@ import { goToPage, goToSearch } from "../../routes/coordinator";
 import MovieCard from "../MovieCard/MovieCard";
 import PaginationControlled from "../Pagination/Pagination";
 import NoContent from "../NoContent/NoContent"
-import { Container, MoviesContainer } from "./style";
+import { Container, MoviesContainer, PaginationContainer } from "./style";
 import { Button, Stack } from "@material-ui/core";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 export default function MoviesList() {
-
 
     const { states, setters, functions } = useContext(GlobalStateContext)
     const { genreList, moviesList, isSearching } = states
@@ -57,9 +56,10 @@ export default function MoviesList() {
                 return <MovieCard key={item.id} item={item} genres={genres} />
 
             })
+
     const displayQuitSearch = () => {
         if (isSearching) {
-            return <Stack mt={2}>
+            return <Stack my={2}>
                 <Button
                     variant="outlined"
                     endIcon={<ExitToAppIcon />}
@@ -69,12 +69,21 @@ export default function MoviesList() {
         }
     }
 
-    const displayPagination = (position: "top" | "botton") => moviesList.total_results > 0 && <PaginationControlled position={position} totalPages={moviesList.total_pages} page={pathParams.page} />
+    const displayPagination = (position: "top" | "botton") =>
+        moviesList.total_results > 0 && <PaginationControlled
+            id={"pagination"}
+            position={position}
+            totalPages={moviesList.total_pages}
+            page={pathParams.page} />
+
+    const displayResultsQuantity = moviesList.total_results > 0 && <h5 id={"resultsInfo"}>
+        exibindo {moviesList.results.length.toLocaleString("pt-br")} de {moviesList.total_results.toLocaleString("pt-br")}
+    </h5>
 
     return (
         <Container>
             {displayQuitSearch()}
-            {displayPagination("top")}
+            <PaginationContainer>{displayPagination("top")} {displayResultsQuantity}</PaginationContainer>
             <MoviesContainer>
                 {displayMovies}
             </MoviesContainer>

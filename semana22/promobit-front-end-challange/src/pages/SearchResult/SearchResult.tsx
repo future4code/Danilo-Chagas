@@ -3,8 +3,6 @@ import { Container } from "./style";
 
 export default function SearchResult() {
     return (
-        <Container>
-            <MoviesList />
-        </Container>
+        <Container><MoviesList /></Container>
     )
 }
