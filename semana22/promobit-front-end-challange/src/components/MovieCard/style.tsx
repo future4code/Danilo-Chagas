@@ -9,9 +9,10 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 148px;
-    height: 342px;
-    border: 1px solid ${COLOR.GRAY_LIGHT};
+    width: 186px;
+    aspect-ratio: 2/4;
+    /* height: 342px; */
+    /* border: 1px solid ${COLOR.GRAY_LIGHT}; */
     border-radius: 10px;
     box-shadow: 0px 2px 4px;
     cursor: pointer;
@@ -23,21 +24,21 @@ export const Container = styled.div`
     img{
         object-fit: cover;
         width: 100%;
-        height: 222px;
+        height: 300px;
         background-color: ${COLOR.GRAY_MIDDLE};
         background-size: 1vmin;
         background-repeat: no-repeat;       
     }
 
     .title{
-        flex-grow: 1;
+        /* flex-grow: 1; */
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: ${fluidFontSize(12, 16)} ;
         text-align: center;
         width: ${widthLowBox};
-        
+        margin-top: 2%;
     }
     .genres{
         position: relative;
@@ -74,8 +75,8 @@ export const Container = styled.div`
         color: ${COLOR.GRAY_MIDDLE};
     }
     :hover{
-        border: 1px solid ${COLOR.BLUE_DARK};
-        box-shadow: 2px 2px 4px;
+        /* border: 1px solid ${COLOR.BLUE_DARK}; */
+        box-shadow: 1px 2px 4px ${COLOR.BLUE_DARK};
 
     }
 `

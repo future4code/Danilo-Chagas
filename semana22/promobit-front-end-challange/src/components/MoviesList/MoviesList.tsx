@@ -62,7 +62,7 @@ export default function MoviesList() {
                 <Button
                     variant="outlined"
                     endIcon={<ExitToAppIcon />}
-                    onClick={() => goToHomePage()}
+                    onClick={() => {goToHomePage(); resetFilterState()}}
                 >sair da pesquisa</Button>
             </Stack>
         }
