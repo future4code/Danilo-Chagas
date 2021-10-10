@@ -30,6 +30,7 @@ export type MovieDetailType = {
     vote_count: number,
     videos?: videos,
     images?: Array<images>
+    certifications?: Array<certificationHead>
 }
 
 export type belongsToCollection = {
@@ -117,4 +118,17 @@ export type crew = {
     credit_id: string,
     department: string,
     job: string
+}
+
+export type certificationHead = {
+    iso_3166_1: string,
+    release_dates : Array<releaseDates>
+}
+
+export type releaseDates = {
+    certification: string,
+    iso_639_1: string,
+    note: string,
+    release_date: string,
+    type: number
 }

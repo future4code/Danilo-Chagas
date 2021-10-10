@@ -8,7 +8,8 @@ export const ActorCard = styled.div`
     justify-content: flex-start;
     min-width: 200px;
     aspect-ratio: 3/4;
-    
+    margin-top: 2%;
+    border-radius: 4px;
     *{
         margin: 0;
         padding: 0;
@@ -18,6 +19,8 @@ export const ActorCard = styled.div`
         height: 200px;
         aspect-ratio: 3/4;
         background-color: ${COLOR.GRAY_LIGHT};
+        box-shadow: 1px 1px 4px;
+        border-radius: 4px;
     }
     .name{
         width: 92%;

@@ -27,7 +27,6 @@ export default function MoviesList() {
     }
 
     useLayoutEffect(() => {
-        console.log(isSearching, location.pathname.includes("busca"), pathParams.encodedQuery)
         if (!pathParams.page || isNaN(Number(pathParams.page))) {
             goToHomePage()
         } else if (!isSearching && location.pathname.includes("busca") && !!pathParams.encodedQuery) {
