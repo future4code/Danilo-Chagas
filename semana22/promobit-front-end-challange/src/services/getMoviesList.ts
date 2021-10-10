@@ -6,11 +6,13 @@ export default async function getMoviesList(
     selectedGenres: Array<number | null> = []
 ): Promise<any> {
     const today = new Date()
+    const todayMonth = ((today.getMonth() + 1) * 0.01 % 1).toFixed(2).substring(2)
+    const todayDay = (today.getDate() * 0.01 % 1).toFixed(2).substring(2)
     const language = "language=pt-br"
     const region = "region=BR"
     const excludeAdultMovie = "include_adult=false"
-    const primaryLastReleaseDate = `primary_release_date.lte=${today.getFullYear()}-${(today.getMonth() + 1)}-${"0" + today.getDate()}`
-    const lastReleaseDate = `release_date.lte=${today.getFullYear()}-${(today.getMonth() + 1)}-${"0" + today.getDate()}`
+    const primaryLastReleaseDate = `primary_release_date.lte=${today.getFullYear()}-${todayMonth}-${todayDay}`
+    const lastReleaseDate = `release_date.lte=${today.getFullYear()}-${todayMonth}-${todayDay}`
     const releaseType = `with_release_type=2|3`
     let page = `page=${selectedPage}`
     let sort_by = `sort_by=${sortBy}`
