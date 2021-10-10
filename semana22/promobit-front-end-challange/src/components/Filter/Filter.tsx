@@ -98,7 +98,8 @@ export default function Filter(props: any) {
         <Container className={`visible-${!isSearching}`}>
 
             <FilterType>
-                <details open={changeToResponsive} >
+                <details id={"ordeBy-container"}
+                    open={!changeToResponsive} >
                     <summary className={"name"} >Ordenar por</summary>
                     <RadioGroup
                         aria-label="order by"
@@ -112,18 +113,21 @@ export default function Filter(props: any) {
 
             <FilterType>
                 <details id={"genres-container"}
-                {...!changeToResponsive && `open`}>
-                    
+                    open={!changeToResponsive}>
+
                     <summary className={"name"}>Gênero </summary>
-                    
+
                     <Stack
-                    {...changeToResponsive && `display: block`}
-                    direction={changeToResponsive ? "row" : "column"}
-                    alignItems={changeToResponsive ? 'stretch' : 'stretch'}
-                    justifyContent={changeToResponsive ? 'flex-start' : 'flex-start'}
-                    flexWrap={changeToResponsive ? 'wrap' : 'nowrap'}
-                    rowGap={1} 
-                    spacing={1} mt={1}>
+                        {...changeToResponsive && `display: block`}
+                        direction={changeToResponsive ? "row" : "column"}
+                        alignItems={changeToResponsive ? 'stretch' : 'stretch'}
+                        justifyContent={changeToResponsive ? 'flex-start' : 'flex-start'}
+                        flexWrap={changeToResponsive ? 'wrap' : 'nowrap'}
+                        rowGap={1}
+                        spacing={1} mt={1}
+                        width={changeToResponsive ? '90%' : '100%'}
+                        mx={'auto'}
+                    >
                         <Button
                             variant="outlined"
                             startIcon={<DeleteSweepIcon />}

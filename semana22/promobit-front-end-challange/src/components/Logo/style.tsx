@@ -14,4 +14,7 @@ export const Logotype = styled.h2`
     filter: drop-shadow(1px 2px 10px ${COLOR.YELLOW});
     color: ${COLOR.WHITE};
     cursor: pointer;
+    @media(max-device-width: 500px){
+     margin: 2% 0;
+    }
 `

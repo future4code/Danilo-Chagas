@@ -18,8 +18,8 @@ export const Container = styled.div`
     @media(max-device-width: 500px){
         position: relative;
         padding: 0;
-        width: 90%;
-        margin:0 auto;
+        width: 100%;
+        margin:0 auto 2% auto;
     }
 `
 
@@ -48,19 +48,20 @@ export const FilterType = styled.div`
     }   
     @media(max-device-width: 500px){
         .name{
-        margin: 0;
-        font-size: ${fluidFontSize(14, 22)};
-        font-weight: 800;
-        font-variant: small-caps;
-        color: ${COLOR.GRAY_DARK};
-        cursor: pointer;
-        width: 100%;
-    }
-        #genres-container{
+            /* margin: 0; */
+            font-size: ${fluidFontSize(14, 22)};
+            font-weight: 800;
+            font-variant: small-caps;
+            color: ${COLOR.GRAY_DARK};
+            cursor: pointer;
+            width: 100%;
+            margin: 0 auto;
+        };
+        #genres-container, #ordeBy-container{
             display: flex;
             flex-wrap: wrap;
-            width: 100%;
-            margin: auto
+            width: 90%;
+            margin: 0 auto;
         }
     }
 `
