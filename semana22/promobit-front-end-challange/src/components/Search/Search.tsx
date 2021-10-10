@@ -2,7 +2,7 @@ import { IconButton, OutlinedInput } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import SearchIcon from '@mui/icons-material/Search';
 import { Container } from "./style";
-import { SyntheticEvent, useContext } from "react";
+import { useContext, useEffect } from "react";
 import { goToSearch } from "../../routes/coordinator";
 import { useHistory } from "react-router";
 import GlobalStateContext from "../../global/GlobalStateContext";
@@ -10,12 +10,19 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 
 export default function Search() {
 
-    const { setters, functions } = useContext(GlobalStateContext)
+    const { states, setters, functions } = useContext(GlobalStateContext)
+    const { filter, isSearching } = states
     const { setIsSearching, setQuerySearch } = setters
     const { resetFilterState } = functions
-    const { input, onChangeInput } = useForm({ search: "" })
+    const { input, onChangeInput, cleanFields } = useForm({ search: "" })
 
     const history = useHistory()
+
+    useEffect(() => {
+        if(!isSearching){
+            cleanFields()
+        }
+    }, [filter, isSearching])
 
     const requestQuery = (event: React.KeyboardEvent<HTMLDivElement>) => {
 
