@@ -26,6 +26,10 @@ export const PaginationContainer = styled.div`
         margin-right: 8%;
         color:${COLOR.GRAY_MIDDLE}
     }
+    @media(max-device-width: 500px){
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 export const MoviesContainer = styled.div`

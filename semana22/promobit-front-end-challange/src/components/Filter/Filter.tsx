@@ -22,11 +22,14 @@ export default function Filter(props: any) {
         { name: "mais recentes", value: sortByValues.RELEASE_DATE_DESC },
         { name: "menos recentes", value: sortByValues.RELEASE_DATE_ASC }
     ]
+    const { innerWidth } = window
+
+    const changeToResponsive = innerWidth <= 500 ? true : false
 
     useEffect(() => {
         setActiveSort({ sortBy: filter.sortBy })
         setActivedGenres(filter.genresId)
-    }, [isSearching])
+    }, [isSearching, innerWidth])
 
     const onClickSortByButton = (value: sortByValues) => {
         const newSort = { sortBy: value }
@@ -68,10 +71,11 @@ export default function Filter(props: any) {
         const isActive = !activeSort ? false : activeSort.sortBy === item.value
         return (
             <FormControlLabel
+                key={index}
                 onChange={() => onClickSortByButton(item.value)}
                 label={item.name}
                 value={item.value}
-                control={<Radio />}/>
+                control={<Radio />} />
         )
     })
 
@@ -94,7 +98,7 @@ export default function Filter(props: any) {
         <Container className={`visible-${!isSearching}`}>
 
             <FilterType>
-                <details open>
+                <details {...!changeToResponsive && 'open'} >
                     <summary className={"name"} >Ordenar por</summary>
                     <RadioGroup
                         aria-label="order by"
@@ -107,9 +111,19 @@ export default function Filter(props: any) {
 
 
             <FilterType>
-                <details open>
+                <details id={"genres-container"}
+                {...!changeToResponsive && 'open'}>
+                    
                     <summary className={"name"}>Gênero </summary>
-                    <Stack direction="column" spacing={1} mt={1}>
+                    
+                    <Stack
+                    {...changeToResponsive && `display: block`}
+                    direction={changeToResponsive ? "row" : "column"}
+                    alignItems={changeToResponsive ? 'stretch' : 'stretch'}
+                    justifyContent={changeToResponsive ? 'flex-start' : 'flex-start'}
+                    flexWrap={changeToResponsive ? 'wrap' : 'nowrap'}
+                    rowGap={1} 
+                    spacing={1} mt={1}>
                         <Button
                             variant="outlined"
                             startIcon={<DeleteSweepIcon />}
