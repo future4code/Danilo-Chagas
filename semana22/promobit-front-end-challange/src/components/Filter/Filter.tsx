@@ -98,7 +98,7 @@ export default function Filter(props: any) {
                     <summary className={"name"} >Ordenar por</summary>
                     <RadioGroup
                         aria-label="order by"
-                        defaultValue={sortByValues.POPULARITY_DESC}
+                        defaultValue={filter.sortBy}
                         name="radio-option">
                         {displaySortBy}
                     </RadioGroup>
