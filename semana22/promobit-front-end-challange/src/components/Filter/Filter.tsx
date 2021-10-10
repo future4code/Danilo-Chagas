@@ -98,7 +98,7 @@ export default function Filter(props: any) {
         <Container className={`visible-${!isSearching}`}>
 
             <FilterType>
-                <details {...!changeToResponsive && 'open'} >
+                <details open={changeToResponsive} >
                     <summary className={"name"} >Ordenar por</summary>
                     <RadioGroup
                         aria-label="order by"
@@ -112,7 +112,7 @@ export default function Filter(props: any) {
 
             <FilterType>
                 <details id={"genres-container"}
-                {...!changeToResponsive && 'open'}>
+                {...!changeToResponsive && `open`}>
                     
                     <summary className={"name"}>Gênero </summary>
                     

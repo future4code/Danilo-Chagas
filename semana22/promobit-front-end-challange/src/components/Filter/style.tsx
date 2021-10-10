@@ -18,7 +18,8 @@ export const Container = styled.div`
     @media(max-device-width: 500px){
         position: relative;
         padding: 0;
-        width: 100%;
+        width: 90%;
+        margin:0 auto;
     }
 `
 
@@ -59,6 +60,7 @@ export const FilterType = styled.div`
             display: flex;
             flex-wrap: wrap;
             width: 100%;
+            margin: auto
         }
     }
 `

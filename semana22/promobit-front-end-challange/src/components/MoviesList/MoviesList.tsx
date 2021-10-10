@@ -47,8 +47,8 @@ export default function MoviesList() {
 
                 const genres: string[] = []
 
-                item.genre_ids.forEach((id: number) => {
-                    const genre = genreList.find((item: any) => Number(item.id) === Number(id))
+                item?.genre_ids?.forEach((id: number) => {
+                    const genre = !genreList ? [] : genreList?.find((item: any) => Number(item.id) === Number(id))
                     return genres.push(genre.name)
                 })
 
