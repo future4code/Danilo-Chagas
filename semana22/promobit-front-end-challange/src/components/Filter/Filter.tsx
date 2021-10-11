@@ -8,6 +8,7 @@ import Chip from '@mui/material/Chip';
 import { Button, Stack } from "@material-ui/core";
 import { Done } from "@mui/icons-material";
 import { FormControlLabel, RadioGroup, Radio } from "@mui/material";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export default function Filter(props: any) {
 
@@ -22,14 +23,15 @@ export default function Filter(props: any) {
         { name: "mais recentes", value: sortByValues.RELEASE_DATE_DESC },
         { name: "menos recentes", value: sortByValues.RELEASE_DATE_ASC }
     ]
-    const { innerWidth } = window
+    const  innerWidth = useWindowSize()
 
-    const changeToResponsive = innerWidth <= 500 ? true : false
+    const changeToResponsive = innerWidth[0] <= 500 ? true : false
 
     useEffect(() => {
         setActiveSort({ sortBy: filter.sortBy })
         setActivedGenres(filter.genresId)
-    }, [isSearching, innerWidth])
+        console.log(innerWidth)
+    }, [isSearching])
 
     const onClickSortByButton = (value: sortByValues) => {
         const newSort = { sortBy: value }
@@ -120,8 +122,8 @@ export default function Filter(props: any) {
                     <Stack
                         {...changeToResponsive && `display: block`}
                         direction={changeToResponsive ? "row" : "column"}
-                        alignItems={changeToResponsive ? 'stretch' : 'stretch'}
-                        justifyContent={changeToResponsive ? 'flex-start' : 'flex-start'}
+                        alignItems={changeToResponsive ? 'center' : 'stretch'}
+                        justifyContent={changeToResponsive ? 'center' : 'flex-start'}
                         flexWrap={changeToResponsive ? 'wrap' : 'nowrap'}
                         rowGap={1}
                         spacing={1} mt={1}
@@ -131,7 +133,8 @@ export default function Filter(props: any) {
                         <Button
                             variant="outlined"
                             startIcon={<DeleteSweepIcon />}
-                            onClick={() => onClickClearAllGenres()}>
+                            onClick={() => onClickClearAllGenres()}
+                            fullWidth={changeToResponsive}>
                             Limpar Tudo
                         </Button>
                         {displayGenres}
