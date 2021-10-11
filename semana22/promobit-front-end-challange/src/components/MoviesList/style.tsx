@@ -22,11 +22,11 @@ export const PaginationContainer = styled.div`
     };
     #resultsInfo{
         grid-area: resultsInfo;
-        justify-self: end;
+        justify-self: center;
         margin-right: 8%;
         color:${COLOR.GRAY_MIDDLE}
     }
-    @media(max-device-width: 500px){
+    @media(max-width: 1200px){
         display: flex;
         flex-direction: column;
     }

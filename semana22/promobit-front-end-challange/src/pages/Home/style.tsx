@@ -10,7 +10,7 @@ export const Container = styled.div`
     h1{
         margin: auto;
     }
-    @media(max-device-width: 414px){
+    @media(max-width: 600px){
         display: flex;
         flex-direction: column;
     }

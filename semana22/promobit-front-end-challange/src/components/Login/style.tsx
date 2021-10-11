@@ -19,7 +19,7 @@ export const Container = styled.div`
             color: ${COLOR.GRAY_LIGHT};
         }
     }
-    @media(max-device-width: 414px){
+    @media(max-width: 600px){
         display: none;
     }
 `

@@ -11,7 +11,7 @@ export const Container = styled.div`
     .search-box{
         background-color: white;
     }
-    @media(max-device-width: 414px){
+    @media(max-width: 600px){
         width: 68%;
     }
 `

@@ -15,7 +15,7 @@ export const Container = styled.div`
         display: none;
     }
     
-    @media(max-device-width: 500px){
+    @media(max-width: 600px){
         position: relative;
         padding: 0;
         width: 100%;
@@ -46,7 +46,7 @@ export const FilterType = styled.div`
         cursor: pointer;
         }
     }   
-    @media(max-device-width: 500px){
+    @media(max-width: 600px){
         .name{
             /* margin: 0; */
             font-size: ${fluidFontSize(14, 22)};

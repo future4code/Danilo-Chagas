@@ -10,7 +10,7 @@ export const Container = styled.div`
     width: 100%;
     min-height: fit-content;
     background-color: ${COLOR.BLUE_DARK};
-    @media(max-device-width: 414px){
+    @media(max-width: 600px){
         padding-bottom: 4%;
     }
 `
@@ -27,7 +27,7 @@ export const ContainerRow = styled.div`
     align-items: center;
     width: 100%;
     margin: 1vmin 0;
-    @media(max-device-width: 414px){
+    @media(max-width: 600px){
         display: flex;
         flex-direction: column;
         row-gap: 8%;

@@ -25,7 +25,7 @@ export default function Filter(props: any) {
     ]
     const  innerWidth = useWindowSize()
 
-    const changeToResponsive = innerWidth[0] <= 500 ? true : false
+    const changeToResponsive = innerWidth[0] <= 600 ? true : false
 
     useEffect(() => {
         setActiveSort({ sortBy: filter.sortBy })

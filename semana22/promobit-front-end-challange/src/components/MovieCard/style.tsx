@@ -11,8 +11,6 @@ export const Container = styled.div`
     justify-content: space-between;
     width: 186px;
     aspect-ratio: 2/4;
-    /* height: 342px; */
-    /* border: 1px solid ${COLOR.GRAY_LIGHT}; */
     border-radius: 10px;
     box-shadow: 0px 2px 4px;
     cursor: pointer;
@@ -31,11 +29,10 @@ export const Container = styled.div`
     }
 
     .title{
-        /* flex-grow: 1; */
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: ${fluidFontSize(12, 16)} ;
+        font-size: ${fluidFontSize(10, 16)} ;
         text-align: center;
         width: ${widthLowBox};
         margin-top: 2%;
@@ -66,7 +63,6 @@ export const Container = styled.div`
         ::-webkit-scrollbar-thumb {
             background: ${COLOR.BLUE_MIDDLE};
         }
-        
     }
     .launch{
         width: ${widthLowBox};
@@ -75,9 +71,17 @@ export const Container = styled.div`
         color: ${COLOR.GRAY_MIDDLE};
     }
     :hover{
-        /* border: 1px solid ${COLOR.BLUE_DARK}; */
         box-shadow: 1px 2px 4px ${COLOR.BLUE_DARK};
-
+    }
+    @media(max-width:600px){
+        -webkit-overflow-scrolling: touch; 
+        .genres{
+            ::-webkit-scrollbar {
+                height: 8px;
+                width: 8px;
+                overflow-x: scroll;
+            }
+        };
     }
 `
 
@@ -96,4 +100,7 @@ export const Genre = styled.p`
     text-transform: lowercase;
     word-wrap: normal;
     white-space: nowrap;
+    @media(max-width:600px){
+        font-size: small;
+    }
 `
