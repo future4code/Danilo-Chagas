@@ -19,13 +19,13 @@ export default function Search() {
     const history = useHistory()
 
     useEffect(() => {
-        if(!isSearching){
+        if (!isSearching) {
             cleanFields()
         }
     }, [filter, isSearching])
 
     const requestQuery = (event: React.KeyboardEvent<HTMLDivElement>) => {
-
+        if (!input.search || !input.search.trim()) { return }
         if (event.key === "Enter") {
             resetFilterState()
             setIsSearching(true)
@@ -35,6 +35,7 @@ export default function Search() {
     }
 
     const onClickSearchIcon = () => {
+        if (!input.search || !input.search.trim()) { return }
         resetFilterState()
         setIsSearching(true)
         setQuerySearch(input.search)
