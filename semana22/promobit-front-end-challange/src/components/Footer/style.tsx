@@ -6,9 +6,13 @@ export const Container = styled.footer`
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* min-height: 4vmin; */
+    height: 4vmax;
     margin: 0;
     background-color: ${COLOR.GRAY_DARK};
+    h6{
+        text-align: center;
+        color: ${COLOR.WHITE};
+    }
     *{
         margin: 0;
         padding: 0
