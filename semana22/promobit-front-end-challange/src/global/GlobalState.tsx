@@ -1,10 +1,12 @@
-import { useState, useLayoutEffect, useEffect } from "react"
+import { useState, useEffect } from "react"
 import GlobalStateContext from "./GlobalStateContext"
 import getGenreList from "../services/getGenreList"
 import getMoviesList from "../services/getMoviesList"
-import { goToHome, goToPage } from "../routes/coordinator"
+import { goToPage } from "../routes/coordinator"
 import { useHistory } from "react-router"
 import getSearchMovies from "../services/getSearchMovies"
+import { DEFAULT_GENRES } from "../constants/defaultGenres"
+import { genres } from "../models/genresList"
 
 const GlobalState = (props: any) => {
 
@@ -13,7 +15,7 @@ const GlobalState = (props: any) => {
         genresId: []
     }
 
-    const [genreList, setGenreList] = useState("")
+    const [genreList, setGenreList] = useState<genres[] | null>(DEFAULT_GENRES)
     const [moviesList, setMoviesList] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [filter, setFilter] = useState(initialFilterState)
@@ -22,7 +24,7 @@ const GlobalState = (props: any) => {
 
     const history = useHistory()
 
-    function resetFilterState () {
+    function resetFilterState() {
         return setFilter(initialFilterState)
     }
 
@@ -32,8 +34,9 @@ const GlobalState = (props: any) => {
                 .then(res =>
                     setGenreList(res)
                 )
-                .catch(err => {
+                .catch(() => {
                     window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
+                    setGenreList(DEFAULT_GENRES)
                 })
         }
 
@@ -46,7 +49,7 @@ const GlobalState = (props: any) => {
                 .then(res =>
                     setMoviesList(res)
                 )
-                .catch(err => {
+                .catch(() => {
                     window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
                 })
         }
@@ -56,7 +59,7 @@ const GlobalState = (props: any) => {
                 .then(res =>
                     setMoviesList(res)
                 )
-                .catch(err => {
+                .catch(() => {
                     window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
                 })
         }

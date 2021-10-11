@@ -23,14 +23,13 @@ export default function Filter(props: any) {
         { name: "mais recentes", value: sortByValues.RELEASE_DATE_DESC },
         { name: "menos recentes", value: sortByValues.RELEASE_DATE_ASC }
     ]
-    const  innerWidth = useWindowSize()
+    const innerWidth = useWindowSize()
 
     const changeToResponsive = innerWidth[0] <= 600 ? true : false
 
     useEffect(() => {
         setActiveSort({ sortBy: filter.sortBy })
         setActivedGenres(filter.genresId)
-        console.log(innerWidth)
     }, [isSearching])
 
     const onClickSortByButton = (value: sortByValues) => {
@@ -70,7 +69,6 @@ export default function Filter(props: any) {
     }
 
     const displaySortBy = !genreList ? <p>...</p> : sortBy.map((item: any, index: number) => {
-        const isActive = !activeSort ? false : activeSort.sortBy === item.value
         return (
             <FormControlLabel
                 key={index}

@@ -68,6 +68,7 @@ export default function MovieDetail() {
         <RowContainer >
             <Poster>
                 <img className={"poster"}
+                    alt={"movie poster"}
                     src={`https://image.tmdb.org/t/p/w${300}${details?.poster_path}`} />
             </Poster>
             <Detail>

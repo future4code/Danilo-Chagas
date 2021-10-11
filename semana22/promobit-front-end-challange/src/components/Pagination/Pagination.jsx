@@ -1,8 +1,6 @@
-import React, { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Pagination from '@mui/material/Pagination';
-import { useStyles } from './style'
 import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
 import { goToPage, goToSearch } from '../../routes/coordinator';
 import Stack from '@mui/material/Stack';
 import GlobalStateContext from '../../global/GlobalStateContext';
@@ -10,19 +8,9 @@ import GlobalStateContext from '../../global/GlobalStateContext';
 
 export default function PaginationControlled(props) {
 
-    const { states, setters } = useContext(GlobalStateContext)
-    const { setCurrentPage } = setters
+    const { states } = useContext(GlobalStateContext)
     const { isSearching, querySearch } = states
-    const [pageIncrementation, setpageIncrementation] = useState(10)
     const history = useHistory()
-
-    useEffect(() => {
-        if (props.page >= 10) {
-            setpageIncrementation(Number(props.page) + 1)
-        } else {
-            setpageIncrementation(10)
-        }
-    }, [props])
 
     const onChangePagination = (event, value) => {
         if (isSearching) {

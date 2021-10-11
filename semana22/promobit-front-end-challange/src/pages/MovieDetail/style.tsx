@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import COLOR from '../../constants/colors'
-import fluidFontSize from '../../services/fluidFontSize'
 
 export const Container = styled.div`
     flex-grow: 1;
