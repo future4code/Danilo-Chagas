@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Promobit Frontend Test | TheMovieDB API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Deploy
+surge: [TopMovies](https://topmovies-danilo.surge.sh)
 
-## Available Scripts
+# O que funciona
+* [x] O usuário deve ter acesso a uma listagem dos filmes mais populares do dia;
+* [x] O usuário deve conseguir paginar a lista para encontrar novos filmes;
+* [x] O usuário deve conseguir filtrar os filmes listados por gênero, com a possibilidade de usar mais de um gênero;
+* [x] Ao realizar filtros, o mesmo deve ser persistido pela paginação;
+* [x] O usuário deve conseguir remover filtros e a listagem deve ser atualizada de acordo com o filtro removido;
+* [x] O usário deve ter acesso a uma outra página com detalhes sobre o filme, ao clicar em um item na listagem;
+* [x] O usuário deve conseguir voltar para a página de listagem de filmes com os filtros ainda ativos;
+* [x] O app deverá ser criado usando [React](https://reactjs.org/);
+* [x] Na raiz do projeto, será necessário incluir um arquivo `README.md` com as instruções para construir seu projeto localmente;
+* [x] O app deverá se comportar da mesma forma na última versão estável dos seguintes browsers: Chrome, Firefox, Edge;
+* [x] A página com detalhes de um filme deve possuir uma rota própria e estar preparada para ser indexada em mecanismos de pesquisa;
+* [x] O app deverá ser responsivo
 
-In the project directory, you can run:
+# Extras
+* [x] Aplicar uma solução [CSS-in-JS](https://github.com/MicheleBertoli/css-in-js) ou [CSS Modules](https://github.com/css-modules/css-modules);
+ - [x]  Styled-Components
+* [x] Implemente outras funcionalidades que você acredite ser útil para o usuário desse app;
+ - [x]  Busca por título
 
-### `npm start`
+# Em desenvolvimento
+* [ ] Usar um framework para server-side rendering (SSR) ou static generation (SSG) como: [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), [Nuxt.js](https://nuxtjs.org/);
+* [ ] Escrever ou configurar testes de qualquer tipo, como: testes estáticos, unidade, integração, etc
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Iniciar o projeto localmente
+Na pasta raiz do projeto , execute o script `npm start`
+O projeto iniciará localmente via navegador em `http://localhost:3000`

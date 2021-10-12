@@ -15,7 +15,7 @@ const GlobalState = (props: any) => {
         genresId: []
     }
 
-    const [genreList, setGenreList] = useState<genres[] | null>(DEFAULT_GENRES)
+    const [genreList, setGenreList] = useState<genres[]>(DEFAULT_GENRES)
     const [moviesList, setMoviesList] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [filter, setFilter] = useState(initialFilterState)
@@ -46,9 +46,9 @@ const GlobalState = (props: any) => {
 
         if (!isSearching) {
             getMoviesList(currentPage, filter.sortBy, filter.genresId)
-                .then(res =>
+                .then(res => {
                     setMoviesList(res)
-                )
+                })
                 .catch(() => {
                     window.alert("Erro ao carregar informações externas\nPor favor, tente novamente ou contate suporte técnico")
                 })

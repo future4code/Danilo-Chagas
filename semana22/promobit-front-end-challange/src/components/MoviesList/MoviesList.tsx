@@ -37,7 +37,16 @@ export default function MoviesList() {
         } else {
             setCurrentPage(Number(pathParams.page))
         }
-    }, [genreList, pathParams.page, location])
+
+    }, [genreList, moviesList.page, pathParams.page, location])
+
+    if (pathParams?.page && moviesList?.total_pages) {
+        pathParams.page > moviesList?.total_pages && goToPage(history, 1)
+    }
+
+    if (!moviesList.results){
+        return <NoContent />
+    }
 
     const displayMovies = !moviesList ?
         <span>Loading...</span> :
@@ -62,7 +71,7 @@ export default function MoviesList() {
                 <Button
                     variant="outlined"
                     endIcon={<ExitToAppIcon />}
-                    onClick={() => {resetFilterState(); goToHomePage()}}
+                    onClick={() => { resetFilterState(); goToHomePage() }}
                 >sair da pesquisa</Button>
             </Stack>
         }
@@ -76,15 +85,23 @@ export default function MoviesList() {
             page={pathParams.page} />
 
     const displayResultsQuantity = moviesList.total_results > 0 &&
-    <h5 id={"resultsInfo"}> exibindo&nbsp;
-        {moviesList.results.length.toLocaleString("pt-br")}&nbsp;de&nbsp;
-        {moviesList.total_results.toLocaleString("pt-br")}&nbsp;títulos
-    </h5>
+        <h5 id={"resultsInfo"}> exibindo&nbsp;
+            {moviesList.results.length.toLocaleString("pt-br")}&nbsp;de&nbsp;
+            {moviesList.total_results.toLocaleString("pt-br")}&nbsp;títulos
+        </h5>
+
+    const displayCurrentPage = moviesList.total_results > 0 &&
+        <h5 id={"currentPage"}> Página atual:&nbsp;{pathParams.page}</h5>
+
 
     return (
         <Container>
             {displayQuitSearch()}
-            <PaginationContainer>{displayPagination("top")} {displayResultsQuantity}</PaginationContainer>
+            <PaginationContainer>
+                {displayResultsQuantity}
+                {displayPagination("top")}
+                {displayCurrentPage}
+            </PaginationContainer>
             <MoviesContainer>
                 {displayMovies}
             </MoviesContainer>

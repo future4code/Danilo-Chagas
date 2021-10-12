@@ -8,7 +8,8 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-width: fit-content;
+    /* min-width: fit-content; */
+    width: 16vmax;
     height: 100%;
     padding: 0 2%;
     .visible-false{
@@ -30,7 +31,7 @@ export const FilterType = styled.div`
     justify-content: flex-start;
     width: 100%;
     margin-top: 8%;
-    .name{
+    .filter-name{
         margin: 0;
         font-size: ${fluidFontSize(14, 22)};
         font-weight: 800;
@@ -47,7 +48,8 @@ export const FilterType = styled.div`
         }
     }   
     @media(max-width: 600px){
-        .name{
+        margin-top: 2%;
+        .filter-name{
             /* margin: 0; */
             font-size: ${fluidFontSize(14, 22)};
             font-weight: 800;

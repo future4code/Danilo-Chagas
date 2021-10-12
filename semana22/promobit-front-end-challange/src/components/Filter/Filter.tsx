@@ -9,6 +9,8 @@ import { Button, Stack } from "@material-ui/core";
 import { Done } from "@mui/icons-material";
 import { FormControlLabel, RadioGroup, Radio } from "@mui/material";
 import useWindowSize from "../../hooks/useWindowSize";
+import { goToPage } from "../../routes/coordinator";
+import { useHistory } from "react-router";
 
 export default function Filter(props: any) {
 
@@ -27,6 +29,8 @@ export default function Filter(props: any) {
 
     const changeToResponsive = innerWidth[0] <= 600 ? true : false
 
+    const history = useHistory()
+
     useEffect(() => {
         setActiveSort({ sortBy: filter.sortBy })
         setActivedGenres(filter.genresId)
@@ -35,10 +39,13 @@ export default function Filter(props: any) {
     const onClickSortByButton = (value: sortByValues) => {
         const newSort = { sortBy: value }
         setActiveSort(newSort)
-        return setFilter({
-            ...newSort,
-            genresId: activedGenres
-        })
+        return (
+            setFilter({
+                ...newSort,
+                genresId: activedGenres
+            }),
+            goToPage(history, 1)
+        )
     }
 
     const onClickGenreButton = (genreId: number) => {
@@ -52,26 +59,30 @@ export default function Filter(props: any) {
             setActivedGenres(newArray)
         }
 
-        return setFilter({
-            ...activeSort,
-            genresId: newArray
-        })
+        return (
+            setFilter({
+                ...activeSort,
+                genresId: newArray
+            }),
+            goToPage(history, 1)
+        )
 
     }
 
     const onClickClearAllGenres = () => {
         setActivedGenres([])
 
-        return setFilter({
+        return (setFilter({
             ...activeSort,
             genresId: []
-        })
+        }), goToPage(history, 1)
+        )
     }
 
     const displaySortBy = !genreList ? <p>...</p> : sortBy.map((item: any, index: number) => {
         return (
             <FormControlLabel
-                key={index}
+                key={item.name}
                 onChange={() => onClickSortByButton(item.value)}
                 label={item.name}
                 value={item.value}
@@ -100,7 +111,7 @@ export default function Filter(props: any) {
             <FilterType>
                 <details id={"ordeBy-container"}
                     open={!changeToResponsive} >
-                    <summary className={"name"} >Ordenar por</summary>
+                    <summary className={"filter-name"} >Ordenar por</summary>
                     <RadioGroup
                         aria-label="order by"
                         defaultValue={filter.sortBy}
@@ -115,7 +126,7 @@ export default function Filter(props: any) {
                 <details id={"genres-container"}
                     open={!changeToResponsive}>
 
-                    <summary className={"name"}>Gênero </summary>
+                    <summary className={"filter-name"}>Gênero </summary>
 
                     <Stack
                         {...changeToResponsive && `display: block`}

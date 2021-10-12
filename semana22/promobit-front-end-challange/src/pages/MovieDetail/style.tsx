@@ -6,10 +6,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     box-sizing: border-box;
     width: 100%;
-    /* height: 50vh; */
+    /* height: 100%; */
     margin: auto auto;
     /* padding: 0 2% 2% 2%; */
     overflow: auto;
@@ -66,6 +66,7 @@ export const Poster = styled.div`
 `
 
 export const Detail = styled.div`
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

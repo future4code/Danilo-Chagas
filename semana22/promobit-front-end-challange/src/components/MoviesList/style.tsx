@@ -9,26 +9,40 @@ export const Container = styled.div`
     gap: 2%;
     width: 100%;
     min-height: 100%;
+    align-self: flex-start;
 `
 export const PaginationContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-areas: ". pagination resultsInfo";
+    grid-template-areas: "resultsInfo pagination currentPage";
     align-items: center;
     width: 100%;
+    #resultsInfo{
+        grid-area: resultsInfo;
+        justify-self: center;
+        margin-left: 8%;
+        color:${COLOR.GRAY_MIDDLE}
+    }
     #pagination{
         grid-area: pagination;
         justify-self: center;
     };
-    #resultsInfo{
-        grid-area: resultsInfo;
+    #currentPage{
+        grid-area: currentPage;
         justify-self: center;
         margin-right: 8%;
         color:${COLOR.GRAY_MIDDLE}
-    }
+    };
     @media(max-width: 1200px){
         display: flex;
         flex-direction: column;
+        margin: 4%;
+        #resultsInfo{
+            margin: auto auto
+        }
+        #currentPage{
+            margin: auto auto
+        };
     }
 `
 
