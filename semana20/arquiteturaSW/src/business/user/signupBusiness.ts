@@ -5,12 +5,8 @@ import { hash } from "../../services/hashManager";
 import { generateId } from "../../services/idGenerator";
 
 export const signupBusiness = async (
-   req: Request,
-   res: Response
+    { name, nickname, email, password, role } :any 
 ) => {
-   try {
-      const { name, nickname, email, password, role } = req.body
-
       if (
          !name ||
          !nickname ||

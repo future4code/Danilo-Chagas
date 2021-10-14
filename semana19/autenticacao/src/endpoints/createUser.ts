@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import {connection} from "../data/connection";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
+import insertUser from "../services/insertUser";
 import { user } from "../types";
 
 export default async function createUser(
@@ -10,33 +11,39 @@ export default async function createUser(
 ): Promise<void> {
    try {
 
-      const { name, nickname, email, password } = req.body
+      const {email, password } = req.body
 
-      if (!name || !nickname || !email ||!password) {
+      if (!email ||!password) {
          res.statusCode = 422
-         throw new Error("Preencha os campos 'name', 'nickname', 'password' e 'email'")
+         throw new Error("Missing 'password' and/or 'email' keys")
       }
 
       if (password.length < 6) {
          res.statusCode = 422
-         throw new Error("Senha deve ter no mínimo 6 caracteres")
+         throw new Error("'password' must be iqual or longer than 6 characters")
       }
 
-      const [user] = await connection('to_do_list_users')
+      if (email.includes("@")) {
+         res.statusCode = 422
+         throw new Error("Invalid 'email'")
+      }
+
+      const [user] = await connection('s19a55_users')
          .where({ email })
 
       if (user) {
          res.statusCode = 409
-         throw new Error('Email já cadastrado')
+         throw new Error('Email already registered')
       }
 
       const id: string = new IdGenerator().generateId()
 
-      const newUser: user = { id, name, nickname, email, password }
+      const newUser: user = { id, email, password }
 
-      await connection('to_do_list_users')
-         .insert(newUser)
+      await insertUser(newUser)
 
+      /*-------   PAREI AQUI. FUNÇÃO DE INSERIR NOVO USUARIO NO SQL OK   -------*/
+      
       const token:string = new Authenticator().generateToken({id})
 
       // Forma alternativa: 

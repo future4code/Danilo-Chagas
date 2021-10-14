@@ -1,4 +1,4 @@
-import { Customer, LOCATION, NACIONALITY, Result, verifyAge } from "../src";
+import { Customer, LOCATION, NACIONALITY, Result, verifyAge } from "../src/verifyAge";
 
 describe("Teste unitário da função 'verifyAge'", () => {
 
