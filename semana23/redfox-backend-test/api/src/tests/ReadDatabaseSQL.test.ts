@@ -58,7 +58,7 @@ describe("Test Suit for 'getAllDetails'", () => {
         try {
             const result = await realDatabase.getAllDetails(dto as any)
             console.log(result)
-            expect(result.data).toBeGreaterThan(1)
+            expect(result.result).toBeGreaterThan(1)
         } catch (error) {
             console.error
         }

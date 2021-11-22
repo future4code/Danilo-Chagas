@@ -23,6 +23,7 @@ export default class CustomError extends Error {
 }
 
 export enum ERROR_MESSAGES {
-    EMPTY_REQUEST = 'Failed to process. Empty request',
-    INVALID_KEYS = 'Failed to process. Invalid keys'
+    EMPTY_REQUEST = 'Failed to process request. Empty request',
+    INVALID_KEYS = 'Failed to process request. Invalid keys',
+    INVALID_OPERATION = 'Failed to process request. Invalid operation'
 }
