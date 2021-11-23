@@ -5,6 +5,7 @@ import { AddressInfo } from 'net';
 import { readRouter } from './routes/readRouters';
 import { createRouter } from './routes/createRouters';
 import { updateRouter } from './routes/updateRouters';
+import { deleteRouter } from './routes/deleteRouters';
 
 dotenv.config();
 
@@ -28,3 +29,4 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/v0/pokemon", readRouter)
 app.use("/api/v0/pokemon/create", createRouter)
 app.use("/api/v0/pokemon/update", updateRouter)
+app.use("/api/v0/pokemon/delete", deleteRouter)
