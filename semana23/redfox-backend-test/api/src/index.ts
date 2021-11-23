@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import cors from 'cors'
 import { AddressInfo } from 'net';
-import { pokemonRouter } from './routes/pokemonRouters';
+import { readRouter } from './routes/pokemonRouters';
 
 dotenv.config();
 
@@ -23,4 +23,4 @@ app.get("/", (req: Request, res: Response) => {
     res.status(200).send("Hello World")
 })
 
-app.use("/api/v0/pokemon", pokemonRouter)
+app.use("/api/v0/pokemon", readRouter)

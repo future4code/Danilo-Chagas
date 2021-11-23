@@ -62,32 +62,35 @@ export type pokemonFullDetail = {
     [POKEMON_KEY.CP100_L39]?: number,
 }
 
-export enum ALL_DETAILS_DTO {
+export enum REQ_DETAILS_DTO {
     PAGE = 'page',
-    QUEIRES = 'queries'
+    QUEIRES = 'queries',
+    DETAILS = 'details'
 }
 
-export type getAllDetailsDTO = {
-    page: number,
-    queries: pokemonFullDetail
+export type reqDetailsDTO = {
+    [REQ_DETAILS_DTO.PAGE]: number,
+    [REQ_DETAILS_DTO.QUEIRES]: pokemonFullDetail,
+    [REQ_DETAILS_DTO.DETAILS]?: pokemonFullDetail,
+
 }
 
-export enum REQUEST_RESULT_KEYS {
+export enum RESPONSE_RESULT_KEYS {
     MESSAGE = 'message',
     DATA = 'data'
 }
 
-export class requestResult {
-    [REQUEST_RESULT_KEYS.MESSAGE]: string
-    [REQUEST_RESULT_KEYS.DATA]: any
+export class responseResult {
+    [RESPONSE_RESULT_KEYS.MESSAGE]: string
+    [RESPONSE_RESULT_KEYS.DATA]: any
 
     static toResponseOutputModel(
         message: string,
         data: any
-    ): requestResult {
+    ): responseResult {
         return {
-            [REQUEST_RESULT_KEYS.MESSAGE]: message,
-            [REQUEST_RESULT_KEYS.DATA]: data
+            [RESPONSE_RESULT_KEYS.MESSAGE]: message,
+            [RESPONSE_RESULT_KEYS.DATA]: data
         }
     }
 }
@@ -103,4 +106,18 @@ export interface databaseQueryRequestDTO {
     [DB_QUERY_REQUEST_DTO.LIMIT]: number,
     [DB_QUERY_REQUEST_DTO.OFFSET]: number,
     [DB_QUERY_REQUEST_DTO.QUEIRES]: any
+}
+
+export enum DB_RESULT_KEYS {
+    TOTAL_RESULT = 'totalResults',
+    CURR_PAGE = 'currentPage',
+    TOTAL_PAGES = 'totalPages',
+    RESULT = 'result'
+}
+
+export interface databaseResult {
+    [DB_RESULT_KEYS.TOTAL_RESULT]: number,
+    [DB_RESULT_KEYS.CURR_PAGE]: number,
+    [DB_RESULT_KEYS.TOTAL_PAGES]: number,
+    [DB_RESULT_KEYS.RESULT]: any[],
 }

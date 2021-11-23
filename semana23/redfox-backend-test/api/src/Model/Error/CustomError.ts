@@ -1,4 +1,4 @@
-import { requestResult, REQUEST_RESULT_KEYS } from '../Pokemon'
+import { responseResult, RESPONSE_RESULT_KEYS } from '../Pokemon'
 
 export default class CustomError extends Error {
     constructor(
@@ -11,9 +11,9 @@ export default class CustomError extends Error {
 
 
     public mountErrorWithData() {
-        const errorBody: requestResult = {
-            [REQUEST_RESULT_KEYS.MESSAGE]: this.message,
-            [REQUEST_RESULT_KEYS.DATA]: this.data ?? null
+        const errorBody: responseResult = {
+            [RESPONSE_RESULT_KEYS.MESSAGE]: this.message,
+            [RESPONSE_RESULT_KEYS.DATA]: this.data ?? null
         }
         return {
             code: this.code,

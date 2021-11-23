@@ -1,6 +1,6 @@
 import ReadBusiness from "../Business/ReadBusiness/ReadBusiness";
 import { ERROR_MESSAGES } from "../Model/Error/CustomError";
-import { getAllDetailsDTO, POKEMON_KEY } from "../Model/Pokemon";
+import { reqDetailsDTO, POKEMON_KEY } from "../Model/Pokemon";
 import SQLDatabaseMock from "./mocks/SQLDatabaseMock";
 
 describe('Test Suit for "isValidQueryKey"', () => {
@@ -10,9 +10,9 @@ describe('Test Suit for "isValidQueryKey"', () => {
         expect.assertions(1)
 
         const mockDatabase = new SQLDatabaseMock()
-        const business = new ReadBusiness(mockDatabase)
+        const business = new ReadBusiness(mockDatabase as any)
 
-        const dto = {} as getAllDetailsDTO
+        const dto = {} as reqDetailsDTO
 
         try {
             const result = await business.getAllDetails(dto)
@@ -28,7 +28,7 @@ describe('Test Suit for "isValidQueryKey"', () => {
         expect.assertions(2)
 
         const mockDatabase = new SQLDatabaseMock()
-        const business = new ReadBusiness(mockDatabase)
+        const business = new ReadBusiness(mockDatabase as any)
 
         const dto = { page: 1, invalidKey: {} }
 
@@ -48,7 +48,7 @@ describe('Test Suit for "isValidQueryKey"', () => {
         expect.assertions(2)
 
         const mockDatabase = new SQLDatabaseMock()
-        const business = new ReadBusiness(mockDatabase)
+        const business = new ReadBusiness(mockDatabase as any)
 
         const dto = { page: 1, queries: { invalidKey: '' } }
 
