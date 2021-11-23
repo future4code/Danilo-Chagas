@@ -9,6 +9,7 @@
     "test-all": "clear && jest",
     "test-readBusiness": "clear && jest --detectOpenHandles ./src/tests/ReadBusiness.test.ts",
     "test-readSQLDatabase": "clear && jest --detectOpenHandles ./src/tests/ReadDatabaseSQL.test.ts",
+    "test-createBusiness": "clear && jest --detectOpenHandles ./src/tests/CreateBusiness.test.ts",
     "migration-sql": "clear && ts-node ./src/Data/Migration/SQLMigration.ts",
     "migration-firebase": "clear && ts-node ./src/Data/Migration/FirestoreMigration.ts"
   },

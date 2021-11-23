@@ -30,12 +30,44 @@ export enum POKEMON_KEY {
     CP100_L39 = "cp100L39",
 }
 
+export enum POKEMON_KEY_TYPEOFF {
+    NAME = "string",
+    POKEDEX_NUMBER = "number",
+    IMAGE_NAME = "string",
+    GENERATION = "number",
+    EVOLUTION_STAGE = "string",
+    EVOLVED = "number",
+    FAMILY_ID = "number",
+    CROSS_GEN = "number",
+    TYPE_1 = "string",
+    TYPE_2 = "string",
+    WEATHER_1 = "string",
+    WEATHER_2 = "string",
+    STAT_TOTAL = "number",
+    ATK = "number",
+    DEF = "number",
+    STA = "number",
+    LEGENDARY = "number",
+    AQUIREABLE = "number",
+    SPAWNS = "number",
+    REGIONAL = "number",
+    RAIDABLE = "number",
+    HATCHABLE = "number",
+    SHINY = "number",
+    NEST = "number",
+    NEW = "number",
+    NOT_GETTABLE = "number",
+    FUTURE_EVOLVE = "number",
+    CP100_L40 = "number",
+    CP100_L39 = "number"
+}
+
 export type pokemonFullDetail = {
     [POKEMON_KEY.NAME]: string,
     [POKEMON_KEY.POKEDEX_NUMBER]?: number,
     [POKEMON_KEY.IMAGE_NAME]?: string,
     [POKEMON_KEY.GENERATION]?: number,
-    [POKEMON_KEY.EVOLUTION_STAGE]?: string,
+    [POKEMON_KEY.EVOLUTION_STAGE]?: string | number | "Envolved" | "Lower",
     [POKEMON_KEY.EVOLVED]?: number,
     [POKEMON_KEY.FAMILY_ID]?: number,
     [POKEMON_KEY.CROSS_GEN]?: number,
@@ -121,3 +153,30 @@ export interface databaseResult {
     [DB_RESULT_KEYS.TOTAL_PAGES]: number,
     [DB_RESULT_KEYS.RESULT]: any[],
 }
+
+export interface newPokemonDTO extends pokemonFullDetail {
+    [POKEMON_KEY.NAME]: string
+}
+
+
+/*
+nome / unico string
+pokedexnumber /unico
+geração
+evolution stage string number | Envolved | Lower
+type 1 string
+type 2? string | null
+ATK number
+DEF number
+STA number
+
+
+
+autoincrement
+row
+Img name  = pokedex number | string enviada
+STAT TOTAL soma de ATK DEF STA
+
+CP 40 ((Base_Attack + 15) * ((Base_Defense + 15)^0.5 * (Base_Stamina + 15)^0.5 * 0.7903001^2) / 10
+CP 39 ((Base_Attack + 15) * ((Base_Defense + 15)^0.5 * (Base_Stamina + 15)^0.5 * 0.784637^2) / 10
+*/

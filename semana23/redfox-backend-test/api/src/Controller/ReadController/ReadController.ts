@@ -8,7 +8,7 @@ import { REQ_DETAILS_DTO, reqDetailsDTO, pokemonFullDetail, responseResult } fro
 
 export class ReadController {
 
-    constructor(businessRead: ReadBusiness) { };
+    constructor(readBusiness: ReadBusiness) { };
 
 
     private mountDTO(req: Request): reqDetailsDTO {

@@ -26,7 +26,7 @@ export class Migration extends SQLBaseDatabase {
                         return this.getConnection().schema
                             .createTable(this.tableName, (newColumn) => {
                                 newColumn.increments("Id").primary();
-                                newColumn.integer("Row").notNullable();
+                                newColumn.increments("Row").notNullable();
                                 newColumn.string("Name", 64).notNullable();
                                 newColumn.integer("Pokedex Number").notNullable();
                                 newColumn.string("Img name", 34).notNullable();
